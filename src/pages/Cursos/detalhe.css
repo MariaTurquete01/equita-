@@ -1,0 +1,342 @@
+/* ===========================
+   PÁGINA DO CURSO
+=========================== */
+ 
+.course-page{
+    background:#f8fafc;
+    min-height:100vh;
+}
+ 
+/* ===========================
+   HERO
+=========================== */
+ 
+.course-hero{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+    padding:80px 10%;
+    background:white;
+}
+ 
+.course-hero img{
+    width:100%;
+    border-radius:20px;
+    object-fit:cover;
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+ 
+.course-hero-content h1{
+    font-size:2.8rem;
+    color:#0F4C81;
+    margin:20px 0;
+}
+ 
+.course-hero-content p{
+    color:#64748b;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+ 
+.course-category{
+    display:inline-block;
+    background:#e0f2fe;
+    color:#0369a1;
+    padding:8px 16px;
+    border-radius:30px;
+    font-weight:600;
+}
+ 
+.course-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+}
+ 
+.course-meta span{
+    background:#f1f5f9;
+    padding:12px 18px;
+    border-radius:12px;
+}
+ 
+/* ===========================
+   SEÇÕES
+=========================== */
+ 
+.progress-section,
+.lessons-section,
+.materials-section,
+.quiz-section,
+.certificate-section,
+.course-actions{
+    padding:70px 10%;
+}
+ 
+.progress-section h2,
+.lessons-section h2,
+.materials-section h2,
+.quiz-section h2,
+.certificate-section h2{
+    color:#0F4C81;
+    margin-bottom:25px;
+}
+ 
+/* ===========================
+   PROGRESSO
+=========================== */
+ 
+.progress-bar{
+    width:100%;
+    height:18px;
+    background:#dbeafe;
+    border-radius:30px;
+    overflow:hidden;
+    margin-bottom:20px;
+}
+ 
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#0F4C81;
+    transition:.4s;
+}
+ /* ===========================
+   AULAS
+=========================== */
+ 
+.module-card{
+    background:white;
+    border-radius:18px;
+    padding:25px;
+    margin-bottom:30px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+ 
+.module-card h3{
+    color:#0F4C81;
+    margin-bottom:20px;
+}
+ 
+.lesson-card{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    padding:18px;
+    margin-bottom:15px;
+    cursor:pointer;
+    transition:.3s;
+}
+ 
+.lesson-card:hover{
+    background:#eff6ff;
+    border-color:#0F4C81;
+    transform:translateX(5px);
+}
+ 
+/* ===========================
+   MATERIAIS
+=========================== */
+ 
+.material-card{
+    background:white;
+    border-radius:16px;
+    padding:20px;
+    margin-bottom:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    cursor:pointer;
+    transition:.3s;
+}
+ 
+.material-card:hover{
+    transform:translateY(-4px);
+    background:#eff6ff;
+}
+ 
+/* ===========================
+   QUESTIONÁRIO
+=========================== */
+ 
+.quiz-section p,
+.certificate-section p{
+    color:#64748b;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+ 
+.quiz-button,
+.certificate-button,
+.back-button{
+    display:inline-block;
+    padding:15px 28px;
+    border:none;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+ 
+.quiz-button{
+    background:#0F4C81;
+    color:white;
+}
+ 
+.quiz-button:hover{
+    background:#1565a8;
+}
+ 
+.certificate-button{
+    background:#16a34a;
+    color:white;
+}
+ 
+.certificate-button:hover{
+    background:#15803d;
+}
+ 
+.back-button{
+    background:#e2e8f0;
+    color:#0F4C81;
+}
+ 
+.back-button:hover{
+    background:#cbd5e1;
+}
+ 
+/* ===========================
+   CURSO NÃO ENCONTRADO
+=========================== */
+ 
+.course-not-found{
+    min-height:70vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+    text-align:center;
+}
+ 
+.course-not-found h1{
+    color:#0F4C81;
+}
+ 
+.course-not-found a{
+    text-decoration:none;
+    background:#0F4C81;
+    color:white;
+    padding:15px 28px;
+    border-radius:12px;
+}
+ 
+/* ===========================
+   RESPONSIVIDADE
+=========================== */
+ 
+@media(max-width:992px){
+ 
+    .course-hero{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+ 
+    .course-meta{
+        justify-content:center;
+    }
+ 
+}
+ 
+@media(max-width:768px){
+ 
+    .course-hero,
+    .progress-section,
+    .lessons-section,
+    .materials-section,
+    .quiz-section,
+    .certificate-section,
+    .course-actions{
+ 
+        padding:60px 7%;
+ 
+    }
+ 
+    .course-hero h1{
+ 
+        font-size:2rem;
+ 
+    }
+ 
+}
+ 
+@media(max-width:480px){
+ 
+    .course-hero h1{
+ 
+        font-size:1.7rem;
+ 
+    }
+ 
+    .course-meta{
+ 
+        flex-direction:column;
+ 
+    }
+ 
+    .quiz-button,
+    .certificate-button,
+    .back-button{
+ 
+        width:100%;
+ 
+    }
+ 
+}
+/* ===========================
+   ANIMAÇÕES
+=========================== */
+ 
+.course-card,
+.material-card,
+.module-card,
+.lesson-card,
+.faq-card{
+    transition:all .3s ease;
+}
+ 
+.course-card:hover,
+.material-card:hover,
+.module-card:hover{
+    box-shadow:0 18px 35px rgba(15,76,129,.12);
+}
+ 
+/* ===========================
+   ACESSIBILIDADE
+=========================== */
+ 
+button:focus,
+a:focus,
+input:focus{
+    outline:3px solid #60a5fa;
+    outline-offset:3px;
+}
+ 
+/* ===========================
+   IMAGEM PADRÃO
+=========================== */
+ 
+.course-hero img{
+    background:#e2e8f0;
+}
+ 
+/* ===========================
+   ESPAÇAMENTO FINAL
+=========================== */
+ 
+.course-actions{
+    display:flex;
+    justify-content:center;
+    margin-top:20px;
+    margin-bottom:30px;
+}
+ 

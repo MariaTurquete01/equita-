@@ -1,0 +1,250 @@
+/* ===================================
+   CONFIGURAÇÕES
+=================================== */
+ 
+.settings-page{
+ 
+    background:#f8fafc;
+    min-height:100vh;
+ 
+}
+ 
+/* ===================================
+   HERO
+=================================== */
+ 
+.settings-hero{
+ 
+    background:white;
+    padding:70px 8%;
+    text-align:center;
+ 
+}
+ 
+.settings-hero h1{
+ 
+    color:#0F4C81;
+    font-size:2.8rem;
+    margin:20px 0;
+ 
+}
+ 
+.settings-hero p{
+ 
+    color:#64748b;
+    max-width:750px;
+    margin:auto;
+    line-height:1.8;
+ 
+}
+ 
+/* ===================================
+   SEÇÕES
+=================================== */
+ 
+.settings-section{
+ 
+    padding:40px 8%;
+ 
+}
+ 
+.settings-card{
+ 
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+ 
+}
+ 
+.settings-card h2{
+ 
+    color:#0F4C81;
+    margin-bottom:30px;
+ 
+}
+ 
+/* ===================================
+   FORMULÁRIOS
+=================================== */
+ 
+.form-grid{
+ 
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+ 
+}
+ 
+.input-group{
+ 
+    display:flex;
+    flex-direction:column;
+ 
+}
+ 
+.input-group label{
+ 
+    color:#0F4C81;
+    font-weight:600;
+    margin-bottom:10px;
+ 
+}
+ 
+.input-group input{
+ 
+    padding:14px;
+    border:1px solid #dbe3ea;
+    border-radius:10px;
+    outline:none;
+    transition:.3s;
+ 
+}
+ 
+.input-group input:focus{
+ 
+    border-color:#0F4C81;
+ 
+}
+
+/* ===================================
+   BOTÕES
+=================================== */
+ 
+.save-button{
+ 
+    margin-top:30px;
+    background:#0F4C81;
+    color:white;
+    border:none;
+    padding:15px 28px;
+    border-radius:12px;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+ 
+}
+ 
+.save-button:hover{
+ 
+    background:#1565a8;
+ 
+}
+ 
+/* ===================================
+   NOTIFICAÇÕES
+=================================== */
+ 
+.switch-group{
+ 
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+ 
+}
+ 
+.switch-group label{
+ 
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#475569;
+    font-size:1rem;
+ 
+}
+ 
+.switch-group input{
+ 
+    width:18px;
+    height:18px;
+    cursor:pointer;
+ 
+}
+ 
+/* ===================================
+   PRIVACIDADE
+=================================== */
+ 
+.danger-card{
+ 
+    border-left:6px solid #dc2626;
+ 
+}
+ 
+.danger-card p{
+ 
+    color:#64748b;
+    line-height:1.8;
+    margin-bottom:25px;
+ 
+}
+ 
+.delete-button{
+ 
+    background:#dc2626;
+    color:white;
+    border:none;
+    padding:15px 28px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+ 
+}
+ 
+.delete-button:hover{
+ 
+    background:#b91c1c;
+ 
+}
+ 
+/* ===================================
+   RESPONSIVIDADE
+=================================== */
+ 
+@media(max-width:768px){
+ 
+    .settings-hero{
+ 
+        padding:60px 6%;
+ 
+    }
+ 
+    .settings-section{
+ 
+        padding:30px 6%;
+ 
+    }
+ 
+    .settings-card{
+ 
+        padding:30px;
+ 
+    }
+ 
+    .settings-hero h1{
+ 
+        font-size:2.2rem;
+ 
+    }
+ 
+}
+ 
+@media(max-width:480px){
+ 
+    .settings-hero h1{
+ 
+        font-size:1.8rem;
+ 
+    }
+ 
+    .save-button,
+    .delete-button{
+ 
+        width:100%;
+ 
+    }
+ 
+}
+ 

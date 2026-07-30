@@ -1,0 +1,200 @@
+/* ===================================
+   PROTOCOLO
+=================================== */
+ 
+.protocol-page{
+    min-height:100vh;
+    background:#f8fafc;
+}
+ 
+/* ===================================
+   HERO
+=================================== */
+ 
+.protocol-hero{
+    background:white;
+    text-align:center;
+    padding:70px 8%;
+}
+ 
+.protocol-hero .hero-badge{
+    display:inline-block;
+    padding:8px 18px;
+    background:#e0f2fe;
+    color:#0369a1;
+    border-radius:30px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+ 
+.protocol-hero h1{
+    color:#0F4C81;
+    font-size:2.8rem;
+    margin-bottom:20px;
+}
+ 
+.protocol-hero p{
+    max-width:700px;
+    margin:auto;
+    color:#64748b;
+    line-height:1.8;
+}
+ 
+/* ===================================
+   CONSULTA
+=================================== */
+ 
+.consulta-section{
+    padding:60px 8% 30px;
+}
+ 
+.consulta-card{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:22px;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+ 
+.consulta-card h2{
+    color:#0F4C81;
+    margin-bottom:30px;
+}
+ 
+.input-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:25px;
+}
+ 
+.input-group label{
+    margin-bottom:8px;
+    font-weight:600;
+    color:#334155;
+}
+ 
+.input-group input{
+    padding:15px;
+    border:1px solid #cbd5e1;
+    border-radius:12px;
+    font-size:1rem;
+    transition:.3s;
+}
+ 
+.input-group input:focus{
+    outline:none;
+    border-color:#0F4C81;
+    box-shadow:0 0 0 3px rgba(15,76,129,.15);
+}
+ 
+.consultar-button{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    background:#0F4C81;
+    color:white;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+ 
+.consultar-button:hover{
+    background:#1565a8;
+    transform:translateY(-2px);
+}
+ 
+/* ===================================
+   STATUS
+=================================== */
+ 
+.status-section{
+    padding:30px 8% 70px;
+}
+ 
+.status-card{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:22px;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+ 
+.status-card h2{
+    color:#0F4C81;
+    margin-bottom:35px;
+}
+ 
+.status-timeline{
+    display:flex;
+    flex-direction:column;
+    gap:30px;
+}
+ 
+.status-item{
+    display:flex;
+    align-items:flex-start;
+    gap:18px;
+}
+ 
+.status-circle{
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:#cbd5e1;
+    margin-top:5px;
+    flex-shrink:0;
+}
+ 
+.status-item.active .status-circle{
+    background:#22c55e;
+}
+ 
+.status-item h3{
+    color:#0F4C81;
+    margin-bottom:6px;
+}
+ 
+.status-item p{
+    color:#64748b;
+    line-height:1.6;
+}
+ 
+/* ===================================
+   RESPONSIVIDADE
+=================================== */
+ 
+@media(max-width:768px){
+ 
+    .protocol-hero{
+        padding:50px 6%;
+    }
+ 
+    .consulta-section,
+    .status-section{
+        padding-left:6%;
+        padding-right:6%;
+    }
+ 
+    .consulta-card,
+    .status-card{
+        padding:30px 25px;
+    }
+ 
+    .protocol-hero h1{
+        font-size:2.2rem;
+    }
+ 
+}
+ 
+@media(max-width:480px){
+ 
+    .protocol-hero h1{
+        font-size:1.8rem;
+    }
+ 
+}
+ 

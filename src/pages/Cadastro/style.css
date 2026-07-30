@@ -1,0 +1,241 @@
+/* =====================================
+   CADASTRO
+===================================== */
+ 
+.register-page{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    background:#f8fafc;
+}
+ 
+/* =====================================
+   BANNER
+===================================== */
+ 
+.register-banner{
+    background:linear-gradient(135deg,#0F4C81,#1B75BC);
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:80px;
+}
+ 
+.register-badge{
+    width:max-content;
+    padding:8px 18px;
+    border-radius:30px;
+    background:rgba(255,255,255,.15);
+    font-weight:600;
+    margin-bottom:30px;
+}
+ 
+.register-banner h1{
+    font-size:3rem;
+    margin-bottom:25px;
+}
+ 
+.register-banner p{
+    font-size:1.05rem;
+    line-height:1.8;
+    max-width:520px;
+}
+ 
+.register-banner img{
+    width:100%;
+    max-width:480px;
+    margin-top:50px;
+    align-self:center;
+}
+ 
+/* =====================================
+   FORMULÁRIO
+===================================== */
+ 
+.register-form-section{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:60px;
+}
+ 
+.register-card{
+    width:100%;
+    max-width:550px;
+    background:white;
+    border-radius:22px;
+    padding:45px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+ 
+.register-card h2{
+    color:#0F4C81;
+    font-size:2rem;
+    margin-bottom:10px;
+}
+ 
+.register-card p{
+    color:#64748b;
+    margin-bottom:35px;
+    line-height:1.6;
+}
+ 
+/* =====================================
+   INPUTS
+===================================== */
+ 
+.input-group{
+    display:flex;
+    flex-direction:column;
+    margin-bottom:22px;
+}
+ 
+.input-group label{
+    margin-bottom:8px;
+    font-weight:600;
+    color:#334155;
+}
+ 
+.input-group input,
+.input-group select{
+    padding:15px;
+    border:1px solid #cbd5e1;
+    border-radius:12px;
+    font-size:1rem;
+    transition:.3s;
+    background:white;
+}
+ 
+.input-group input:focus,
+.input-group select:focus{
+    border-color:#0F4C81;
+    outline:none;
+    box-shadow:0 0 0 3px rgba(15,76,129,.15);
+}
+ 
+/* =====================================
+   SENHAS
+===================================== */
+ 
+.password-input{
+    display:flex;
+}
+ 
+.password-input input{
+    flex:1;
+    border-radius:12px 0 0 12px;
+}
+ 
+.password-input button{
+    border:none;
+    background:#0F4C81;
+    color:white;
+    padding:0 20px;
+    border-radius:0 12px 12px 0;
+    cursor:pointer;
+    transition:.3s;
+}
+ 
+.password-input button:hover{
+    background:#1565a8;
+}
+ 
+/* =====================================
+   BOTÃO
+===================================== */
+ 
+.register-button{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:12px;
+    background:#0F4C81;
+    color:white;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+    margin-top:10px;
+}
+ 
+.register-button:hover{
+    background:#1565a8;
+    transform:translateY(-2px);
+}
+ 
+/* =====================================
+   DIVISOR
+===================================== */
+ 
+.divider{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:30px 0 20px;
+    color:#64748b;
+}
+ 
+.login-link{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    color:#0F4C81;
+    font-weight:600;
+    transition:.3s;
+}
+ 
+.login-link:hover{
+    text-decoration:underline;
+}
+ 
+/* =====================================
+   RESPONSIVIDADE
+===================================== */
+ 
+@media(max-width:992px){
+ 
+    .register-page{
+        grid-template-columns:1fr;
+    }
+ 
+    .register-banner{
+        display:none;
+    }
+ 
+    .register-form-section{
+        padding:40px 20px;
+    }
+ 
+}
+ 
+@media(max-width:768px){
+ 
+    .register-card{
+        padding:35px 25px;
+    }
+ 
+}
+ 
+@media(max-width:480px){
+ 
+    .register-card h2{
+        font-size:1.8rem;
+    }
+ 
+    .password-input{
+        flex-direction:column;
+    }
+ 
+    .password-input input{
+        border-radius:12px;
+    }
+ 
+    .password-input button{
+        margin-top:10px;
+        border-radius:12px;
+        padding:14px;
+    }
+ 
+}
+ 

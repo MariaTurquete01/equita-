@@ -1,0 +1,320 @@
+/* ===================================
+   DASHBOARD
+=================================== */
+ 
+.dashboard-page{
+    background:#f8fafc;
+    min-height:100vh;
+}
+ 
+/* ===================================
+   HERO
+=================================== */
+ 
+.dashboard-hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:40px;
+    padding:70px 8%;
+    background:white;
+}
+ 
+.dashboard-badge{
+    display:inline-block;
+    background:#e0f2fe;
+    color:#0369a1;
+    padding:8px 18px;
+    border-radius:30px;
+    font-weight:600;
+    margin-bottom:20px;
+}
+ 
+.dashboard-hero h1{
+    color:#0F4C81;
+    font-size:2.7rem;
+    margin-bottom:15px;
+}
+ 
+.dashboard-hero p{
+    color:#64748b;
+    line-height:1.8;
+    max-width:650px;
+}
+ 
+.dashboard-search{
+    width:350px;
+}
+ 
+.dashboard-search input{
+    width:100%;
+    padding:16px 20px;
+    border:1px solid #cbd5e1;
+    border-radius:14px;
+    font-size:1rem;
+    transition:.3s;
+}
+ 
+.dashboard-search input:focus{
+    outline:none;
+    border-color:#0F4C81;
+    box-shadow:0 0 0 3px rgba(15,76,129,.15);
+}
+ 
+/* ===================================
+   SEÇÕES
+=================================== */
+ 
+.services-section,
+.activity-section,
+.quick-section{
+ 
+    padding:70px 8%;
+ 
+}
+ 
+.services-section h2,
+.activity-section h2,
+.quick-section h2{
+ 
+    color:#0F4C81;
+    margin-bottom:35px;
+ 
+}
+
+/* ===================================
+   SERVIÇOS
+=================================== */
+ 
+.services-grid{
+ 
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+ 
+}
+ 
+.service-card{
+ 
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    text-decoration:none;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    transition:.3s;
+ 
+}
+ 
+.service-card:hover{
+ 
+    transform:translateY(-8px);
+    box-shadow:0 20px 35px rgba(15,76,129,.15);
+ 
+}
+ 
+.service-icon{
+ 
+    width:65px;
+    height:65px;
+    border-radius:16px;
+    background:#e0f2fe;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:2rem;
+    margin-bottom:20px;
+ 
+}
+ 
+.service-card h3{
+ 
+    color:#0F4C81;
+    margin-bottom:15px;
+ 
+}
+ 
+.service-card p{
+ 
+    color:#64748b;
+    line-height:1.7;
+ 
+}
+ 
+/* ===================================
+   ATIVIDADES
+=================================== */
+ 
+.activity-grid{
+ 
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+ 
+}
+ 
+.activity-card{
+ 
+    background:white;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    text-align:center;
+    transition:.3s;
+ 
+}
+ 
+.activity-card:hover{
+ 
+    transform:translateY(-6px);
+ 
+}
+ 
+.activity-card h3{
+ 
+    color:#0F4C81;
+    margin-bottom:20px;
+ 
+}
+ 
+.activity-card span{
+ 
+    display:block;
+    font-size:2.7rem;
+    font-weight:700;
+    color:#16a34a;
+    margin-bottom:10px;
+ 
+}
+ 
+.activity-card p{
+ 
+    color:#64748b;
+ 
+}
+ 
+/* ===================================
+   ACESSO RÁPIDO
+=================================== */
+ 
+.quick-grid{
+ 
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+ 
+}
+ 
+.quick-card{
+ 
+    background:white;
+    border-radius:18px;
+    padding:28px;
+    text-decoration:none;
+    color:#0F4C81;
+    font-size:1.05rem;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    transition:.3s;
+ 
+}
+ 
+.quick-card:hover{
+ 
+    background:#0F4C81;
+    color:white;
+    transform:translateY(-6px);
+    box-shadow:0 18px 35px rgba(15,76,129,.18);
+ 
+}
+ 
+/* ===================================
+   ANIMAÇÕES
+=================================== */
+ 
+.service-card,
+.activity-card,
+.quick-card{
+ 
+    transition:all .3s ease;
+ 
+}
+ 
+/* ===================================
+   ACESSIBILIDADE
+=================================== */
+ 
+input:focus,
+button:focus,
+a:focus{
+ 
+    outline:3px solid rgba(15,76,129,.25);
+    outline-offset:3px;
+ 
+}
+ 
+/* ===================================
+   RESPONSIVIDADE
+=================================== */
+ 
+@media(max-width:992px){
+ 
+    .dashboard-hero{
+ 
+        flex-direction:column;
+        align-items:flex-start;
+ 
+    }
+ 
+    .dashboard-search{
+ 
+        width:100%;
+ 
+    }
+ 
+}
+ 
+@media(max-width:768px){
+ 
+    .dashboard-hero{
+ 
+        padding:50px 6%;
+ 
+    }
+ 
+    .services-section,
+    .activity-section,
+    .quick-section{
+ 
+        padding:50px 6%;
+ 
+    }
+ 
+    .dashboard-hero h1{
+ 
+        font-size:2.2rem;
+ 
+    }
+ 
+}
+ 
+@media(max-width:480px){
+ 
+    .dashboard-hero h1{
+ 
+        font-size:1.9rem;
+ 
+    }
+ 
+    .service-card,
+    .activity-card,
+    .quick-card{
+ 
+        padding:22px;
+ 
+    }
+ 
+}
+ 
