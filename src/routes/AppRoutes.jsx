@@ -22,6 +22,10 @@ import Beneficios from "../pages/Direitos/Beneficios/Beneficios";
 import CursoDetalhe from "../pages/Cursos/CursoDetalhe";
 import Denuncias from "../pages/Denuncias/Denuncias";
 import Protocolo from "../pages/Protocolo/Protoclo";
+import MeusCursos from "../pages/Voluntario/MeusCursos/MeusCursos";
+import CadastrarCurso from "../pages/Voluntario/CadastrarCurso/CadastrarCurso";
+import Perfil from "../pages/Perfil/Perfil";
+import Configuracoes from "../pages/Configuracoes/Configuracoes";
 
 function AppRoutes() {
   return (
@@ -68,12 +72,20 @@ function AppRoutes() {
 
         <Route path="/cursos" element={<Cursos />} />
 
-        <Route path="curso/:id" element={<CursoDetalhe/>} />
+        <Route path="/curso/:id" element={<CursoDetalhe/>} />
 
         <Route path="/denuncias" element={<Denuncias/>} />
 
         <Route path="/protocolo" element={<Protocolo/>} />
-        
+
+        <Route path="/voluntario/meus-cursos" element={<MeusCursos/>}/>
+
+        <Route path="/voluntario/cadastrar-curso" element={<CadastrarCurso/>}/>
+
+        <Route path="/perfil" element={<Perfil />} />
+
+        <Route path="/configuracoes" element={<Configuracoes/>} />
+
       </Routes>
     </BrowserRouter>
   );

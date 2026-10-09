@@ -1,0 +1,271 @@
+/* ===================================
+   PÁGINA
+=================================== */
+
+.aboutPage {
+    background: #f8fafc;
+    min-height: 100vh;
+}
+
+/* ===================================
+   HERO
+=================================== */
+
+.aboutHero {
+    background: white;
+    padding: 80px 8%;
+    text-align: center;
+}
+
+.heroBadge {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.aboutHero h1 {
+    color: #0F4C81;
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+}
+
+.aboutHero p {
+    max-width: 850px;
+    margin: auto;
+    color: #64748b;
+    line-height: 1.8;
+}
+
+/* ===================================
+   SEÇÕES
+=================================== */
+
+.sectionDescription {
+    max-width: 750px;
+    margin: 15px auto 45px;
+    color: #64748b;
+    text-align: center;
+    line-height: 1.8;
+}
+
+/* ===================================
+   MISSÃO | VISÃO | VALORES
+=================================== */
+
+.missionSection {
+    padding: 70px 8%;
+}
+
+.missionGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.missionCard {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.missionCard:hover {
+    transform: translateY(-6px);
+}
+
+.missionCard h2 {
+    color: #0F4C81;
+    margin-bottom: 20px;
+}
+
+.missionCard p {
+    color: #475569;
+    line-height: 1.8;
+}
+
+.missionCard ul {
+    padding-left: 20px;
+    color: #475569;
+    line-height: 2;
+}
+
+/* ===================================
+   SERVIÇOS
+=================================== */
+
+.servicesSection {
+    padding: 20px 8% 70px;
+}
+
+.servicesSection h2 {
+    text-align: center;
+    color: #0F4C81;
+    margin-bottom: 15px;
+}
+
+.servicesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.serviceCard {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.serviceCard:hover {
+    transform: translateY(-8px);
+}
+
+.serviceCard span {
+    display: block;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.serviceCard h3 {
+    color: #0F4C81;
+    margin-bottom: 15px;
+}
+
+.serviceCard p {
+    color: #64748b;
+    line-height: 1.7;
+}
+
+/* ===================================
+   ODS
+=================================== */
+
+.odsSection {
+    padding: 0 8% 70px;
+}
+
+.odsCard {
+    background: linear-gradient(135deg, #0F4C81, #1565a8);
+    color: white;
+    padding: 20px;
+    border-radius: 24px;
+    text-align: center;
+}
+
+.odsCard h2 {
+    margin-bottom: 20px;
+}
+
+.odsCard p {
+    line-height: 1.8;
+    max-width: 850px;
+    margin: auto;
+}
+
+/* ===================================
+   EQUIPE
+=================================== */
+
+.teamSection {
+    padding: 0 8% 70px;
+    text-align: center;
+}
+
+.teamSection h2 {
+    color: #0F4C81;
+}
+
+.teamCard {
+    margin-top: 35px;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.teamCard ul {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-left: 20px;
+    color: #475569;
+    line-height: 2;
+    text-align: left;
+}
+
+/* ===================================
+   CONTATO
+=================================== */
+
+.contactSection {
+    padding: 0 8% 80px;
+}
+
+.contactSection h2 {
+    color: #0F4C81;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contactGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.contactCard {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.contactCard:hover {
+    transform: translateY(-6px);
+}
+
+.contactCard h3 {
+    color: #0F4C81;
+    margin-bottom: 15px;
+}
+
+.contactCard p {
+    color: #64748b;
+}
+
+/* ===================================
+   RESPONSIVIDADE
+=================================== */
+
+@media (max-width: 768px) {
+    .aboutHero {
+        padding: 60px 6%;
+    }
+
+    .missionSection,
+    .servicesSection,
+    .odsSection,
+    .teamSection,
+    .contactSection {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .aboutHero h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .aboutHero h1 {
+        font-size: 1.8rem;
+    }
+}

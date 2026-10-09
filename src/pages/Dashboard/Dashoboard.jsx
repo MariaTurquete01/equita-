@@ -3,7 +3,7 @@ import Footer from "../../components/Footer/Footer";
  
 import { Link } from "react-router-dom";
  
-import "./style.css";
+import styles from "./dashboard.module.css";
  
 function Dashboard() {
  
@@ -12,15 +12,15 @@ function Dashboard() {
  
       <Navbar />
  
-      <main className="dashboard-page">
+      <main className={styles["dashboard-page"]}>
  
         {/* HERO */}
  
-        <section className="dashboard-hero">
+        <section className={styles["dashboard-hero"]}>
  
           <div>
  
-            <span className="dashboard-badge">
+            <span className={styles["dashboard-badge"]}>
  
               Painel Principal
  
@@ -40,7 +40,7 @@ function Dashboard() {
  
           </div>
  
-          <div className="dashboard-search">
+          <div className={styles["dashboard-search"]}>
  
             <input
               type="text"
@@ -52,7 +52,7 @@ function Dashboard() {
  
         {/* SERVIÇOS */}
  
-        <section className="services-section">
+        <section className={styles["services-section"]}>
  
           <h2>
  
@@ -60,14 +60,14 @@ function Dashboard() {
  
           </h2>
  
-          <div className="services-grid">
+          <div className={styles["services-grid"]}>
  
             <Link
               to="/denuncias"
-              className="service-card"
+              className={styles["service-card"]}
             >
  
-              <div className="service-icon">
+              <div className={styles["service-icon"]}>
  
                 📢
  
@@ -89,10 +89,10 @@ function Dashboard() {
  
             <Link
               to="/recursos"
-              className="service-card"
+              className={styles["service-card"]}
             >
  
-              <div className="service-icon">
+              <div className={styles["service-icon"]}>
  
                 📍
  
@@ -114,10 +114,10 @@ function Dashboard() {
  
             <Link
               to="/direitos"
-              className="service-card"
+              className={styles["service-card"]}
             >
  
-              <div className="service-icon">
+              <div className={styles["service-icon"]}>
  
                 📚
  
@@ -139,10 +139,10 @@ function Dashboard() {
  
             <Link
               to="/cursos"
-              className="service-card"
+              className={styles["service-card"]}
             >
  
-              <div className="service-icon">
+              <div className={styles["service-icon"]}>
  
                 🎓
  
@@ -168,7 +168,7 @@ function Dashboard() {
  
         {/* ATIVIDADES */}
  
-        <section className="activity-section">
+        <section className={styles["activity-section"]}>
  
           <h2>
  
@@ -176,9 +176,9 @@ function Dashboard() {
  
           </h2>
  
-          <div className="activity-grid">
+          <div className={styles["activity-grid"]}>
  
-            <div className="activity-card">
+            <div className={styles["activity-card"]}>
  
               <h3>
  
@@ -200,7 +200,7 @@ function Dashboard() {
  
             </div>
  
-            <div className="activity-card">
+            <div className={styles["activity-card"]}>
  
               <h3>
  
@@ -222,7 +222,7 @@ function Dashboard() {
  
             </div>
  
-            <div className="activity-card">
+            <div className={styles["activity-card"]}>
  
               <h3>
  
@@ -250,7 +250,7 @@ function Dashboard() {
  
         {/* ACESSO RÁPIDO */}
  
-        <section className="quick-section">
+        <section className={styles["quick-section"]}>
  
           <h2>
  
@@ -258,11 +258,11 @@ function Dashboard() {
  
           </h2>
  
-          <div className="quick-grid">
+          <div className={styles["quick-grid"]}>
  
             <Link
               to="/perfil"
-              className="quick-card"
+              className={styles["quick-card"]}
             >
  
               👤 Meu Perfil
@@ -271,7 +271,7 @@ function Dashboard() {
  
             <Link
               to="/configuracoes"
-              className="quick-card"
+              className={styles["quick-card"]}
             >
  
               ⚙ Configurações
@@ -280,7 +280,7 @@ function Dashboard() {
  
             <Link
               to="/protocolo"
-              className="quick-card"
+              className={styles["quick-card"]}
             >
  
               📄 Consultar Protocolo
@@ -289,7 +289,7 @@ function Dashboard() {
  
             <Link
               to="/login"
-              className="quick-card"
+              className={styles["quick-card"]}
             >
  
               🚪 Sair
@@ -310,4 +310,5 @@ function Dashboard() {
 }
  
 export default Dashboard;
+
  

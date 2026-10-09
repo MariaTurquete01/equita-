@@ -1,314 +1,317 @@
 import Navbar from "../../../components/Navbar/Navbar";
 import Footer from "../../../components/Footer/Footer";
 import { Link } from "react-router-dom";
- 
-import "./style.css";
- 
+
+import styles from "./familia.module.css";
+
 function Familia() {
   return (
     <>
       <Navbar />
- 
-      <section className="family-page">
- 
-        <div className="family-hero">
- 
-          <span className="badge">
+
+      <section className={styles["family-page"]}>
+
+        <div className={styles["family-hero"]}>
+
+          <span className={styles.badge}>
             Direitos da Família
           </span>
- 
+
           <h1>
             Proteção, convivência e responsabilidade familiar
           </h1>
- 
+
           <p>
             Conheça direitos relacionados à família,
             guarda, pensão alimentícia e convivência.
           </p>
- 
+
         </div>
- 
-        <section className="content-card">
 
-  <h2>📖 O que são os Direitos da Família?</h2>
+        <section className={styles["content-card"]}>
 
-  <p>
-    O Direito de Família é o conjunto de normas que regulamenta as relações
-    familiares, garantindo proteção, direitos e deveres entre pais, filhos,
-    cônjuges, companheiros e demais integrantes da família.
-  </p>
+          <h2>📖 O que são os Direitos da Família?</h2>
 
-  <p>
-    A Constituição Federal reconhece a família como base da sociedade e assegura
-    sua proteção pelo Estado. Essas normas buscam promover o respeito, a
-    convivência familiar, a igualdade entre seus membros e a proteção de crianças,
-    adolescentes, idosos e pessoas em situação de vulnerabilidade.
-  </p>
+          <p>
+            O Direito de Família é o conjunto de normas que regulamenta as relações
+            familiares, garantindo proteção, direitos e deveres entre pais, filhos,
+            cônjuges, companheiros e demais integrantes da família.
+          </p>
 
-  <p>
-    O Direito de Família também trata de situações como casamento, união estável,
-    guarda dos filhos, pensão alimentícia, adoção, divórcio e violência
-    doméstica.
-  </p>
+          <p>
+            A Constituição Federal reconhece a família como base da sociedade e assegura
+            sua proteção pelo Estado. Essas normas buscam promover o respeito, a
+            convivência familiar, a igualdade entre seus membros e a proteção de crianças,
+            adolescentes, idosos e pessoas em situação de vulnerabilidade.
+          </p>
 
-</section>
- 
-        <section className="content-card">
+          <p>
+            O Direito de Família também trata de situações como casamento, união estável,
+            guarda dos filhos, pensão alimentícia, adoção, divórcio e violência
+            doméstica.
+          </p>
 
-<h2>⚖️ Direitos Garantidos</h2>
+        </section>
 
-<p>
-A legislação brasileira assegura diversos direitos para proteger as relações
-familiares e garantir o desenvolvimento saudável de seus integrantes.
-</p>
+        <section className={styles["content-card"]}>
 
-<ul>
-  <li>Direito à convivência familiar.</li>
-  <li>Igualdade entre homens e mulheres.</li>
-  <li>Proteção integral de crianças e adolescentes.</li>
-  <li>Direito à pensão alimentícia.</li>
-  <li>Direito à guarda e convivência dos filhos.</li>
-  <li>Proteção contra violência doméstica.</li>
-  <li>Direito ao reconhecimento da união estável.</li>
-  <li>Direito à adoção conforme a legislação.</li>
-</ul>
+          <h2>⚖️ Direitos Garantidos</h2>
 
-<p>
-Esses direitos buscam fortalecer os vínculos familiares e garantir proteção aos
-integrantes da família em diferentes situações da vida.
-</p>
+          <p>
+            A legislação brasileira assegura diversos direitos para proteger as relações
+            familiares e garantir o desenvolvimento saudável de seus integrantes.
+          </p>
 
-</section>
-        <section className="content-card">
+          <ul>
+            <li>Direito à convivência familiar.</li>
+            <li>Igualdade entre homens e mulheres.</li>
+            <li>Proteção integral de crianças e adolescentes.</li>
+            <li>Direito à pensão alimentícia.</li>
+            <li>Direito à guarda e convivência dos filhos.</li>
+            <li>Proteção contra violência doméstica.</li>
+            <li>Direito ao reconhecimento da união estável.</li>
+            <li>Direito à adoção conforme a legislação.</li>
+          </ul>
 
-<p>
-Diversas situações do cotidiano envolvem o Direito de Família. Conhecer esses
-temas ajuda na busca pelos órgãos responsáveis quando necessário.
-</p>
+          <p>
+            Esses direitos buscam fortalecer os vínculos familiares e garantir proteção aos
+            integrantes da família em diferentes situações da vida.
+          </p>
 
-<h2>👨‍👩‍👧 Temas Frequentes</h2>
+        </section>
 
-<div className="grid">
+        <section className={styles["content-card"]}>
 
-<div className="item">
-<h3>Guarda</h3>
-<p>
-Define quem será responsável pelos cuidados e decisões relacionadas aos filhos
-menores.
-</p>
-</div>
+          <p>
+            Diversas situações do cotidiano envolvem o Direito de Família. Conhecer esses
+            temas ajuda na busca pelos órgãos responsáveis quando necessário.
+          </p>
 
-<div className="item">
-<h3>Pensão Alimentícia</h3>
-<p>
-Valor destinado ao sustento, educação, saúde e demais necessidades do
-dependente.
-</p>
-</div>
+          <h2>👨‍👩‍👧 Temas Frequentes</h2>
 
-<div className="item">
-<h3>Visitação</h3>
-<p>
-Garante o direito de convivência entre pais, filhos e familiares.
-</p>
-</div>
+          <div className={styles.grid}>
 
-<div className="item">
-<h3>Adoção</h3>
-<p>
-Procedimento legal que estabelece vínculo familiar permanente.
-</p>
-</div>
+            <div className={styles.item}>
+              <h3>Guarda</h3>
+              <p>
+                Define quem será responsável pelos cuidados e decisões relacionadas aos filhos
+                menores.
+              </p>
+            </div>
 
-<div className="item">
-<h3>União Estável</h3>
-<p>
-Reconhecimento jurídico da convivência pública, contínua e duradoura.
-</p>
-</div>
+            <div className={styles.item}>
+              <h3>Pensão Alimentícia</h3>
+              <p>
+                Valor destinado ao sustento, educação, saúde e demais necessidades do
+                dependente.
+              </p>
+            </div>
 
-<div className="item">
-<h3>Divórcio</h3>
-<p>
-Processo que encerra o casamento civil, preservando direitos das partes e dos
-filhos.
-</p>
-</div>
+            <div className={styles.item}>
+              <h3>Visitação</h3>
+              <p>
+                Garante o direito de convivência entre pais, filhos e familiares.
+              </p>
+            </div>
 
-</div>
+            <div className={styles.item}>
+              <h3>Adoção</h3>
+              <p>
+                Procedimento legal que estabelece vínculo familiar permanente.
+              </p>
+            </div>
 
-</section>
-<section className="content-card">
+            <div className={styles.item}>
+              <h3>União Estável</h3>
+              <p>
+                Reconhecimento jurídico da convivência pública, contínua e duradoura.
+              </p>
+            </div>
 
-<h2>🛟 O que fazer em caso de conflito familiar?</h2>
+            <div className={styles.item}>
+              <h3>Divórcio</h3>
+              <p>
+                Processo que encerra o casamento civil, preservando direitos das partes e dos
+                filhos.
+              </p>
+            </div>
 
-<p>
-Quando surgem conflitos familiares envolvendo guarda, pensão, violência ou
-outras situações que afetem os direitos dos integrantes da família, é importante
-buscar orientação especializada.
-</p>
+          </div>
 
-<ol>
-<li>Converse com pessoas de confiança.</li>
-<li>Procure orientação jurídica.</li>
-<li>Busque atendimento na Defensoria Pública, caso necessário.</li>
-<li>Em situações envolvendo crianças, procure o Conselho Tutelar.</li>
-<li>Em casos de violência doméstica, acione imediatamente os órgãos competentes.</li>
-</ol>
+        </section>
 
-<p>
-Resolver conflitos de forma legal e respeitosa contribui para proteger todos os
-membros da família.
-</p>
+        <section className={styles["content-card"]}>
 
-</section>
- 
-        <section className="content-card">
+          <h2>🛟 O que fazer em caso de conflito familiar?</h2>
 
-<h2>🏛️ Onde Buscar Ajuda?</h2>
+          <p>
+            Quando surgem conflitos familiares envolvendo guarda, pensão, violência ou
+            outras situações que afetem os direitos dos integrantes da família, é importante
+            buscar orientação especializada.
+          </p>
 
-<p>
-Diversos órgãos públicos oferecem atendimento gratuito para orientação jurídica,
-proteção de direitos e encaminhamento de casos familiares.
-</p>
+          <ol>
+            <li>Converse com pessoas de confiança.</li>
+            <li>Procure orientação jurídica.</li>
+            <li>Busque atendimento na Defensoria Pública, caso necessário.</li>
+            <li>Em situações envolvendo crianças, procure o Conselho Tutelar.</li>
+            <li>Em casos de violência doméstica, acione imediatamente os órgãos competentes.</li>
+          </ol>
 
-<ol>
-<li>Defensoria Pública.</li>
-<li>Conselho Tutelar.</li>
-<li>CRAS.</li>
-<li>CREAS.</li>
-<li>Vara da Família.</li>
-<li>Ministério Público.</li>
-</ol>
+          <p>
+            Resolver conflitos de forma legal e respeitosa contribui para proteger todos os
+            membros da família.
+          </p>
 
-</section>
- <section className="content-card">
+        </section>
 
-<h2>📚 Fontes e Referências</h2>
+        <section className={styles["content-card"]}>
 
-<p>
-As informações desta página foram elaboradas com base na legislação brasileira
-e em materiais oficiais relacionados à proteção da família e dos direitos
-humanos.
-</p>
+          <h2>🏛️ Onde Buscar Ajuda?</h2>
 
-<div className="reference-category">
+          <p>
+            Diversos órgãos públicos oferecem atendimento gratuito para orientação jurídica,
+            proteção de direitos e encaminhamento de casos familiares.
+          </p>
 
-<div className="reference-item">
-<h4>Constituição Federal de 1988</h4>
-<p>
-Reconhece a família como base da sociedade e assegura sua proteção pelo Estado.
-</p>
+          <ol>
+            <li>Defensoria Pública.</li>
+            <li>Conselho Tutelar.</li>
+            <li>CRAS.</li>
+            <li>CREAS.</li>
+            <li>Vara da Família.</li>
+            <li>Ministério Público.</li>
+          </ol>
 
-<a
-href="https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
-target="_blank"
-rel="noopener noreferrer"
->
-Acessar →
-</a>
+        </section>
 
-</div>
+        <section className={styles["content-card"]}>
 
-<div className="reference-item">
+          <h2>📚 Fontes e Referências</h2>
 
-<h4>Código Civil Brasileiro</h4>
+          <p>
+            As informações desta página foram elaboradas com base na legislação brasileira
+            e em materiais oficiais relacionados à proteção da família e dos direitos
+            humanos.
+          </p>
 
-<p>
-Dispõe sobre casamento, união estável, guarda, alimentos, adoção e demais
-relações familiares.
-</p>
+          <div className={styles["reference-category"]}>
 
-<a
-href="https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm"
-target="_blank"
-rel="noopener noreferrer"
->
-Acessar →
-</a>
+            <div className={styles["reference-item"]}>
+              <h4>Constituição Federal de 1988</h4>
+              <p>
+                Reconhece a família como base da sociedade e assegura sua proteção pelo Estado.
+              </p>
 
-</div>
+              <a
+                href="https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Acessar →
+              </a>
 
-<div className="reference-item">
+            </div>
 
-<h4>Estatuto da Criança e do Adolescente (ECA)</h4>
+            <div className={styles["reference-item"]}>
 
-<p>
-Estabelece direitos fundamentais de crianças e adolescentes e a proteção
-integral da convivência familiar.
-</p>
+              <h4>Código Civil Brasileiro</h4>
 
-<a
-href="https://www.planalto.gov.br/ccivil_03/leis/l8069.htm"
-target="_blank"
-rel="noopener noreferrer"
->
-Acessar →
-</a>
+              <p>
+                Dispõe sobre casamento, união estável, guarda, alimentos, adoção e demais
+                relações familiares.
+              </p>
 
-</div>
+              <a
+                href="https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Acessar →
+              </a>
 
-<div className="reference-item">
+            </div>
 
-<h4>Lei Maria da Penha</h4>
+            <div className={styles["reference-item"]}>
 
-<p>
-Dispõe sobre mecanismos para prevenir e combater a violência doméstica e
-familiar contra a mulher.
-</p>
+              <h4>Estatuto da Criança e do Adolescente (ECA)</h4>
 
-<a
-href="https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11340.htm"
-target="_blank"
-rel="noopener noreferrer"
->
-Acessar →
-</a>
+              <p>
+                Estabelece direitos fundamentais de crianças e adolescentes e a proteção
+                integral da convivência familiar.
+              </p>
 
-</div>
+              <a
+                href="https://www.planalto.gov.br/ccivil_03/leis/l8069.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Acessar →
+              </a>
 
-</div>
+            </div>
 
-<div className="info-box">
+            <div className={styles["reference-item"]}>
 
-<h3>📌 Importante</h3>
+              <h4>Lei Maria da Penha</h4>
 
-<p>
-Este conteúdo possui finalidade educativa e informativa, não substituindo a
-orientação jurídica ou atendimento realizado por profissionais especializados.
-</p>
+              <p>
+                Dispõe sobre mecanismos para prevenir e combater a violência doméstica e
+                familiar contra a mulher.
+              </p>
 
-</div>
+              <a
+                href="https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11340.htm"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Acessar →
+              </a>
 
-</section>
-        <section className="actions-section">
- 
+            </div>
+
+          </div>
+
+          <div className={styles["info-box"]}>
+
+            <h3>📌 Importante</h3>
+
+            <p>
+              Este conteúdo possui finalidade educativa e informativa, não substituindo a
+              orientação jurídica ou atendimento realizado por profissionais especializados.
+            </p>
+
+          </div>
+
+        </section>
+
+        <section className={styles["actions-section"]}>
+
           <h2>O que deseja fazer agora?</h2>
- 
-          <div className="actions-grid">
- 
-            <Link to="/direitos" className="action-card">
+
+          <div className={styles["actions-grid"]}>
+
+            <Link to="/direitos" className={styles["action-card"]}>
               ⚖️ Voltar para Direitos
             </Link>
- 
-            <Link to="/recursos" className="action-card">
+
+            <Link to="/recursos" className={styles["action-card"]}>
               📍 Encontrar Ajuda Próxima
             </Link>
- 
-            <Link to="/cursos" className="action-card">
+
+            <Link to="/cursos" className={styles["action-card"]}>
               🎓 Cursos Relacionados
             </Link>
- 
+
           </div>
- 
+
         </section>
- 
+
       </section>
- 
+
       <Footer />
     </>
   );
 }
- 
+
 export default Familia;
- 

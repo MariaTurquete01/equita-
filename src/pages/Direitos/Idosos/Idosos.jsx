@@ -2,18 +2,18 @@ import Navbar from "../../../components/Navbar/Navbar";
 import Footer from "../../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 
-import "./style.css";
+import styles from "./idosos.module.css";
 
 function Idosos() {
   return (
     <>
       <Navbar />
 
-      <section className="elderly-page">
+      <section className={styles["elderly-page"]}>
 
-        <div className="elderly-hero">
+        <div className={styles["elderly-hero"]}>
 
-          <span className="badge">
+          <span className={styles.badge}>
             Direitos dos Idosos
           </span>
 
@@ -28,7 +28,7 @@ function Idosos() {
 
         </div>
 
-        <section className="content-card">
+        <section className={styles["content-card"]}>
 
           <h2>📖 O que são os Direitos da Pessoa Idosa?</h2>
 
@@ -53,7 +53,7 @@ function Idosos() {
 
         </section>
 
-        <section className="content-card">
+        <section className={styles["content-card"]}>
 
           <h2>⚖️ Direitos Garantidos</h2>
 
@@ -80,7 +80,7 @@ function Idosos() {
 
         </section>
 
-        <section className="content-card">
+        <section className={styles["content-card"]}>
 
           <h2>👵 Situações Frequentes</h2>
 
@@ -89,9 +89,9 @@ function Idosos() {
             merecem atenção para evitar violações de direitos.
           </p>
 
-          <div className="grid">
+          <div className={styles.grid}>
 
-            <div className="item">
+            <div className={styles.item}>
               <h3>Atendimento Prioritário</h3>
               <p>
                 Direito de preferência em filas, repartições públicas,
@@ -99,7 +99,7 @@ function Idosos() {
               </p>
             </div>
 
-            <div className="item">
+            <div className={styles.item}>
               <h3>Saúde</h3>
               <p>
                 Atendimento integral pelo SUS, vacinação, medicamentos e ações
@@ -107,7 +107,7 @@ function Idosos() {
               </p>
             </div>
 
-            <div className="item">
+            <div className={styles.item}>
               <h3>Transporte</h3>
               <p>
                 Benefícios previstos em lei para utilização do transporte público
@@ -115,7 +115,7 @@ function Idosos() {
               </p>
             </div>
 
-            <div className="item">
+            <div className={styles.item}>
               <h3>Aposentadoria</h3>
               <p>
                 Direito aos benefícios previdenciários conforme os requisitos
@@ -123,7 +123,7 @@ function Idosos() {
               </p>
             </div>
 
-            <div className="item">
+            <div className={styles.item}>
               <h3>Convivência Familiar</h3>
               <p>
                 Garantia de permanecer junto da família sempre que possível,
@@ -131,7 +131,7 @@ function Idosos() {
               </p>
             </div>
 
-            <div className="item">
+            <div className={styles.item}>
               <h3>Participação Social</h3>
               <p>
                 Incentivo à participação em atividades culturais, comunitárias e
@@ -143,7 +143,7 @@ function Idosos() {
 
         </section>
 
-        <section className="content-card">
+        <section className={styles["content-card"]}>
 
           <h2>⚠️ Situações de Violência</h2>
 
@@ -152,9 +152,9 @@ function Idosos() {
             deve ser denunciada sempre que identificada.
           </p>
 
-          <div className="grid">
+          <div className={styles.grid}>
 
-            <div className="item">
+            <div className={styles.item}>
               <h3>Violência Física</h3>
               <p>
                 Agressões, empurrões, lesões ou qualquer ato que cause dano
@@ -162,14 +162,14 @@ function Idosos() {
               </p>
             </div>
 
-            <div className="item">
+            <div className={styles.item}>
               <h3>Violência Psicológica</h3>
               <p>
                 Humilhações, ameaças, isolamento, ofensas e intimidação.
               </p>
             </div>
 
-            <div className="item">
+            <div className={styles.item}>
               <h3>Violência Financeira</h3>
               <p>
                 Uso indevido de aposentadoria, pensão, cartões bancários ou bens
@@ -177,14 +177,14 @@ function Idosos() {
               </p>
             </div>
 
-            <div className="item">
+            <div className={styles.item}>
               <h3>Negligência</h3>
               <p>
                 Falta de alimentação, higiene, medicamentos ou cuidados básicos.
               </p>
             </div>
 
-            <div className="item">
+            <div className={styles.item}>
               <h3>Abandono</h3>
               <p>
                 Quando familiares ou responsáveis deixam de prestar assistência
@@ -192,7 +192,7 @@ function Idosos() {
               </p>
             </div>
 
-            <div className="item">
+            <div className={styles.item}>
               <h3>Violência Institucional</h3>
               <p>
                 Atendimento inadequado ou desrespeitoso por instituições públicas
@@ -204,7 +204,7 @@ function Idosos() {
 
         </section>
 
-        <section className="content-card">
+        <section className={styles["content-card"]}>
 
           <h2>🛟 O que fazer em caso de violação dos direitos?</h2>
 
@@ -228,7 +228,7 @@ function Idosos() {
 
         </section>
 
-        <section className="content-card">
+        <section className={styles["content-card"]}>
 
           <h2>🏛️ Onde Buscar Ajuda?</h2>
 
@@ -248,23 +248,23 @@ function Idosos() {
 
         </section>
 
-        <section className="content-card">
+        <section className={styles["content-card"]}>
 
           <h2>📞 Telefones Úteis</h2>
 
-          <div className="phones">
+          <div className={styles.phones}>
 
-            <div className="phone">
+            <div className={styles.phone}>
               <h3>100</h3>
               <p>Disque Direitos Humanos</p>
             </div>
 
-            <div className="phone">
+            <div className={styles.phone}>
               <h3>190</h3>
               <p>Polícia Militar</p>
             </div>
 
-            <div className="phone">
+            <div className={styles.phone}>
               <h3>192</h3>
               <p>SAMU</p>
             </div>
@@ -273,7 +273,7 @@ function Idosos() {
 
         </section>
 
-        <section className="content-card">
+        <section className={styles["content-card"]}>
 
           <h2>📚 Fontes e Referências</h2>
 
@@ -283,9 +283,9 @@ function Idosos() {
             pessoa idosa.
           </p>
 
-          <div className="reference-category">
+          <div className={styles["reference-category"]}>
 
-            <div className="reference-item">
+            <div className={styles["reference-item"]}>
               <h4>Constituição Federal de 1988</h4>
 
               <p>
@@ -302,7 +302,7 @@ function Idosos() {
               </a>
             </div>
 
-            <div className="reference-item">
+            <div className={styles["reference-item"]}>
 
               <h4>Estatuto da Pessoa Idosa</h4>
 
@@ -321,7 +321,7 @@ function Idosos() {
 
             </div>
 
-            <div className="reference-item">
+            <div className={styles["reference-item"]}>
 
               <h4>Ministério dos Direitos Humanos</h4>
 
@@ -342,7 +342,7 @@ function Idosos() {
 
           </div>
 
-          <div className="info-box">
+          <div className={styles["info-box"]}>
 
             <h3>📌 Importante</h3>
 
@@ -356,21 +356,21 @@ function Idosos() {
 
         </section>
 
-        <section className="actions-section">
+        <section className={styles["actions-section"]}>
 
           <h2>O que deseja fazer agora?</h2>
 
-          <div className="actions-grid">
+          <div className={styles["actions-grid"]}>
 
-            <Link to="/direitos" className="action-card">
+            <Link to="/direitos" className={styles["action-card"]}>
               ⚖️ Voltar para Direitos
             </Link>
 
-            <Link to="/recursos" className="action-card">
+            <Link to="/recursos" className={styles["action-card"]}>
               📍 Encontrar Ajuda Próxima
             </Link>
 
-            <Link to="/cursos" className="action-card">
+            <Link to="/cursos" className={styles["action-card"]}>
               🎓 Cursos Relacionados
             </Link>
 

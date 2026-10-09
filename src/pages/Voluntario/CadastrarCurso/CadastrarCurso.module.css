@@ -1,0 +1,276 @@
+/* ===================================
+   PÁGINA
+=================================== */
+
+.cadastrarCursoPage {
+    min-height: 100vh;
+    background: #f8fafc;
+}
+
+/* ===================================
+   HERO
+=================================== */
+
+.cadastrarCursoHero {
+    background: white;
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.heroBadge {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-weight: 600;
+}
+
+.cadastrarCursoHero h1 {
+    color: #0f4c81;
+    font-size: 2.7rem;
+    margin: 20px 0 15px;
+}
+
+.cadastrarCursoHero p {
+    max-width: 700px;
+    margin: auto;
+    color: #64748b;
+    line-height: 1.8;
+}
+
+/* ===================================
+   SEÇÃO DO FORMULÁRIO
+=================================== */
+
+.formSection {
+    padding: 50px 8% 80px;
+}
+
+.formCard {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    background: white;
+    padding: 45px;
+    border-radius: 22px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+}
+
+.formHeader {
+    margin-bottom: 35px;
+}
+
+.formHeader h2 {
+    color: #0f4c81;
+    margin-bottom: 10px;
+}
+
+.formDescription {
+    color: #64748b;
+    line-height: 1.7;
+}
+
+/* ===================================
+   CAMPOS
+=================================== */
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.formGroup label {
+    color: #0f4c81;
+    font-weight: 600;
+    margin-bottom: 9px;
+}
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 15px;
+    border: 1px solid #dbe3ea;
+    border-radius: 10px;
+    background: white;
+    color: #334155;
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.formGroup textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+    border-color: #0f4c81;
+    box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.08);
+}
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* ===================================
+   DUAS COLUNAS
+=================================== */
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+/* ===================================
+   INPUT DE ARQUIVO
+=================================== */
+
+.formGroup input[type="file"] {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.inputHelp {
+    margin-top: 7px;
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+/* ===================================
+   AVISO
+=================================== */
+
+.infoBox {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 18px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+}
+
+.infoIcon {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.infoBox strong {
+    display: block;
+    color: #0f4c81;
+    margin-bottom: 5px;
+}
+
+.infoBox p {
+    margin: 0;
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 0.9rem;
+}
+
+/* ===================================
+   BOTÕES
+=================================== */
+
+.formActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.cancelButton,
+.submitButton {
+    padding: 14px 25px;
+    border-radius: 11px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cancelButton {
+    background: white;
+    color: #64748b;
+    border: 1px solid #dbe3ea;
+}
+
+.cancelButton:hover {
+    background: #f8fafc;
+    border-color: #94a3b8;
+}
+
+.submitButton {
+    background: #0f4c81;
+    color: white;
+    border: none;
+}
+
+.submitButton:hover {
+    background: #1565a8;
+    transform: translateY(-2px);
+}
+
+/* ===================================
+   RESPONSIVIDADE
+=================================== */
+
+@media (max-width: 768px) {
+    .cadastrarCursoHero {
+        padding: 55px 6%;
+    }
+
+    .cadastrarCursoHero h1 {
+        font-size: 2.2rem;
+    }
+
+    .formSection {
+        padding: 40px 6% 60px;
+    }
+
+    .formCard {
+        padding: 30px;
+    }
+
+    .formRow {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .formActions {
+        flex-direction: column-reverse;
+    }
+
+    .cancelButton,
+    .submitButton {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cadastrarCursoHero h1 {
+        font-size: 1.9rem;
+    }
+
+    .formCard {
+        padding: 22px;
+        border-radius: 16px;
+    }
+
+    .formSection {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+}

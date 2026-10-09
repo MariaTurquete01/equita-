@@ -1,0 +1,244 @@
+/* ===================================
+   PÁGINA
+=================================== */
+
+.resourcesPage {
+    min-height: 100vh;
+    background: #f8fafc;
+}
+
+/* ===================================
+   HERO
+=================================== */
+
+.resourcesHero {
+    background: white;
+    text-align: center;
+    padding: 70px 8%;
+}
+
+.heroBadge {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.resourcesHero h1 {
+    color: #0F4C81;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.resourcesHero p {
+    max-width: 700px;
+    margin: auto;
+    color: #64748b;
+    line-height: 1.8;
+}
+
+/* ===================================
+   PESQUISA
+=================================== */
+
+.searchSection {
+    padding: 60px 8% 30px;
+}
+
+.searchCard {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+
+.searchCard h2 {
+    color: #0F4C81;
+    margin-bottom: 25px;
+}
+
+.searchGrid {
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    gap: 20px;
+}
+
+.searchGrid input {
+    padding: 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    font-size: 1rem;
+}
+
+.searchGrid input:focus {
+    outline: none;
+    border-color: #0F4C81;
+}
+
+.searchGrid button {
+    border: none;
+    border-radius: 12px;
+    background: #0F4C81;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.searchGrid button:hover {
+    background: #1565a8;
+}
+
+/* ===================================
+   FILTROS
+=================================== */
+
+.filtersSection {
+    padding: 20px 8%;
+}
+
+.filtersSection h2 {
+    color: #0F4C81;
+    margin-bottom: 25px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.filters button {
+    border: none;
+    padding: 12px 22px;
+    border-radius: 30px;
+    background: white;
+    color: #0F4C81;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,.08);
+    transition: .3s;
+}
+
+.filters button:hover {
+    background: #0F4C81;
+    color: white;
+}
+
+/* ===================================
+   MAPA
+=================================== */
+
+.mapSection {
+    padding: 40px 8%;
+}
+
+.mapPlaceholder {
+    background: white;
+    border: 3px dashed #cbd5e1;
+    border-radius: 20px;
+    padding: 80px;
+    text-align: center;
+}
+
+.mapPlaceholder h2 {
+    color: #0F4C81;
+    margin: 20px 0;
+}
+
+.mapPlaceholder p {
+    color: #64748b;
+}
+
+/* ===================================
+   RESULTADOS
+=================================== */
+
+.resultsSection {
+    padding: 20px 8% 70px;
+}
+
+.resultsSection h2 {
+    color: #0F4C81;
+    margin-bottom: 30px;
+}
+
+.resultsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.resourceCard {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+    transition: .3s;
+}
+
+.resourceCard:hover {
+    transform: translateY(-6px);
+}
+
+.resourceCard h3 {
+    color: #0F4C81;
+    margin-bottom: 20px;
+}
+
+.resourceCard p {
+    margin-bottom: 12px;
+    color: #475569;
+}
+
+.resourceCard button {
+    margin-top: 20px;
+    width: 100%;
+    border: none;
+    padding: 14px;
+    border-radius: 12px;
+    background: #16a34a;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.resourceCard button:hover {
+    background: #15803d;
+}
+
+/* ===================================
+   RESPONSIVIDADE
+=================================== */
+
+@media (max-width: 768px) {
+
+    .searchGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .resourcesHero {
+        padding: 50px 6%;
+    }
+
+    .searchSection,
+    .filtersSection,
+    .mapSection,
+    .resultsSection {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .mapPlaceholder {
+        padding: 45px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .resourcesHero h1 {
+        font-size: 2rem;
+    }
+}

@@ -2,18 +2,16 @@ import Navbar from "../../../components/Navbar/Navbar";
 import Footer from "../../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 
-import "./style.css";
+import styles from "./PCD.module.css";
 
 function PCD() {
   return (
     <>
       <Navbar />
 
-      <section className="pcd-page">
-
-        <div className="pcd-hero">
-
-          <span className="badge">
+      <section className={styles.pcdPage}>
+        <div className={styles.pcdHero}>
+          <span className={styles.badge}>
             Pessoas com Deficiência
           </span>
 
@@ -25,13 +23,9 @@ function PCD() {
             Conheça os direitos das pessoas com deficiência, as garantias de
             inclusão e os caminhos para buscar proteção e apoio.
           </p>
-
         </div>
 
-
-
-        <section className="content-card">
-
+        <section className={styles.contentCard}>
           <h2>📖 O que é Pessoa com Deficiência (PCD)?</h2>
 
           <p>
@@ -53,13 +47,9 @@ function PCD() {
             direito à autonomia, independência, participação social e igualdade
             de oportunidades.
           </p>
-
         </section>
 
-
-
-        <section className="content-card">
-
+        <section className={styles.contentCard}>
           <h2>⚖️ Direitos Garantidos</h2>
 
           <p>
@@ -69,7 +59,6 @@ function PCD() {
           </p>
 
           <ul>
-
             <li>
               Direito à acessibilidade em espaços públicos e privados.
             </li>
@@ -109,186 +98,118 @@ function PCD() {
             <li>
               Direito à igualdade e respeito à dignidade humana.
             </li>
-
           </ul>
-
         </section>
 
-
-
-        <section className="content-card">
-
-
+        <section className={styles.contentCard}>
           <h2>♿ Tipos de Acessibilidade</h2>
-
 
           <p>
             A acessibilidade permite que pessoas com deficiência participem da
             sociedade com autonomia e segurança.
           </p>
 
-
-          <div className="grid">
-
-
-            <div className="item">
-
+          <div className={styles.grid}>
+            <div className={styles.item}>
               <h3>Acessibilidade Física</h3>
 
               <p>
                 Envolve rampas, elevadores, banheiros adaptados, calçadas
                 acessíveis e espaços planejados para diferentes necessidades.
               </p>
-
             </div>
 
-
-
-            <div className="item">
-
+            <div className={styles.item}>
               <h3>Acessibilidade Digital</h3>
 
               <p>
                 Garante que sites, aplicativos e tecnologias possam ser usados
                 por todas as pessoas, incluindo recursos como leitores de tela.
               </p>
-
             </div>
 
-
-
-            <div className="item">
-
+            <div className={styles.item}>
               <h3>Acessibilidade Comunicacional</h3>
 
               <p>
                 Inclui Libras, legendas, audiodescrição e outras formas de
                 comunicação acessível.
               </p>
-
             </div>
 
-
-
-            <div className="item">
-
+            <div className={styles.item}>
               <h3>Acessibilidade Atitudinal</h3>
 
               <p>
                 Combate preconceitos, estereótipos e atitudes que dificultam a
                 inclusão das pessoas com deficiência.
               </p>
-
             </div>
-
-
           </div>
-
-
         </section>
 
-
-
-
-        <section className="content-card">
-
-
+        <section className={styles.contentCard}>
           <h2>🌎 Temas Frequentes</h2>
 
-
-          <div className="grid">
-
-
-            <div className="item">
-
+          <div className={styles.grid}>
+            <div className={styles.item}>
               <h3>Educação Inclusiva</h3>
 
               <p>
                 Garante que estudantes com deficiência tenham acesso à escola
                 regular com recursos e apoio necessários.
               </p>
-
             </div>
 
-
-
-            <div className="item">
-
+            <div className={styles.item}>
               <h3>Mercado de Trabalho</h3>
 
               <p>
                 Empresas devem promover inclusão profissional e respeitar as
                 capacidades das pessoas com deficiência.
               </p>
-
             </div>
 
-
-
-            <div className="item">
-
+            <div className={styles.item}>
               <h3>Mobilidade</h3>
 
               <p>
                 Envolve transporte adaptado, acessibilidade urbana e autonomia
                 para deslocamento.
               </p>
-
             </div>
 
-
-
-            <div className="item">
-
+            <div className={styles.item}>
               <h3>Tecnologia Assistiva</h3>
 
               <p>
                 São recursos e equipamentos que ajudam pessoas com deficiência a
                 realizarem atividades com mais independência.
               </p>
-
             </div>
 
-
-
-            <div className="item">
-
+            <div className={styles.item}>
               <h3>Combate ao Capacitismo</h3>
 
               <p>
                 O capacitismo é o preconceito baseado na ideia de que pessoas
                 com deficiência são inferiores ou incapazes.
               </p>
-
             </div>
 
-
-
-            <div className="item">
-
+            <div className={styles.item}>
               <h3>Vida Independente</h3>
 
               <p>
                 Incentiva autonomia, escolhas pessoais e participação ativa na
                 sociedade.
               </p>
-
             </div>
-
-
           </div>
-
-
         </section>
 
-
-
-
-        <section className="content-card">
-
-
+        <section className={styles.contentCard}>
           <h2>🛟 O que fazer em caso de violação de direitos?</h2>
-
 
           <p>
             Caso uma pessoa com deficiência sofra discriminação, falta de
@@ -296,9 +217,7 @@ function PCD() {
             orientação e registrar a situação.
           </p>
 
-
           <ol>
-
             <li>
               Reúna informações e provas da situação ocorrida.
             </li>
@@ -318,29 +237,18 @@ function PCD() {
             <li>
               Procure serviços de assistência social e apoio especializado.
             </li>
-
           </ol>
-
-
         </section>
 
-
-
-
-        <section className="content-card">
-
-
+        <section className={styles.contentCard}>
           <h2>🏛️ Onde Buscar Ajuda?</h2>
-
 
           <p>
             Existem diversos serviços públicos e instituições que oferecem
             orientação e proteção aos direitos das pessoas com deficiência.
           </p>
 
-
           <ul>
-
             <li>
               Disque Direitos Humanos - 100.
             </li>
@@ -364,36 +272,19 @@ function PCD() {
             <li>
               Conselhos Municipais dos Direitos da Pessoa com Deficiência.
             </li>
-
           </ul>
-
-
         </section>
 
-
-
-
-        
-
-
-
-        <section className="content-card">
-
-
+        <section className={styles.contentCard}>
           <h2>📚 Fontes e Referências</h2>
-
 
           <p>
             As informações desta página foram organizadas com base na legislação
             brasileira e em normas relacionadas aos direitos humanos e inclusão.
           </p>
 
-
-          <div className="reference-category">
-
-
-            <div className="reference-item">
-
+          <div className={styles.referenceCategory}>
+            <div className={styles.referenceItem}>
               <h4>Lei Brasileira de Inclusão (LBI)</h4>
 
               <p>
@@ -408,13 +299,9 @@ function PCD() {
               >
                 Acessar →
               </a>
-
             </div>
 
-
-
-            <div className="reference-item">
-
+            <div className={styles.referenceItem}>
               <h4>Constituição Federal de 1988</h4>
 
               <p>
@@ -428,68 +315,50 @@ function PCD() {
               >
                 Acessar →
               </a>
-
             </div>
-
-
-
           </div>
 
-
-
-          <div className="info-box">
-
+          <div className={styles.infoBox}>
             <h3>📌 Importante</h3>
 
             <p>
               Este conteúdo possui finalidade educativa e informativa e não
               substitui atendimento jurídico ou especializado.
             </p>
-
           </div>
-
-
         </section>
 
-
-
-
-        <section className="actions-section">
-
+        <section className={styles.actionsSection}>
           <h2>
             O que deseja fazer agora?
           </h2>
 
-
-          <div className="actions-grid">
-
-
-            <Link to="/direitos" className="action-card">
+          <div className={styles.actionsGrid}>
+            <Link
+              to="/direitos"
+              className={styles.actionCard}
+            >
               ⚖️ Voltar para Direitos
             </Link>
 
-
-            <Link to="/recursos" className="action-card">
+            <Link
+              to="/recursos"
+              className={styles.actionCard}
+            >
               📍 Encontrar Ajuda Próxima
             </Link>
 
-
-            <Link to="/cursos" className="action-card">
+            <Link
+              to="/cursos"
+              className={styles.actionCard}
+            >
               🎓 Cursos Relacionados
             </Link>
-
-
           </div>
-
-
         </section>
-
-
       </section>
 
-
       <Footer />
-
     </>
   );
 }

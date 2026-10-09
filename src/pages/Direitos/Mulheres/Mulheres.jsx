@@ -2,18 +2,18 @@ import Navbar from "../../../components/Navbar/Navbar";
 import Footer from "../../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 
-import "./style.css";
+import styles from "./mulheres.module.css";
 
 function Mulheres() {
   return (
     <>
       <Navbar />
 
-      <section className="women-page">
+      <section className={styles["women-page"]}>
 
-        <div className="women-hero">
+        <div className={styles["women-hero"]}>
 
-          <span className="badge">
+          <span className={styles.badge}>
             Direitos das Mulheres
           </span>
 
@@ -28,8 +28,7 @@ function Mulheres() {
 
         </div>
 
-
-        <section className="content-card">
+        <section className={styles["content-card"]}>
 
           <h2>📖 O que são os Direitos das Mulheres?</h2>
 
@@ -60,9 +59,7 @@ function Mulheres() {
 
         </section>
 
-
-
-        <section className="content-card">
+        <section className={styles["content-card"]}>
 
           <h2>⚖️ Direitos Garantidos</h2>
 
@@ -138,9 +135,7 @@ function Mulheres() {
 
         </section>
 
-
-
-        <section className="content-card">
+        <section className={styles["content-card"]}>
 
           <p>
             Conhecer os direitos é uma forma de prevenção e proteção. Muitas
@@ -148,14 +143,11 @@ function Mulheres() {
             ameaças, isolamento ou manipulação.
           </p>
 
-
           <h2>👩 Temas Frequentes</h2>
 
+          <div className={styles.grid}>
 
-          <div className="grid">
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Violência Doméstica</h3>
 
@@ -166,8 +158,7 @@ function Mulheres() {
 
             </div>
 
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Lei Maria da Penha</h3>
 
@@ -178,8 +169,7 @@ function Mulheres() {
 
             </div>
 
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Assédio</h3>
 
@@ -190,8 +180,7 @@ function Mulheres() {
 
             </div>
 
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Igualdade no Trabalho</h3>
 
@@ -202,8 +191,7 @@ function Mulheres() {
 
             </div>
 
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Maternidade</h3>
 
@@ -214,8 +202,7 @@ function Mulheres() {
 
             </div>
 
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Violência Digital</h3>
 
@@ -226,25 +213,19 @@ function Mulheres() {
 
             </div>
 
-
           </div>
 
         </section>
 
-
-
-        <section className="content-card">
-
+        <section className={styles["content-card"]}>
 
           <h2>🛟 O que fazer em caso de violência?</h2>
-
 
           <p>
             Em situações de violência, a prioridade deve ser garantir a segurança
             da vítima. Sempre que possível, procure afastar-se do agressor e
             buscar um ambiente protegido.
           </p>
-
 
           <ol>
 
@@ -274,22 +255,16 @@ function Mulheres() {
 
           </ol>
 
-
         </section>
 
-
-
-        <section className="content-card">
-
+        <section className={styles["content-card"]}>
 
           <h2>🏛️ Onde Buscar Ajuda?</h2>
-
 
           <p>
             Existem serviços especializados para orientar, proteger e encaminhar
             mulheres em situações de violência ou violação de direitos.
           </p>
-
 
           <ul>
 
@@ -323,16 +298,11 @@ function Mulheres() {
 
           </ul>
 
-
         </section>
 
-
-
-        <section className="content-card">
-
+        <section className={styles["content-card"]}>
 
           <h2>📚 Fontes e Referências</h2>
-
 
           <p>
             As informações desta página foram organizadas com base na legislação
@@ -340,11 +310,9 @@ function Mulheres() {
             direitos das mulheres.
           </p>
 
+          <div className={styles["reference-category"]}>
 
-          <div className="reference-category">
-
-
-            <div className="reference-item">
+            <div className={styles["reference-item"]}>
 
               <h4>Constituição Federal de 1988</h4>
 
@@ -363,9 +331,7 @@ function Mulheres() {
 
             </div>
 
-
-
-            <div className="reference-item">
+            <div className={styles["reference-item"]}>
 
               <h4>Lei Maria da Penha</h4>
 
@@ -384,9 +350,7 @@ function Mulheres() {
 
             </div>
 
-
-
-            <div className="reference-item">
+            <div className={styles["reference-item"]}>
 
               <h4>Lei da Igualdade Salarial</h4>
 
@@ -405,12 +369,9 @@ function Mulheres() {
 
             </div>
 
-
           </div>
 
-
-
-          <div className="info-box">
+          <div className={styles["info-box"]}>
 
             <h3>📌 Importante</h3>
 
@@ -422,53 +383,42 @@ function Mulheres() {
 
           </div>
 
-
         </section>
 
-
-
-        <section className="actions-section">
+        <section className={styles["actions-section"]}>
 
           <h2>
             O que deseja fazer agora?
           </h2>
 
-
-          <div className="actions-grid">
-
+          <div className={styles["actions-grid"]}>
 
             <Link
               to="/direitos"
-              className="action-card"
+              className={styles["action-card"]}
             >
               ⚖️ Voltar para Direitos
             </Link>
 
-
             <Link
               to="/recursos"
-              className="action-card"
+              className={styles["action-card"]}
             >
               📍 Encontrar Ajuda Próxima
             </Link>
 
-
             <Link
               to="/cursos"
-              className="action-card"
+              className={styles["action-card"]}
             >
               🎓 Cursos Relacionados
             </Link>
 
-
           </div>
-
 
         </section>
 
-
       </section>
-
 
       <Footer />
 
@@ -476,6 +426,4 @@ function Mulheres() {
   );
 }
 
-
 export default Mulheres;
- 

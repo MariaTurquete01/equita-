@@ -2,18 +2,18 @@ import Navbar from "../../../components/Navbar/Navbar";
 import Footer from "../../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 
-import "./style.css";
+import styles from "./Trabalhistas.module.css";
 
 function Trabalhistas() {
   return (
     <>
       <Navbar />
 
-      <section className="work-page">
+      <section className={styles.workPage}>
 
-        <div className="work-hero">
+        <div className={styles.workHero}>
 
-          <span className="badge">
+          <span className={styles.badge}>
             Direitos Trabalhistas
           </span>
 
@@ -28,10 +28,7 @@ function Trabalhistas() {
 
         </div>
 
-
-
-
-        <section className="content-card">
+        <section className={styles.contentCard}>
 
           <h2>📖 O que são direitos trabalhistas?</h2>
 
@@ -55,10 +52,7 @@ function Trabalhistas() {
 
         </section>
 
-
-
-
-        <section className="content-card">
+        <section className={styles.contentCard}>
 
           <h2>🏭 História dos Direitos Trabalhistas</h2>
 
@@ -82,18 +76,13 @@ function Trabalhistas() {
 
         </section>
 
-
-
-
-        <section className="content-card">
+        <section className={styles.contentCard}>
 
           <h2>👥 Pessoas importantes na história trabalhista</h2>
 
+          <div className={styles.grid}>
 
-          <div className="grid">
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Getúlio Vargas</h3>
 
@@ -105,9 +94,7 @@ function Trabalhistas() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Karl Marx</h3>
 
@@ -118,9 +105,7 @@ function Trabalhistas() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Movimentos Sindicais</h3>
 
@@ -131,9 +116,7 @@ function Trabalhistas() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Constituição Federal de 1988</h3>
 
@@ -144,26 +127,18 @@ function Trabalhistas() {
 
             </div>
 
-
           </div>
-
 
         </section>
 
-
-
-
-        <section className="content-card">
-
+        <section className={styles.contentCard}>
 
           <h2>⚖️ Direitos Garantidos</h2>
-
 
           <p>
             A legislação brasileira garante diversos direitos fundamentais aos
             trabalhadores.
           </p>
-
 
           <ul>
 
@@ -213,22 +188,15 @@ function Trabalhistas() {
 
           </ul>
 
-
         </section>
 
-
-
-
-        <section className="content-card">
-
+        <section className={styles.contentCard}>
 
           <h2>📄 Tipos de Contrato de Trabalho</h2>
 
+          <div className={styles.grid}>
 
-          <div className="grid">
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Contrato CLT</h3>
 
@@ -239,9 +207,7 @@ function Trabalhistas() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Trabalho Temporário</h3>
 
@@ -252,9 +218,7 @@ function Trabalhistas() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Jovem Aprendiz</h3>
 
@@ -265,9 +229,7 @@ function Trabalhistas() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Estágio</h3>
 
@@ -278,25 +240,17 @@ function Trabalhistas() {
 
             </div>
 
-
           </div>
-
 
         </section>
 
-
-
-
-        <section className="content-card">
-
+        <section className={styles.contentCard}>
 
           <h2>🚨 Situações Irregulares</h2>
 
+          <div className={styles.grid}>
 
-          <div className="grid">
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Assédio Moral</h3>
 
@@ -307,9 +261,7 @@ function Trabalhistas() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Assédio Sexual</h3>
 
@@ -320,9 +272,7 @@ function Trabalhistas() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Horas Não Pagas</h3>
 
@@ -333,9 +283,7 @@ function Trabalhistas() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Trabalho Sem Registro</h3>
 
@@ -346,9 +294,7 @@ function Trabalhistas() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Trabalho Análogo à Escravidão</h3>
 
@@ -359,26 +305,18 @@ function Trabalhistas() {
 
             </div>
 
-
           </div>
-
 
         </section>
 
-
-
-
-        <section className="content-card">
-
+        <section className={styles.contentCard}>
 
           <h2>🦺 Segurança no Trabalho</h2>
-
 
           <p>
             Todo trabalhador possui direito a um ambiente seguro, com medidas
             destinadas a prevenir acidentes e doenças ocupacionais.
           </p>
-
 
           <ul>
 
@@ -400,17 +338,11 @@ function Trabalhistas() {
 
           </ul>
 
-
         </section>
 
-
-
-
-        <section className="content-card">
-
+        <section className={styles.contentCard}>
 
           <h2>🛟 O que fazer em caso de problema trabalhista?</h2>
-
 
           <ol>
 
@@ -436,22 +368,15 @@ function Trabalhistas() {
 
           </ol>
 
-
         </section>
 
-
-
-
-        <section className="content-card">
-
+        <section className={styles.contentCard}>
 
           <h2>💡 Curiosidades sobre trabalho e direitos</h2>
 
+          <div className={styles.grid}>
 
-          <div className="grid">
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Férias são um direito histórico</h3>
 
@@ -462,9 +387,7 @@ function Trabalhistas() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Direitos trabalhistas evoluem</h3>
 
@@ -475,9 +398,7 @@ function Trabalhistas() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Trabalho digno é um direito humano</h3>
 
@@ -488,25 +409,17 @@ function Trabalhistas() {
 
             </div>
 
-
           </div>
-
 
         </section>
 
-
-
-
-        <section className="content-card">
-
+        <section className={styles.contentCard}>
 
           <h2>📞 Telefones Úteis</h2>
 
+          <div className={styles.phones}>
 
-          <div className="phones">
-
-
-            <div className="phone">
+            <div className={styles.phone}>
 
               <h3>158</h3>
 
@@ -516,9 +429,7 @@ function Trabalhistas() {
 
             </div>
 
-
-
-            <div className="phone">
+            <div className={styles.phone}>
 
               <h3>100</h3>
 
@@ -528,25 +439,17 @@ function Trabalhistas() {
 
             </div>
 
-
           </div>
-
 
         </section>
 
-
-
-
-        <section className="content-card">
-
+        <section className={styles.contentCard}>
 
           <h2>📚 Fontes e Referências</h2>
 
+          <div className={styles.referenceCategory}>
 
-          <div className="reference-category">
-
-
-            <div className="reference-item">
+            <div className={styles.referenceItem}>
 
               <h4>Consolidação das Leis do Trabalho (CLT)</h4>
 
@@ -565,9 +468,7 @@ function Trabalhistas() {
 
             </div>
 
-
-
-            <div className="reference-item">
+            <div className={styles.referenceItem}>
 
               <h4>Constituição Federal de 1988</h4>
 
@@ -586,12 +487,9 @@ function Trabalhistas() {
 
             </div>
 
-
           </div>
 
-
-
-          <div className="info-box">
+          <div className={styles.infoBox}>
 
             <h3>📌 Importante</h3>
 
@@ -602,45 +500,42 @@ function Trabalhistas() {
 
           </div>
 
-
         </section>
 
-
-
-
-        <section className="actions-section">
+        <section className={styles.actionsSection}>
 
           <h2>
             O que deseja fazer agora?
           </h2>
 
+          <div className={styles.actionsGrid}>
 
-          <div className="actions-grid">
-
-
-            <Link to="/direitos" className="action-card">
+            <Link
+              to="/direitos"
+              className={styles.actionCard}
+            >
               ⚖️ Voltar para Direitos
             </Link>
 
-
-            <Link to="/recursos" className="action-card">
+            <Link
+              to="/recursos"
+              className={styles.actionCard}
+            >
               📍 Encontrar Ajuda Próxima
             </Link>
 
-
-            <Link to="/cursos" className="action-card">
+            <Link
+              to="/cursos"
+              className={styles.actionCard}
+            >
               🎓 Cursos Relacionados
             </Link>
 
-
           </div>
-
 
         </section>
 
-
       </section>
-
 
       <Footer />
     </>

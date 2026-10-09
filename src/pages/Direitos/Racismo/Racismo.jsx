@@ -2,18 +2,18 @@ import Navbar from "../../../components/Navbar/Navbar";
 import Footer from "../../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 
-import "./style.css";
+import styles from "./racismo.module.css";
 
 function Racismo() {
   return (
     <>
       <Navbar />
 
-      <section className="racismo-page">
+      <section className={styles.racismoPage}>
 
-        <div className="racismo-hero">
+        <div className={styles.racismoHero}>
 
-          <span className="badge">
+          <span className={styles.badge}>
             Racismo e Discriminação
           </span>
 
@@ -28,9 +28,7 @@ function Racismo() {
 
         </div>
 
-
-
-        <section className="content-card">
+        <section className={styles.contentCard}>
 
           <h2>📖 O que é racismo?</h2>
 
@@ -60,10 +58,7 @@ function Racismo() {
 
         </section>
 
-
-
-
-        <section className="content-card">
+        <section className={styles.contentCard}>
 
           <h2>⚖️ Direitos Garantidos</h2>
 
@@ -72,7 +67,6 @@ function Racismo() {
             discriminação racial e assegura direitos fundamentais para todas as
             pessoas.
           </p>
-
 
           <ul>
 
@@ -110,21 +104,15 @@ function Racismo() {
 
           </ul>
 
-
         </section>
 
-
-
-
-        <section className="content-card">
+        <section className={styles.contentCard}>
 
           <h2>🌎 Tipos de Racismo</h2>
 
+          <div className={styles.grid}>
 
-          <div className="grid">
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Racismo Individual</h3>
 
@@ -136,9 +124,7 @@ function Racismo() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Racismo Institucional</h3>
 
@@ -149,9 +135,7 @@ function Racismo() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Racismo Estrutural</h3>
 
@@ -162,9 +146,7 @@ function Racismo() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Racismo Cultural</h3>
 
@@ -175,26 +157,18 @@ function Racismo() {
 
             </div>
 
-
           </div>
-
 
         </section>
 
-
-
-
-        <section className="content-card">
-
+        <section className={styles.contentCard}>
 
           <h2>🔎 Situações que podem indicar discriminação</h2>
-
 
           <p>
             Algumas atitudes podem caracterizar práticas racistas e devem ser
             observadas com atenção:
           </p>
-
 
           <ul>
 
@@ -222,24 +196,17 @@ function Racismo() {
 
           </ul>
 
-
         </section>
 
-
-
-
-        <section className="content-card">
-
+        <section className={styles.contentCard}>
 
           <h2>🚨 O que fazer em caso de racismo?</h2>
-
 
           <p>
             Caso uma pessoa sofra ou presencie uma situação de racismo, algumas
             medidas podem ajudar na proteção dos direitos e na responsabilização
             dos envolvidos.
           </p>
-
 
           <ol>
 
@@ -267,23 +234,16 @@ function Racismo() {
 
           </ol>
 
-
         </section>
 
-
-
-
-        <section className="content-card">
-
+        <section className={styles.contentCard}>
 
           <h2>🏛️ Onde Buscar Ajuda?</h2>
-
 
           <p>
             Existem instituições responsáveis por receber denúncias, orientar
             vítimas e promover a defesa dos direitos humanos.
           </p>
-
 
           <ul>
 
@@ -313,22 +273,11 @@ function Racismo() {
 
           </ul>
 
-
         </section>
 
-
-
-
-       
-
-
-
-
-        <section className="content-card">
-
+        <section className={styles.contentCard}>
 
           <h2>📚 Fontes e Referências</h2>
-
 
           <p>
             As informações desta página foram organizadas com base na legislação
@@ -336,11 +285,9 @@ function Racismo() {
             igualdade racial.
           </p>
 
+          <div className={styles.referenceCategory}>
 
-          <div className="reference-category">
-
-
-            <div className="reference-item">
+            <div className={styles.referenceItem}>
 
               <h4>Constituição Federal de 1988</h4>
 
@@ -359,10 +306,7 @@ function Racismo() {
 
             </div>
 
-
-
-
-            <div className="reference-item">
+            <div className={styles.referenceItem}>
 
               <h4>Lei do Crime Racial</h4>
 
@@ -381,13 +325,9 @@ function Racismo() {
 
             </div>
 
-
-
           </div>
 
-
-
-          <div className="info-box">
+          <div className={styles.infoBox}>
 
             <h3>📌 Importante</h3>
 
@@ -398,54 +338,42 @@ function Racismo() {
 
           </div>
 
-
         </section>
 
-
-
-
-        <section className="actions-section">
+        <section className={styles.actionsSection}>
 
           <h2>
             O que deseja fazer agora?
           </h2>
 
-
-          <div className="actions-grid">
-
+          <div className={styles.actionsGrid}>
 
             <Link
               to="/direitos"
-              className="action-card"
+              className={styles.actionCard}
             >
               ⚖️ Voltar para Direitos
             </Link>
 
-
             <Link
               to="/recursos"
-              className="action-card"
+              className={styles.actionCard}
             >
               📍 Encontrar Ajuda Próxima
             </Link>
 
-
             <Link
               to="/cursos"
-              className="action-card"
+              className={styles.actionCard}
             >
               🎓 Cursos Relacionados
             </Link>
 
-
           </div>
-
 
         </section>
 
-
       </section>
-
 
       <Footer />
     </>

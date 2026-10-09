@@ -1,249 +1,144 @@
+import { useState } from "react";
+ 
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
  
-import "./style.css";
+import styles from "./configuracoes.module.css";
  
 function Configuracoes() {
  
+    const [notificacoes, setNotificacoes] = useState(true);
+ 
+    const handleSalvar = (event) => {
+        event.preventDefault();
+ 
+        alert("Configurações salvas com sucesso!");
+    };
+ 
     return (
- 
         <>
- 
             <Navbar />
  
-            <main className="settings-page">
+            <main className={styles.configuracoesPage}>
  
-                {/* HERO */}
+                {/* CABEÇALHO */}
  
-                <section className="settings-hero">
+                <section className={styles.configuracoesHero}>
  
-                    <span className="hero-badge">
- 
-                        Configurações
- 
+                    <span className={styles.heroBadge}>
+                        Minha conta
                     </span>
  
                     <h1>
- 
-                        Gerencie sua conta
- 
+                        Configurações
                     </h1>
  
                     <p>
- 
-                        Personalize suas informações, gerencie sua segurança e controle as configurações da sua conta no Equitá.
- 
+                        Gerencie as configurações da sua conta na plataforma
+                        Equitá.
                     </p>
  
                 </section>
  
-                {/* DADOS */}
+                {/* CONTEÚDO */}
  
-                <section className="settings-section">
+                <section className={styles.configuracoesContent}>
  
-                    <div className="settings-card">
+                    <form
+                        className={styles.configuracoesCard}
+                        onSubmit={handleSalvar}
+                    >
  
-                        <h2>
+                        {/* CONTA */}
  
-                            👤 Informações pessoais
+                        <div className={styles.configSection}>
  
-                        </h2>
+                            <h2>
+                                Conta
+                            </h2>
  
-                        <div className="form-grid">
+                            <p>
+                                Gerencie as informações básicas da sua conta.
+                            </p>
  
-                            <div className="input-group">
+                            <div className={styles.configItem}>
  
-                                <label>Nome</label>
+                                <div>
+                                    <strong>
+                                        E-mail
+                                    </strong>
  
-                                <input
-                                    type="text"
-                                    placeholder="Nome completo"
-                                />
- 
-                            </div>
- 
-                            <div className="input-group">
- 
-                                <label>E-mail</label>
- 
-                                <input
-                                    type="email"
-                                    placeholder="email@email.com"
-                                />
- 
-                            </div>
- 
-                            <div className="input-group">
- 
-                                <label>Telefone</label>
- 
-                                <input
-                                    type="text"
-                                    placeholder="(00) 00000-0000"
-                                />
- 
-                            </div>
- 
-                            <div className="input-group">
- 
-                                <label>Foto de perfil</label>
- 
-                                <input
-                                    type="file"
-                                />
+                                    <span>
+                                        usuario@email.com
+                                    </span>
+                                </div>
  
                             </div>
  
                         </div>
  
-                        <button className="save-button">
+                        {/* PREFERÊNCIAS */}
  
-                            Salvar Alterações
+                        <div className={styles.configSection}>
  
-                        </button>
+                            <h2>
+                                Preferências
+                            </h2>
  
-                    </div>
+                            <p>
+                                Escolha como deseja receber informações da
+                                plataforma.
+                            </p>
  
-                </section>
-                 {/* SEGURANÇA */}
+                            <label className={styles.toggleItem}>
  
-                <section className="settings-section">
+                                <div>
  
-                    <div className="settings-card">
+                                    <strong>
+                                        Notificações
+                                    </strong>
  
-                        <h2>
+                                    <span>
+                                        Receber atualizações e informações
+                                        importantes da Equitá.
+                                    </span>
  
-                            🔒 Segurança
- 
-                        </h2>
- 
-                        <div className="form-grid">
- 
-                            <div className="input-group">
- 
-                                <label>Senha atual</label>
- 
-                                <input
-                                    type="password"
-                                    placeholder="********"
-                                />
- 
-                            </div>
- 
-                            <div className="input-group">
- 
-                                <label>Nova senha</label>
+                                </div>
  
                                 <input
-                                    type="password"
-                                    placeholder="********"
+                                    type="checkbox"
+                                    checked={notificacoes}
+                                    onChange={(event) =>
+                                        setNotificacoes(event.target.checked)
+                                    }
                                 />
- 
-                            </div>
- 
-                            <div className="input-group">
- 
-                                <label>Confirmar nova senha</label>
- 
-                                <input
-                                    type="password"
-                                    placeholder="********"
-                                />
- 
-                            </div>
- 
-                        </div>
- 
-                        <button className="save-button">
- 
-                            Alterar Senha
- 
-                        </button>
- 
-                    </div>
- 
-                </section>
- 
-                {/* NOTIFICAÇÕES */}
- 
-                <section className="settings-section">
- 
-                    <div className="settings-card">
- 
-                        <h2>
- 
-                            🔔 Notificações
- 
-                        </h2>
- 
-                        <div className="switch-group">
- 
-                            <label>
- 
-                                <input type="checkbox" defaultChecked />
- 
-                                Receber notificações sobre denúncias.
- 
-                            </label>
- 
-                            <label>
- 
-                                <input type="checkbox" defaultChecked />
- 
-                                Receber novidades sobre cursos.
- 
-                            </label>
- 
-                            <label>
- 
-                                <input type="checkbox" defaultChecked />
- 
-                                Receber avisos importantes da plataforma.
  
                             </label>
  
                         </div>
  
-                    </div>
+                        {/* AÇÕES */}
  
-                </section>
+                        <div className={styles.formActions}>
  
-                {/* PRIVACIDADE */}
+                            <button
+                                type="submit"
+                                className={styles.saveButton}
+                            >
+                                Salvar alterações
+                            </button>
  
-                <section className="settings-section">
+                        </div>
  
-                    <div className="settings-card danger-card">
- 
-                        <h2>
- 
-                            🛡️ Privacidade
- 
-                        </h2>
- 
-                        <p>
- 
-                            Caso deseje encerrar sua conta permanentemente, essa ação removerá seus dados conforme a política da plataforma.
- 
-                        </p>
- 
-                        <button className="delete-button">
- 
-                            Excluir Conta
- 
-                        </button>
- 
-                    </div>
+                    </form>
  
                 </section>
  
             </main>
  
             <Footer />
- 
         </>
- 
     );
- 
 }
  
 export default Configuracoes;

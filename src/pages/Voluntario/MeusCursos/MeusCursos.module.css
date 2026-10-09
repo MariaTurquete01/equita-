@@ -1,0 +1,234 @@
+/* ===================================
+   PÁGINA
+=================================== */
+
+.meusCursosPage {
+    min-height: 100vh;
+    background: #f8fafc;
+}
+
+/* ===================================
+   HERO
+=================================== */
+
+.meusCursosHero {
+    background: white;
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.heroBadge {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-weight: 600;
+}
+
+.meusCursosHero h1 {
+    color: #0f4c81;
+    font-size: 2.7rem;
+    margin: 20px 0 15px;
+}
+
+.meusCursosHero p {
+    max-width: 700px;
+    margin: auto;
+    color: #64748b;
+    line-height: 1.8;
+}
+
+/* ===================================
+   CONTEÚDO
+=================================== */
+
+.meusCursosContent {
+    padding: 50px 8% 80px;
+}
+
+.meusCursosHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.meusCursosHeader h2 {
+    color: #0f4c81;
+    margin: 0 0 8px;
+}
+
+.meusCursosHeader p {
+    margin: 0;
+    color: #64748b;
+}
+
+/* ===================================
+   BOTÃO
+=================================== */
+
+.novoCursoButton {
+    border: none;
+    background: #0f4c81;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.novoCursoButton:hover {
+    background: #1565a8;
+    transform: translateY(-2px);
+}
+
+.novoCursoButton:focus-visible {
+    outline: 3px solid rgba(15, 76, 129, 0.25);
+    outline-offset: 2px;
+}
+
+/* ===================================
+   FILTROS
+=================================== */
+
+.cursoFiltros {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.cursoFiltros button {
+    border: 1px solid #dbe3ea;
+    background: white;
+    color: #64748b;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cursoFiltros button:hover {
+    border-color: #0f4c81;
+    color: #0f4c81;
+}
+
+.cursoFiltros button:focus-visible {
+    outline: 3px solid rgba(15, 76, 129, 0.15);
+    outline-offset: 2px;
+}
+
+.cursoFiltros .filtroAtivo {
+    background: #0f4c81;
+    color: white;
+    border-color: #0f4c81;
+}
+
+/* ===================================
+   LISTA DE CURSOS
+=================================== */
+
+.cursosLista {
+    background: white;
+    border-radius: 20px;
+    min-height: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+/* ===================================
+   ESTADO VAZIO
+=================================== */
+
+.cursoVazio {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.cursoVazioIcon {
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.cursoVazio h3 {
+    color: #0f4c81;
+    margin: 0 0 12px;
+}
+
+.cursoVazio p {
+    max-width: 550px;
+    color: #64748b;
+    line-height: 1.7;
+    margin: 0 0 25px;
+}
+
+/* ===================================
+   RESPONSIVIDADE
+=================================== */
+
+@media (max-width: 768px) {
+    .meusCursosHero {
+        padding: 55px 6%;
+    }
+
+    .meusCursosHero h1 {
+        font-size: 2.2rem;
+    }
+
+    .meusCursosContent {
+        padding: 40px 6% 60px;
+    }
+
+    .meusCursosHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .novoCursoButton {
+        width: 100%;
+    }
+
+    .cursoVazio {
+        padding: 35px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .meusCursosHero h1 {
+        font-size: 1.9rem;
+    }
+
+    .meusCursosContent {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .cursoFiltros {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cursoFiltros button {
+        width: 100%;
+    }
+
+    .cursoVazioIcon {
+        font-size: 48px;
+    }
+
+    .cursoVazio h3 {
+        font-size: 1.1rem;
+    }
+}
+
+ 

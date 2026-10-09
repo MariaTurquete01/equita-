@@ -1,22 +1,21 @@
-import "./style.css";
- 
+import styles from "./Footer.module.css";
+
 function Footer() {
   return (
-    <footer className="footer">
- 
+    <footer className={styles.footer}>
+
       <h2>Equitá</h2>
- 
+
       <p>
         Plataforma de Apoio Social e Cidadania.
       </p>
- 
+
       <span>
         © 2026 Equitá
       </span>
- 
+
     </footer>
   );
 }
- 
+
 export default Footer;
- 

@@ -1,0 +1,240 @@
+/* =====================================
+   CADASTRO
+===================================== */
+
+.registerPage {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: #f8fafc;
+}
+
+/* =====================================
+   BANNER
+===================================== */
+
+.registerBanner {
+    background: linear-gradient(135deg, #0F4C81, #1B75BC);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+}
+
+.registerBadge {
+    width: max-content;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: rgba(255, 255, 255, .15);
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.registerBanner h1 {
+    font-size: 3rem;
+    margin-bottom: 25px;
+}
+
+.registerBanner p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 520px;
+}
+
+.registerBanner img {
+    width: 100%;
+    max-width: 480px;
+    margin-top: 50px;
+    align-self: center;
+}
+
+/* =====================================
+   FORMULÁRIO
+===================================== */
+
+.registerFormSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px;
+}
+
+.registerCard {
+    width: 100%;
+    max-width: 550px;
+    background: white;
+    border-radius: 22px;
+    padding: 45px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, .08);
+}
+
+.registerCard h2 {
+    color: #0F4C81;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.registerCard p {
+    color: #64748b;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+/* =====================================
+   INPUTS
+===================================== */
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+}
+
+.inputGroup label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.inputGroup input,
+.inputGroup select {
+    padding: 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: .3s;
+    background: white;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus {
+    border-color: #0F4C81;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(15, 76, 129, .15);
+}
+
+/* =====================================
+   SENHAS
+===================================== */
+
+.passwordInput {
+    display: flex;
+}
+
+.passwordInput input {
+    flex: 1;
+    border-radius: 12px 0 0 12px;
+}
+
+.passwordInput button {
+    border: none;
+    background: #0F4C81;
+    color: white;
+    padding: 0 20px;
+    border-radius: 0 12px 12px 0;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.passwordInput button:hover {
+    background: #1565a8;
+}
+
+/* =====================================
+   BOTÃO
+===================================== */
+
+.registerButton {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: #0F4C81;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s;
+    margin-top: 10px;
+}
+
+.registerButton:hover {
+    background: #1565a8;
+    transform: translateY(-2px);
+}
+
+/* =====================================
+   DIVISOR
+===================================== */
+
+.divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0 20px;
+    color: #64748b;
+}
+
+.loginLink {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #0F4C81;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.loginLink:hover {
+    text-decoration: underline;
+}
+
+/* =====================================
+   RESPONSIVIDADE
+===================================== */
+
+@media (max-width: 992px) {
+
+    .registerPage {
+        grid-template-columns: 1fr;
+    }
+
+    .registerBanner {
+        display: none;
+    }
+
+    .registerFormSection {
+        padding: 40px 20px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .registerCard {
+        padding: 35px 25px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .registerCard h2 {
+        font-size: 1.8rem;
+    }
+
+    .passwordInput {
+        flex-direction: column;
+    }
+
+    .passwordInput input {
+        border-radius: 12px;
+    }
+
+    .passwordInput button {
+        margin-top: 10px;
+        border-radius: 12px;
+        padding: 14px;
+    }
+
+}

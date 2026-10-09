@@ -2,18 +2,18 @@ import Navbar from "../../../components/Navbar/Navbar";
 import Footer from "../../../components/Footer/Footer";
 import { Link } from "react-router-dom";
 
-import "./style.css";
+import styles from "./SaudeMental.module.css";
 
 function SaudeMental() {
   return (
     <>
       <Navbar />
 
-      <section className="mental-page">
+      <section className={styles.mentalPage}>
 
-        <div className="mental-hero">
+        <div className={styles.mentalHero}>
 
-          <span className="badge">
+          <span className={styles.badge}>
             Saúde Mental
           </span>
 
@@ -28,9 +28,7 @@ function SaudeMental() {
 
         </div>
 
-
-
-        <section className="content-card">
+        <section className={styles.contentCard}>
 
           <h2>📖 O que é saúde mental?</h2>
 
@@ -56,10 +54,7 @@ function SaudeMental() {
 
         </section>
 
-
-
-
-        <section className="content-card">
+        <section className={styles.contentCard}>
 
           <h2>🧠 Como funciona a mente humana?</h2>
 
@@ -90,24 +85,18 @@ function SaudeMental() {
 
         </section>
 
-
-
-
-        <section className="content-card">
+        <section className={styles.contentCard}>
 
           <h2>⚠️ Sinais de Atenção</h2>
-
 
           <p>
             Alguns sinais podem indicar que uma pessoa precisa de apoio
             emocional ou profissional.
           </p>
 
+          <div className={styles.grid}>
 
-          <div className="grid">
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Ansiedade Excessiva</h3>
 
@@ -118,9 +107,7 @@ function SaudeMental() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Tristeza Persistente</h3>
 
@@ -131,9 +118,7 @@ function SaudeMental() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Isolamento Social</h3>
 
@@ -144,9 +129,7 @@ function SaudeMental() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Alterações no Sono</h3>
 
@@ -157,9 +140,7 @@ function SaudeMental() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Dificuldade de Concentração</h3>
 
@@ -170,9 +151,7 @@ function SaudeMental() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Mudanças de Comportamento</h3>
 
@@ -183,16 +162,11 @@ function SaudeMental() {
 
             </div>
 
-
           </div>
-
 
         </section>
 
-
-
-
-        <section className="content-card">
+        <section className={styles.contentCard}>
 
           <h2>🩺 Principais transtornos mentais</h2>
 
@@ -202,11 +176,9 @@ function SaudeMental() {
             podem realizar diagnósticos.
           </p>
 
+          <div className={styles.grid}>
 
-          <div className="grid">
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Depressão</h3>
 
@@ -217,9 +189,7 @@ function SaudeMental() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Transtornos de Ansiedade</h3>
 
@@ -230,9 +200,7 @@ function SaudeMental() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Transtorno Bipolar</h3>
 
@@ -243,9 +211,7 @@ function SaudeMental() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>Transtornos Alimentares</h3>
 
@@ -256,19 +222,13 @@ function SaudeMental() {
 
             </div>
 
-
           </div>
-
 
         </section>
 
-
-
-
-        <section className="content-card">
+        <section className={styles.contentCard}>
 
           <h2>🌱 Como cuidar da saúde mental?</h2>
-
 
           <ul>
 
@@ -302,16 +262,11 @@ function SaudeMental() {
 
           </ul>
 
-
         </section>
 
-
-
-
-        <section className="content-card">
+        <section className={styles.contentCard}>
 
           <h2>🛟 Como Buscar Ajuda?</h2>
-
 
           <ol>
 
@@ -337,16 +292,11 @@ function SaudeMental() {
 
           </ol>
 
-
         </section>
 
-
-
-
-        <section className="content-card">
+        <section className={styles.contentCard}>
 
           <h2>⚖️ Direitos Garantidos</h2>
-
 
           <ul>
 
@@ -376,22 +326,15 @@ function SaudeMental() {
 
           </ul>
 
-
         </section>
 
-
-
-
-        <section className="content-card">
-
+        <section className={styles.contentCard}>
 
           <h2>💭 Mitos e Verdades</h2>
 
+          <div className={styles.grid}>
 
-          <div className="grid">
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>"Pedir ajuda é sinal de fraqueza"</h3>
 
@@ -402,9 +345,7 @@ function SaudeMental() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>"Todo sofrimento precisa ser escondido"</h3>
 
@@ -415,9 +356,7 @@ function SaudeMental() {
 
             </div>
 
-
-
-            <div className="item">
+            <div className={styles.item}>
 
               <h3>"Terapia é apenas para pessoas com transtornos"</h3>
 
@@ -428,24 +367,17 @@ function SaudeMental() {
 
             </div>
 
-
           </div>
-
 
         </section>
 
-
-
-
-        <section className="content-card">
+        <section className={styles.contentCard}>
 
           <h2>📞 Telefones Úteis</h2>
 
+          <div className={styles.phones}>
 
-          <div className="phones">
-
-
-            <div className="phone">
+            <div className={styles.phone}>
 
               <h3>188</h3>
 
@@ -455,8 +387,7 @@ function SaudeMental() {
 
             </div>
 
-
-            <div className="phone">
+            <div className={styles.phone}>
 
               <h3>136</h3>
 
@@ -466,8 +397,7 @@ function SaudeMental() {
 
             </div>
 
-
-            <div className="phone">
+            <div className={styles.phone}>
 
               <h3>192</h3>
 
@@ -477,25 +407,17 @@ function SaudeMental() {
 
             </div>
 
-
           </div>
-
 
         </section>
 
-
-
-
-        <section className="content-card">
-
+        <section className={styles.contentCard}>
 
           <h2>📚 Fontes e Referências</h2>
 
+          <div className={styles.referenceCategory}>
 
-          <div className="reference-category">
-
-
-            <div className="reference-item">
+            <div className={styles.referenceItem}>
 
               <h4>Organização Mundial da Saúde (OMS)</h4>
 
@@ -514,9 +436,7 @@ function SaudeMental() {
 
             </div>
 
-
-
-            <div className="reference-item">
+            <div className={styles.referenceItem}>
 
               <h4>Sistema Único de Saúde (SUS)</h4>
 
@@ -534,12 +454,9 @@ function SaudeMental() {
 
             </div>
 
-
           </div>
 
-
-
-          <div className="info-box">
+          <div className={styles.infoBox}>
 
             <h3>📌 Importante</h3>
 
@@ -551,45 +468,42 @@ function SaudeMental() {
 
           </div>
 
-
         </section>
 
-
-
-
-        <section className="actions-section">
+        <section className={styles.actionsSection}>
 
           <h2>
             O que deseja fazer agora?
           </h2>
 
+          <div className={styles.actionsGrid}>
 
-          <div className="actions-grid">
-
-
-            <Link to="/direitos" className="action-card">
+            <Link
+              to="/direitos"
+              className={styles.actionCard}
+            >
               ⚖️ Voltar para Direitos
             </Link>
 
-
-            <Link to="/recursos" className="action-card">
+            <Link
+              to="/recursos"
+              className={styles.actionCard}
+            >
               📍 Encontrar Ajuda Próxima
             </Link>
 
-
-            <Link to="/cursos" className="action-card">
+            <Link
+              to="/cursos"
+              className={styles.actionCard}
+            >
               🎓 Cursos Relacionados
             </Link>
 
-
           </div>
-
 
         </section>
 
-
       </section>
-
 
       <Footer />
     </>
