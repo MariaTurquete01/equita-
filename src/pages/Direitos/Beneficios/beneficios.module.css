@@ -1,6 +1,72 @@
 .BenefitsPage {
     padding: 80px 10%;
-    background: #f8fafc;
+    background: var(--color-background);
+    color: var(--color-text);
+}
+
+.BenefitsPage .Badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border: 1px solid #e7d7cb;
+    border-radius: var(--radius-control);
+    background: var(--color-surface-soft);
+    color: var(--color-accent-strong);
+    font-size: 12px;
+}
+
+.BenefitsPage h1,
+.BenefitsPage h2,
+.BenefitsPage h3 {
+    color: var(--color-text);
+}
+
+.BenefitsPage p,
+.BenefitsPage li {
+    color: var(--color-text-muted);
+}
+
+.BenefitsPage .ContentCard,
+.BenefitsPage .ActionsSection {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-soft);
+}
+
+.BenefitsPage .Item,
+.BenefitsPage .Phone,
+.BenefitsPage .ActionCard {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-surface-soft);
+}
+
+.BenefitsPage .Phone h3,
+.BenefitsPage a {
+    color: var(--color-accent-strong);
+}
+
+.BenefitsPage .ActionCard:hover {
+    background: var(--color-accent);
+    color: var(--color-surface);
+    transform: none;
+}
+
+.BenefitsPage .InfoBox {
+    border-left-color: var(--color-accent);
+    border-radius: var(--radius-control);
+}
+
+.BenefitsPage :focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .BenefitsPage .ContentCard,
+    .BenefitsPage .ActionsSection {
+        padding: 22px 18px;
+    }
 }
 
 .BenefitsHero {

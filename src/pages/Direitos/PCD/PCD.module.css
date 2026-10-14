@@ -1,6 +1,65 @@
 .pcdPage {
   padding: 80px 10%;
-  background: #f8fafc;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+.pcdPage .badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid #e7d7cb;
+  border-radius: var(--radius-control);
+  background: var(--color-surface-soft);
+  color: var(--color-accent-strong);
+  font-size: 12px;
+}
+
+.pcdPage h1,
+.pcdPage h2,
+.pcdPage h3 {
+  color: var(--color-text);
+}
+
+.pcdPage p,
+.pcdPage li {
+  color: var(--color-text-muted);
+}
+
+.pcdPage .contentCard,
+.pcdPage .actionsSection {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.pcdPage .item,
+.pcdPage .actionCard {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface-soft);
+}
+
+.pcdPage a {
+  color: var(--color-accent-strong);
+}
+
+.pcdPage .actionCard:hover {
+  background: var(--color-accent);
+  color: var(--color-surface);
+  transform: none;
+}
+
+.pcdPage :focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .pcdPage .contentCard,
+  .pcdPage .actionsSection {
+    padding: 22px 18px;
+  }
 }
 
 .pcdHero {

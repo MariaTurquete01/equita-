@@ -274,3 +274,157 @@
         padding-right: 4%;
     }
 }
+
+.cadastrarCursoPage {
+    background: #fbf8f1;
+    color: #33231e;
+}
+
+.cadastrarCursoHero {
+    padding: 54px 22px 30px;
+    background: #fbf8f1;
+}
+
+.heroBadge {
+    padding: 6px 10px;
+    border: 1px solid #e7d7cb;
+    border-radius: 4px;
+    background: #f7eee8;
+    color: #8f4b37;
+    font-size: 12px;
+}
+
+.cadastrarCursoHero h1,
+.formHeader h2 {
+    color: #33231e;
+}
+
+.cadastrarCursoHero h1 {
+    margin: 14px 0 10px;
+    font-size: 34px;
+}
+
+.cadastrarCursoHero p,
+.formDescription {
+    color: #65564e;
+}
+
+.formSection {
+    padding: 24px 22px 58px;
+}
+
+.formCard {
+    max-width: 780px;
+    padding: 32px;
+    border: 1px solid #eee4da;
+    border-radius: 8px;
+    background: #fffdf9;
+    box-shadow: 0 8px 24px rgba(53, 35, 28, 0.06);
+}
+
+.formHeader {
+    margin-bottom: 24px;
+}
+
+.formGroup {
+    margin-bottom: 18px;
+}
+
+.formGroup label {
+    color: #493b35;
+    font-size: 14px;
+}
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+    padding: 11px 13px;
+    border-color: #d8cbc0;
+    border-radius: 5px;
+    color: #33231e;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+    border-color: #ad5941;
+    box-shadow: 0 0 0 3px rgba(173, 89, 65, 0.14);
+}
+
+.inputHelp {
+    color: #76685f;
+}
+
+.infoBox {
+    padding: 15px;
+    border: 1px solid #ead8cc;
+    border-radius: 5px;
+    background: #f7eee8;
+}
+
+.infoBox strong {
+    color: #914632;
+}
+
+.infoBox p {
+    color: #65564e;
+}
+
+.formActions {
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.cancelButton,
+.submitButton {
+    min-height: 44px;
+    padding: 0 16px;
+    border-radius: 5px;
+}
+
+.cancelButton {
+    border-color: #d8cbc0;
+    color: #65564e;
+}
+
+.submitButton {
+    background: #ad5941;
+}
+
+.submitButton:hover {
+    background: #914632;
+    transform: none;
+}
+
+.errorMessage {
+    margin: 0 0 18px;
+    padding: 12px 14px;
+    border: 1px solid #e7ceca;
+    border-radius: 5px;
+    background: #f9efed;
+    color: #8b3f35;
+    font-size: 14px;
+}
+
+.cadastrarCursoPage :focus-visible {
+    outline: 3px solid #c77a5f;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .cadastrarCursoHero {
+        padding: 42px 18px 24px;
+    }
+
+    .cadastrarCursoHero h1 {
+        font-size: 30px;
+    }
+
+    .formSection {
+        padding: 20px 16px 42px;
+    }
+
+    .formCard {
+        padding: 22px 18px;
+    }
+}

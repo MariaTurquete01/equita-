@@ -20,12 +20,14 @@ import Trabalhistas from "../pages/Direitos/Trabalhistas/Trabalhistas";
 import Familia from "../pages/Direitos/Familia/Familia";
 import Beneficios from "../pages/Direitos/Beneficios/Beneficios";
 import CursoDetalhe from "../pages/Cursos/CursoDetalhe";
+import CursosDoAluno from "../pages/Cursos/MeusCursos";
 import Denuncias from "../pages/Denuncias/Denuncias";
 import Protocolo from "../pages/Protocolo/Protoclo";
 import MeusCursos from "../pages/Voluntario/MeusCursos/MeusCursos";
 import CadastrarCurso from "../pages/Voluntario/CadastrarCurso/CadastrarCurso";
 import Perfil from "../pages/Perfil/Perfil";
 import Configuracoes from "../pages/Configuracoes/Configuracoes";
+import Dashboard from "../pages/Dashboard/Dashoboard";
 
 function AppRoutes() {
   return (
@@ -74,6 +76,8 @@ function AppRoutes() {
 
         <Route path="/curso/:id" element={<CursoDetalhe/>} />
 
+        <Route path="/meus-cursos" element={<CursosDoAluno/>} />
+
         <Route path="/denuncias" element={<Denuncias/>} />
 
         <Route path="/protocolo" element={<Protocolo/>} />
@@ -85,6 +89,8 @@ function AppRoutes() {
         <Route path="/perfil" element={<Perfil />} />
 
         <Route path="/configuracoes" element={<Configuracoes/>} />
+
+        <Route path="/admin" element={<Dashboard />} />
 
       </Routes>
     </BrowserRouter>

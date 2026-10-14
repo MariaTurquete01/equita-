@@ -1,17 +1,57 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
 import styles from "./denuncias.module.css";
 
+const CHAVE_DENUNCIAS = "equita_denuncias";
+
 function Denuncias() {
-  const [anonima, setAnonima] = useState(false);
+  const [identificacao, setIdentificacao] = useState("");
+  const [protocolo, setProtocolo] = useState("");
+  const [erro, setErro] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    alert("Denúncia enviada com sucesso!");
+    const dados = new FormData(event.currentTarget);
+    const arquivo = dados.get("arquivo");
+
+    try {
+      const denunciasSalvas = JSON.parse(
+        window.sessionStorage.getItem(CHAVE_DENUNCIAS) || "[]"
+      );
+      const numeroProtocolo = `EQ-${new Date().getFullYear()}-${Math.random()
+        .toString(36)
+        .slice(2, 8)
+        .toUpperCase()}`;
+      const denuncia = {
+        protocolo: numeroProtocolo,
+        tipo: dados.get("tipo"),
+        descricao: dados.get("descricao"),
+        data: dados.get("data"),
+        local: dados.get("local"),
+        identificacao,
+        nome: dados.get("nome") || "",
+        contato: dados.get("contato") || "",
+        anexo: arquivo instanceof File && arquivo.size > 0 ? arquivo.name : "",
+        status: "Recebida",
+        criadaEm: new Date().toISOString(),
+      };
+
+      window.sessionStorage.setItem(
+        CHAVE_DENUNCIAS,
+        JSON.stringify([...denunciasSalvas, denuncia])
+      );
+      setProtocolo(numeroProtocolo);
+      setErro("");
+      event.currentTarget.reset();
+      setIdentificacao("");
+    } catch {
+      setErro("Não foi possível registrar a denúncia nesta sessão. Tente novamente.");
+    }
   };
 
   return (
@@ -33,8 +73,8 @@ function Denuncias() {
           </h1>
 
           <p>
-            Sua denúncia será encaminhada para análise. Você pode optar por
-            realizá-la de forma identificada ou anônima.
+            Registre as informações do ocorrido e escolha se deseja se identificar
+            ou permanecer anônimo.
           </p>
 
         </section>
@@ -52,15 +92,20 @@ function Denuncias() {
               Informações da denúncia
             </h2>
 
+            <p className={styles.formNotice}>
+              Este protótipo salva o registro apenas nesta sessão do navegador. Ele
+              não envia a denúncia a um serviço externo, e arquivos anexados não são enviados.
+            </p>
+
             {/* Tipo */}
 
             <div className={styles.inputGroup}>
 
               <label htmlFor="tipo">
-                Tipo da denúncia
+                Tipo da denúncia <span aria-hidden="true">*</span>
               </label>
 
-              <select id="tipo" required>
+              <select id="tipo" name="tipo" required>
 
                 <option value="">
                   Selecione
@@ -107,11 +152,12 @@ function Denuncias() {
             <div className={styles.inputGroup}>
 
               <label htmlFor="descricao">
-                Descrição
+                Descrição <span aria-hidden="true">*</span>
               </label>
 
               <textarea
                 id="descricao"
+                name="descricao"
                 rows="7"
                 placeholder="Descreva detalhadamente o ocorrido."
                 required
@@ -126,12 +172,13 @@ function Denuncias() {
               <div className={styles.inputGroup}>
 
                 <label htmlFor="data">
-                  Data
+                  Data <span aria-hidden="true">*</span>
                 </label>
 
                 <input
                   id="data"
                   type="date"
+                  name="data"
                   required
                 />
 
@@ -140,12 +187,13 @@ function Denuncias() {
               <div className={styles.inputGroup}>
 
                 <label htmlFor="local">
-                  Local
+                  Local <span aria-hidden="true">*</span>
                 </label>
 
                 <input
                   id="local"
                   type="text"
+                  name="local"
                   placeholder="Cidade, bairro ou endereço"
                   required
                 />
@@ -164,29 +212,56 @@ function Denuncias() {
 
               <input
                 id="arquivo"
+                name="arquivo"
                 type="file"
               />
 
             </div>
 
-            {/* Anônima */}
+            <fieldset className={styles.identificationFieldset}>
+              <legend>Como deseja se identificar? <span aria-hidden="true">*</span></legend>
+              <div className={styles.identificationOptions}>
+                <label className={styles.identificationOption} htmlFor="identificada">
+                  <input
+                    id="identificada"
+                    type="radio"
+                    name="identificacao"
+                    value="identificada"
+                    checked={identificacao === "identificada"}
+                    onChange={(event) => setIdentificacao(event.target.value)}
+                    required
+                  />
+                  <span>Identificada</span>
+                </label>
+                <label className={styles.identificationOption} htmlFor="anonima">
+                  <input
+                    id="anonima"
+                    type="radio"
+                    name="identificacao"
+                    value="anonima"
+                    checked={identificacao === "anonima"}
+                    onChange={(event) => setIdentificacao(event.target.value)}
+                    required
+                  />
+                  <span>Anônima</span>
+                </label>
+              </div>
+            </fieldset>
 
-            <div className={styles.checkbox}>
+            {identificacao === "identificada" && (
+              <div className={styles.row}>
+                <div className={styles.inputGroup}>
+                  <label htmlFor="nome">Nome completo <span aria-hidden="true">*</span></label>
+                  <input id="nome" name="nome" type="text" autoComplete="name" required />
+                </div>
+                <div className={styles.inputGroup}>
+                  <label htmlFor="contato">E-mail ou telefone <span aria-hidden="true">*</span></label>
+                  <input id="contato" name="contato" type="text" autoComplete="email" required />
+                </div>
+              </div>
+            )}
 
-              <input
-                id="anonima"
-                type="checkbox"
-                checked={anonima}
-                onChange={(event) => setAnonima(event.target.checked)}
-              />
-
-              <label htmlFor="anonima">
-                Desejo realizar esta denúncia de forma anônima.
-              </label>
-
-            </div>
-
-            {/* Botão */}
+            {erro && <p className={styles.errorMessage} role="alert">{erro}</p>}
 
             <button
               type="submit"
@@ -199,30 +274,30 @@ function Denuncias() {
 
         </section>
 
-        {/* RESULTADO */}
-
-        <section className={styles.protocolSection}>
-
+        <section className={styles.protocolSection} aria-live="polite">
           <div className={styles.protocolCard}>
-
-            <h2>
-              Após o envio
-            </h2>
-
-            <p>
-              Sua denúncia será registrada e receberá um número de protocolo.
-            </p>
-
-            <div className={styles.protocol}>
-              EQ-2026-000001
-            </div>
-
-            <p>
-              Utilize este protocolo para acompanhar o andamento da denúncia.
-            </p>
-
+            {protocolo ? (
+              <>
+                <h2>Denúncia registrada</h2>
+                <p>Guarde este protocolo para consultar o andamento nesta sessão.</p>
+                <div className={styles.protocol}>{protocolo}</div>
+                <Link
+                  className={styles.protocolLink}
+                  to={`/protocolo?numero=${encodeURIComponent(protocolo)}`}
+                >
+                  Consultar protocolo
+                </Link>
+              </>
+            ) : (
+              <>
+                <h2>Já tem um protocolo?</h2>
+                <p>Acompanhe o andamento de uma denúncia registrada.</p>
+                <Link className={styles.protocolLink} to="/protocolo">
+                  Consultar protocolo
+                </Link>
+              </>
+            )}
           </div>
-
         </section>
 
       </main>

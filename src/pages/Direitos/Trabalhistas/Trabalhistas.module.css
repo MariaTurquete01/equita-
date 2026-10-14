@@ -1,6 +1,74 @@
 .workPage {
   padding: 80px 10%;
-  background: #f8fafc;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+.workPage .badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid #e7d7cb;
+  border-radius: var(--radius-control);
+  background: var(--color-surface-soft);
+  color: var(--color-accent-strong);
+  font-size: 12px;
+}
+
+.workPage h1,
+.workPage h2,
+.workPage h3,
+.workPage h4 {
+  color: var(--color-text);
+}
+
+.workPage p,
+.workPage li {
+  color: var(--color-text-muted);
+}
+
+.workPage .contentCard,
+.workPage .actionsSection {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.workPage .item,
+.workPage .phone,
+.workPage .referenceItem,
+.workPage .actionCard {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface-soft);
+}
+
+.workPage .phone h3,
+.workPage a {
+  color: var(--color-accent-strong);
+}
+
+.workPage .infoBox {
+  border-left-color: var(--color-accent);
+  border-radius: var(--radius-control);
+}
+
+.workPage .actionCard:hover {
+  background: var(--color-accent);
+  color: var(--color-surface);
+  transform: none;
+}
+
+.workPage :focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .workPage .contentCard,
+  .workPage .actionsSection {
+    padding: 22px 18px;
+  }
 }
 
 .workHero {

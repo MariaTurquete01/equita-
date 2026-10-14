@@ -7,12 +7,26 @@ import cursos from "./cursos";
 
 import styles from "./detalhe.module.css";
 
+const CHAVE_INSCRICOES = "equita_cursos_inscritos";
+
+function obterInscricao(cursoId) {
+  try {
+    const inscricoes = JSON.parse(window.localStorage.getItem(CHAVE_INSCRICOES) || "[]");
+    return Array.isArray(inscricoes)
+      ? inscricoes.find((inscricao) => inscricao.cursoId === cursoId) || null
+      : null;
+  } catch {
+    return null;
+  }
+}
+
 function CursoDetalhe() {
   const { id } = useParams();
 
   const curso = cursos.find(
     (curso) => curso.id === Number(id)
   );
+  const inscricao = obterInscricao(Number(id));
 
   if (!curso) {
     return (
@@ -40,11 +54,6 @@ function CursoDetalhe() {
 
         {/* HERO */}
         <section className={styles.courseHero}>
-          <img
-            src={curso.imagem}
-            alt={curso.titulo}
-          />
-
           <div className={styles.courseHeroContent}>
             <span className={styles.courseCategory}>
               {curso.categoria}
@@ -80,16 +89,28 @@ function CursoDetalhe() {
             Seu progresso
           </h2>
 
-          <div className={styles.progressBar}>
-            <div
-              className={styles.progressFill}
-              style={{ width: "0%" }}
-            ></div>
-          </div>
-
-          <p>
-            0% concluído
-          </p>
+          {inscricao ? (
+            <>
+              <div
+                className={styles.progressBar}
+                role="progressbar"
+                aria-label="Progresso do curso"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow={inscricao.progresso}
+              >
+                <div
+                  className={styles.progressFill}
+                  style={{ width: `${inscricao.progresso}%` }}
+                />
+              </div>
+              <p>{inscricao.progresso}% concluído</p>
+            </>
+          ) : (
+            <p>
+              Você ainda não está inscrito neste curso. <Link to="/cursos">Voltar aos cursos para se inscrever.</Link>
+            </p>
+          )}
         </section>
 
         {/* AULAS */}
@@ -177,7 +198,7 @@ function CursoDetalhe() {
         </section>
 
         {/* CERTIFICADO */}
-        <section className={styles.certificateSection}>
+        <section id="certificado" className={styles.certificateSection}>
           <h2>
             Certificado
           </h2>

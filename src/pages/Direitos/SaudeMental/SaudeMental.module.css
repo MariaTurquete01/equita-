@@ -1,6 +1,74 @@
 .mentalPage {
   padding: 80px 10%;
-  background: #f8fafc;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+.mentalPage .badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid #e7d7cb;
+  border-radius: var(--radius-control);
+  background: var(--color-surface-soft);
+  color: var(--color-accent-strong);
+  font-size: 12px;
+}
+
+.mentalPage h1,
+.mentalPage h2,
+.mentalPage h3,
+.mentalPage h4 {
+  color: var(--color-text);
+}
+
+.mentalPage p,
+.mentalPage li {
+  color: var(--color-text-muted);
+}
+
+.mentalPage .contentCard,
+.mentalPage .actionsSection {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.mentalPage .item,
+.mentalPage .phone,
+.mentalPage .referenceItem,
+.mentalPage .actionCard {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface-soft);
+}
+
+.mentalPage .phone h3,
+.mentalPage a {
+  color: var(--color-accent-strong);
+}
+
+.mentalPage .infoBox {
+  border-left-color: var(--color-accent);
+  border-radius: var(--radius-control);
+}
+
+.mentalPage .actionCard:hover {
+  background: var(--color-accent);
+  color: var(--color-surface);
+  transform: none;
+}
+
+.mentalPage :focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .mentalPage .contentCard,
+  .mentalPage .actionsSection {
+    padding: 22px 18px;
+  }
 }
 
 .mentalHero {

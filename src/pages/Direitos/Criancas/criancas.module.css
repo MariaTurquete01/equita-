@@ -1,6 +1,75 @@
 .ChildrenPage {
     padding: 80px 10%;
-    background: #f8fafc;
+    background: var(--color-background);
+    color: var(--color-text);
+}
+
+.ChildrenPage .Badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border: 1px solid #e7d7cb;
+    border-radius: var(--radius-control);
+    background: var(--color-surface-soft);
+    color: var(--color-accent-strong);
+    font-size: 12px;
+}
+
+.ChildrenPage h1,
+.ChildrenPage h2,
+.ChildrenPage h3,
+.ChildrenPage h4 {
+    color: var(--color-text);
+}
+
+.ChildrenPage p,
+.ChildrenPage li {
+    color: var(--color-text-muted);
+}
+
+.ChildrenPage .ContentCard,
+.ChildrenPage .ActionsSection {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-soft);
+}
+
+.ChildrenPage .Item,
+.ChildrenPage .Phone,
+.ChildrenPage .ReferenceItem,
+.ChildrenPage .ActionCard {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-surface-soft);
+}
+
+.ChildrenPage .Phone h3,
+.ChildrenPage .ReferenceItem h4,
+.ChildrenPage a {
+    color: var(--color-accent-strong);
+}
+
+.ChildrenPage .InfoBox {
+    border-left-color: var(--color-accent);
+    border-radius: var(--radius-control);
+}
+
+.ChildrenPage .ActionCard:hover {
+    background: var(--color-accent);
+    color: var(--color-surface);
+    transform: none;
+}
+
+.ChildrenPage :focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .ChildrenPage .ContentCard,
+    .ChildrenPage .ActionsSection {
+        padding: 22px 18px;
+    }
 }
 
 .ChildrenHero {

@@ -184,5 +184,57 @@
     }
  
 }
+
+.perfilPage {
+    background: var(--color-background);
+}
+
+.perfilHero {
+    padding: 52px 22px 28px;
+    background: var(--color-background);
+}
+
+.heroBadge {
+    padding: 6px 10px;
+    border: 1px solid #e7d7cb;
+    border-radius: var(--radius-control);
+    background: var(--color-surface-soft);
+    color: var(--color-accent-strong);
+    font-size: 12px;
+}
+
+.perfilHero h1,
+.perfilInfo h2 {
+    color: var(--color-text);
+}
+
+.perfilHero p,
+.infoItem span {
+    color: var(--color-text-muted);
+}
+
+.perfilContent {
+    padding: 24px 22px 58px;
+}
+
+.perfilCard {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-soft);
+}
+
+.perfilFoto {
+    border-radius: var(--radius-card);
+    background: var(--color-surface-soft);
+}
+
+.infoItem {
+    border-color: var(--color-border);
+}
+
+.infoItem strong {
+    color: var(--color-text);
+}
  
  

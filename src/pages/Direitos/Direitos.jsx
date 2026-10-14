@@ -14,7 +14,7 @@ const categorias = [
       "mulher",
       "violência",
       "agressão",
-      "maria da penhas",
+      "maria da penha",
       "feminicídio",
       "abuso",
       "companheiro",
@@ -252,14 +252,18 @@ const categorias = [
 function Direitos() {
   const [pesquisa, setPesquisa] = useState("");
 
-  const textoPesquisa = pesquisa.trim().toLowerCase();
+  const normalizar = (texto) => texto
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+  const textoPesquisa = normalizar(pesquisa.trim());
 
   const categoriasFiltradas = categorias.filter((categoria) => {
     return (
-      categoria.titulo.toLowerCase().includes(textoPesquisa) ||
-      categoria.descricao.toLowerCase().includes(textoPesquisa) ||
+      normalizar(categoria.titulo).includes(textoPesquisa) ||
+      normalizar(categoria.descricao).includes(textoPesquisa) ||
       categoria.palavrasChave.some((palavra) =>
-        palavra.toLowerCase().includes(textoPesquisa)
+        normalizar(palavra).includes(textoPesquisa)
       )
     );
   });
@@ -268,7 +272,7 @@ function Direitos() {
     <>
       <Navbar />
 
-      <section className={styles.rightsPage}>
+      <main className={styles.rightsPage}>
 
         <div className={styles.rightsHeader}>
 
@@ -276,13 +280,10 @@ function Direitos() {
             Central de Direitos
           </span>
 
-          <h1>
-            Conheça seus direitos e saiba onde buscar ajuda
-          </h1>
+          <h1>Guia de Direitos</h1>
 
           <p>
-            Informações acessíveis para orientar,
-            proteger e apoiar cidadãos.
+            Orientações acessíveis sobre direitos, proteção e caminhos para buscar apoio.
           </p>
 
         </div>
@@ -290,7 +291,8 @@ function Direitos() {
         <div className={styles.searchContainer}>
 
           <input
-            type="text"
+            type="search"
+            aria-label="Pesquisar categorias do Guia de Direitos"
             placeholder="Pesquisar assunto..."
             value={pesquisa}
             onChange={(e) => setPesquisa(e.target.value)}
@@ -309,22 +311,17 @@ function Direitos() {
                 to={categoria.rota}
                 className={styles.rightsCard}
               >
-
-                <h3>
-                  {categoria.icone} {categoria.titulo}
-                </h3>
-
-                <p>
-                  {categoria.descricao}
-                </p>
-
+                <span className={styles.cardIcon} aria-hidden="true">{categoria.icone}</span>
+                <h2>{categoria.titulo}</h2>
+                <p>{categoria.descricao}</p>
+                <span className={styles.cardAction}>Acessar guia <span aria-hidden="true">→</span></span>
               </Link>
 
             ))
 
           ) : (
 
-            <div className={styles.noResults}>
+            <div className={styles.noResults} role="status">
 
               <h3>
                 Nenhum resultado encontrado.
@@ -340,7 +337,7 @@ function Direitos() {
 
         </div>
 
-      </section>
+      </main>
 
       <Footer />
     </>

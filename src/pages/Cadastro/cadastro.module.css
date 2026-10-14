@@ -238,3 +238,171 @@
     }
 
 }
+
+.registerPage {
+    min-height: 60vh;
+    grid-template-columns: minmax(0, 1fr);
+    background: #fbf8f1;
+}
+
+.registerFormSection {
+    grid-column: 1 / -1;
+    align-items: flex-start;
+    padding: 42px 20px 58px;
+}
+
+.registerCard {
+    max-width: 480px;
+    padding: 28px;
+    border: 1px solid #eee4da;
+    border-radius: 8px;
+    background: #fffdf9;
+    box-shadow: 0 8px 24px rgba(53, 35, 28, 0.06);
+}
+
+.registerBadge {
+    display: inline-block;
+    width: auto;
+    margin-bottom: 14px;
+    padding: 6px 10px;
+    border: 1px solid #e7d7cb;
+    border-radius: 4px;
+    background: #f7eee8;
+    color: #8f4b37;
+    font-size: 12px;
+}
+
+.registerCard h1 {
+    margin: 0 0 8px;
+    color: #33231e;
+    font-size: 28px;
+}
+
+.registerCard > p {
+    margin: 0 0 22px;
+    color: #65564e;
+    font-size: 14px;
+}
+
+.registerCard > .serviceNotice {
+    margin: -8px 0 19px;
+    padding: 10px 12px;
+    border-left: 3px solid #ad5941;
+    background: #f7eee8;
+    color: #65564e;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.inputGroup {
+    margin-bottom: 16px;
+}
+
+.inputGroup label {
+    color: #493b35;
+    font-size: 14px;
+}
+
+.inputGroup input,
+.inputGroup select {
+    min-height: 42px;
+    padding: 9px 11px;
+    border: 1px solid #d8cbc0;
+    border-radius: 5px;
+    color: #33231e;
+    box-sizing: border-box;
+}
+
+.inputGroup input:focus,
+.inputGroup select:focus {
+    border-color: #ad5941;
+    box-shadow: 0 0 0 3px rgba(173, 89, 65, 0.14);
+}
+
+.passwordInput {
+    display: flex;
+    flex-direction: row;
+}
+
+.passwordInput input {
+    min-width: 0;
+    border-radius: 5px 0 0 5px;
+}
+
+.passwordInput button {
+    flex: 0 0 auto;
+    border: 1px solid #d8cbc0;
+    border-left: 0;
+    border-radius: 0 5px 5px 0;
+    background: #f7eee8;
+    color: #914632;
+    font-size: 13px;
+}
+
+.passwordInput button:hover {
+    background: #efdfd4;
+}
+
+.volunteerNotice,
+.errorMessage,
+.feedbackMessage {
+    margin: 0 0 14px;
+    padding: 10px 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.volunteerNotice,
+.feedbackMessage {
+    border: 1px solid #ead8cc;
+    background: #f7eee8;
+    color: #65564e;
+}
+
+.errorMessage {
+    border: 1px solid #e7ceca;
+    background: #f9efed;
+    color: #8b3f35;
+}
+
+.registerButton {
+    min-height: 46px;
+    padding: 11px 16px;
+    border-radius: 5px;
+    background: #ad5941;
+}
+
+.registerButton:hover {
+    background: #914632;
+    transform: none;
+}
+
+.divider {
+    margin: 19px 0 14px;
+    color: #76685f;
+    font-size: 13px;
+}
+
+.loginLink {
+    color: #914632;
+}
+
+.registerPage :focus-visible {
+    outline: 3px solid #c77a5f;
+    outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+    .registerFormSection {
+        padding: 30px 16px 44px;
+    }
+
+    .registerCard {
+        padding: 22px 18px;
+    }
+
+    .passwordInput {
+        flex-direction: row;
+    }
+}

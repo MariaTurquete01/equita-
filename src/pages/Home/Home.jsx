@@ -6,7 +6,6 @@ import ODSSection from "../../components/ODSSection/ODSSection";
 import HowItWorks from "../../components/HowItWorks/HowItWorks";
 import Partners from "../../components/Partners/Partners";
 import FAQ from "../../components/FAQ/FAQ";
-import Direitos from "../Direitos/Direitos";
 
 function Home() {
   return (

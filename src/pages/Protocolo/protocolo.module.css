@@ -204,3 +204,144 @@
 
 }
 
+.protocol-page {
+    background: #fbf8f1;
+    color: #33231e;
+}
+
+.protocol-hero {
+    padding: 58px 24px 30px;
+    background: #fbf8f1;
+}
+
+.protocol-hero .hero-badge {
+    border: 1px solid #e7d7cb;
+    border-radius: 4px;
+    background: #f4e9df;
+    color: #8f4b37;
+    font-size: 13px;
+}
+
+.protocol-hero h1,
+.consulta-card h2,
+.status-card h2,
+.status-item h3 {
+    color: #33231e;
+}
+
+.protocol-hero h1 {
+    font-size: 36px;
+}
+
+.protocol-hero p,
+.status-item p {
+    color: #65564e;
+}
+
+.consulta-section {
+    padding: 24px 24px 30px;
+}
+
+.consulta-card,
+.status-card {
+    max-width: 740px;
+    border: 1px solid #eee4da;
+    border-radius: 8px;
+    background: #fffdf9;
+    box-shadow: 0 8px 24px rgba(53, 35, 28, 0.06);
+}
+
+.consulta-card {
+    padding: 32px;
+}
+
+.input-group label {
+    color: #493b35;
+}
+
+.input-group input {
+    min-height: 46px;
+    padding: 11px 13px;
+    border: 1px solid #d8cbc0;
+    border-radius: 5px;
+    color: #33231e;
+}
+
+.input-group input:focus {
+    border-color: #ad5941;
+    box-shadow: 0 0 0 3px rgba(173, 89, 65, 0.15);
+}
+
+.error-message {
+    margin: -8px 0 18px;
+    color: #8b2f24;
+    font-size: 14px;
+}
+
+.consultar-button {
+    min-height: 48px;
+    padding: 12px 18px;
+    border-radius: 5px;
+    background: #ad5941;
+}
+
+.consultar-button:hover {
+    background: #914632;
+    transform: translateY(-1px);
+}
+
+.status-section {
+    padding: 0 24px 60px;
+}
+
+.status-card {
+    padding: 32px;
+}
+
+.status-card h2 {
+    margin-bottom: 12px;
+}
+
+.current-status {
+    margin-bottom: 30px;
+    color: #65564e;
+}
+
+.current-status strong {
+    color: #914632;
+}
+
+.status-item h3 {
+    margin-top: 0;
+}
+
+.status-item.active .status-circle {
+    background: #ad5941;
+}
+
+.protocol-page :focus-visible {
+    outline: 3px solid #c77a5f;
+    outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+    .protocol-hero {
+        padding: 46px 20px 24px;
+    }
+
+    .protocol-hero h1 {
+        font-size: 30px;
+    }
+
+    .consulta-section,
+    .status-section {
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+
+    .consulta-card,
+    .status-card {
+        padding: 24px 20px;
+    }
+}
+

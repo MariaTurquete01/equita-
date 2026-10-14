@@ -9,150 +9,216 @@ function Sobre() {
             <Navbar />
 
             <main className={styles.aboutPage}>
-                {/* HERO */}
                 <section className={styles.aboutHero}>
-                    <span className={styles.heroBadge}>
-                        Sobre o Equitá
-                    </span>
-
-                    <h1>
-                        Promovendo cidadania, segurança e acesso aos direitos.
-                    </h1>
-
+                    <span className={styles.heroBadge}>Sobre o Equitá</span>
+                    <h1>Quando a informação deixa de ser só dado e vira proteção.</h1>
                     <p>
-                        O Equitá é uma plataforma desenvolvida para facilitar o
-                        acesso à informação, incentivar a cidadania e aproximar
-                        pessoas dos serviços de proteção, educação e apoio
-                        social. Nossa missão é oferecer um ambiente seguro,
-                        acessível e acolhedor para todos.
+                        O Equitá nasceu da necessidade de criar um espaço mais humano
+                        e acessível para quem busca ajuda, orientação e segurança. Nossa
+                        proposta é conectar pessoas a informação, acolhimento e serviços
+                        que realmente façam diferença na vida de quem vive situações de
+                        vulnerabilidade, medo ou exclusão.
                     </p>
                 </section>
 
-                {/* MISSÃO | VISÃO | VALORES */}
+                <section className={styles.storySection}>
+                    <div className={styles.storyText}>
+                        <span className={styles.sectionLabel}>Nossa história</span>
+                        <h2>Um projeto pensado para quem muitas vezes não sabe por onde começar.</h2>
+                        <p>
+                            Em um cenário em que muitas pessoas ainda encontram dificuldade para
+                            denunciar violência, localizar apoio próximo, entender seus direitos e
+                            acessar conteúdos educativos, percebemos que a tecnologia poderia ser uma
+                            ferramenta de transformação social.
+                        </p>
+                        <p>
+                            O Equitá foi criado para reduzir essa distância. Queremos oferecer um
+                            lugar em que a pessoa possa encontrar orientação clara, recursos confiáveis
+                            e caminhos de ação sem precisar enfrentar barreiras de informação, medo ou
+                            desorganização.
+                        </p>
+                    </div>
+
+                    <div className={styles.storyPanel}>
+                        <div className={styles.storyStat}>
+                            <strong>1</strong>
+                            <span>lugar de acolhimento</span>
+                        </div>
+                        <div className={styles.storyStat}>
+                            <strong>2</strong>
+                            <span>acesso à informação</span>
+                        </div>
+                        <div className={styles.storyStat}>
+                            <strong>3</strong>
+                            <span>caminho para ação</span>
+                        </div>
+                    </div>
+                </section>
+
                 <section className={styles.missionSection}>
+                    <div className={styles.sectionHeader}>
+                        <span className={styles.sectionLabel}>Propósito</span>
+                        <h2>O que nos move</h2>
+                    </div>
+
                     <div className={styles.missionGrid}>
                         <div className={styles.missionCard}>
-                            <h2>🎯 Missão</h2>
-
+                            <h3>🎯 Missão</h3>
                             <p>
-                                Promover o acesso aos direitos, incentivar a
-                                cidadania e conectar pessoas aos serviços de
-                                proteção e apoio por meio da tecnologia.
+                                Promover acesso à informação, cidadania e proteção por meio de uma
+                                plataforma acessível, acolhedora e funcional.
                             </p>
                         </div>
 
                         <div className={styles.missionCard}>
-                            <h2>👁️ Visão</h2>
-
+                            <h3>👁️ Visão</h3>
                             <p>
-                                Ser uma plataforma de referência em cidadania
-                                digital, contribuindo para uma sociedade mais
-                                justa, segura e inclusiva.
+                                Ser uma referência em tecnologia social para fortalecer direitos,
+                                reduzir vulnerabilidades e aproximar pessoas de suporte real.
                             </p>
                         </div>
 
                         <div className={styles.missionCard}>
-                            <h2>💙 Valores</h2>
-
+                            <h3>💙 Valores</h3>
                             <ul>
-                                <li>Respeito</li>
-                                <li>Inclusão</li>
-                                <li>Transparência</li>
-                                <li>Ética</li>
-                                <li>Segurança</li>
+                                <li>Respeito às histórias e às vulnerabilidades</li>
+                                <li>Inclusão de todos os públicos</li>
+                                <li>Segurança e confidencialidade</li>
+                                <li>Transparência e empatia</li>
                             </ul>
                         </div>
                     </div>
                 </section>
 
-                {/* SERVIÇOS */}
-                <section className={styles.servicesSection}>
-                    <h2>O que o Equitá oferece?</h2>
+                <section className={styles.impactSection}>
+                    <div className={styles.sectionHeader}>
+                        <span className={styles.sectionLabel}>O problema</span>
+                        <h2>O que queremos transformar</h2>
+                    </div>
 
-                    <p className={styles.sectionDescription}>
-                        A plataforma reúne diferentes serviços em um único
-                        ambiente, tornando o acesso à informação, à proteção e
-                        ao aprendizado mais simples e acessível.
-                    </p>
+                    <div className={styles.impactGrid}>
+                        <div className={styles.impactCard}>
+                            <span className={styles.impactIcon}>🚨</span>
+                            <h3>Falta de segurança para denunciar</h3>
+                            <p>
+                                Muitas pessoas não denunciam por medo, insegurança ou porque não
+                                sabem a quem recorrer.
+                            </p>
+                        </div>
+
+                        <div className={styles.impactCard}>
+                            <span className={styles.impactIcon}>📍</span>
+                            <h3>Serviços espalhados e pouco acessíveis</h3>
+                            <p>
+                                A busca por apoio muitas vezes exige muita navegação e pouca clareza.
+                            </p>
+                        </div>
+
+                        <div className={styles.impactCard}>
+                            <span className={styles.impactIcon}>📚</span>
+                            <h3>Desinformação e pouca orientação</h3>
+                            <p>
+                                Nem todas as pessoas conhecem seus direitos ou os caminhos para agir.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section className={styles.journeySection}>
+                    <div className={styles.sectionHeader}>
+                        <span className={styles.sectionLabel}>Como pensamos</span>
+                        <h2>Nosso caminho de solução</h2>
+                    </div>
+
+                    <div className={styles.journeyGrid}>
+                        <div className={styles.journeyCard}>
+                            <span>01</span>
+                            <h3>Conectar</h3>
+                            <p>
+                                Unimos informação, acolhimento e serviços em uma única plataforma,
+                                tornando o acesso mais simples e direto.
+                            </p>
+                        </div>
+
+                        <div className={styles.journeyCard}>
+                            <span>02</span>
+                            <h3>Educar</h3>
+                            <p>
+                                Oportunizamos conteúdos que ajudam a entender direitos, prevenção,
+                                cidadania e suporte emocional.
+                            </p>
+                        </div>
+
+                        <div className={styles.journeyCard}>
+                            <span>03</span>
+                            <h3>Empoderar</h3>
+                            <p>
+                                A partir do acesso à informação e de conexões reais, a pessoa ganha
+                                confiança para agir com segurança.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section className={styles.servicesSection}>
+                    <div className={styles.sectionHeader}>
+                        <span className={styles.sectionLabel}>O que oferecemos</span>
+                        <h2>Ferramentas para cuidado, informação e cidadania</h2>
+                    </div>
 
                     <div className={styles.servicesGrid}>
                         <div className={styles.serviceCard}>
                             <span>🚨</span>
-
-                            <h3>Canal de Denúncias</h3>
-
+                            <h3>Canal de denúncias</h3>
                             <p>
-                                Permite registrar denúncias de forma segura,
-                                identificada ou anônima, com acompanhamento por
-                                protocolo.
+                                Registro seguro de ocorrências com atenção à privacidade e ao acolhimento.
                             </p>
                         </div>
 
                         <div className={styles.serviceCard}>
                             <span>📍</span>
-
-                            <h3>Localizador de Recursos</h3>
-
+                            <h3>Recursos de apoio</h3>
                             <p>
-                                Ajuda o usuário a encontrar instituições de
-                                apoio próximas, como CRAS, CREAS, hospitais,
-                                delegacias e ONGs.
+                                Mapa e busca por instituições próximas, como ONGs, hospitais, defensoria e serviços sociais.
                             </p>
                         </div>
 
                         <div className={styles.serviceCard}>
                             <span>📚</span>
-
-                            <h3>Guia de Direitos</h3>
-
+                            <h3>Guia de direitos</h3>
                             <p>
-                                Disponibiliza informações sobre direitos,
-                                orientações e caminhos para buscar ajuda em
-                                diferentes situações.
+                                Conteúdos em linguagem acessível para orientar pessoas sobre seus direitos e caminhos de ajuda.
                             </p>
                         </div>
 
                         <div className={styles.serviceCard}>
                             <span>🎓</span>
-
-                            <h3>Plataforma de Cursos</h3>
-
+                            <h3>Cursos educativos</h3>
                             <p>
-                                Oferece cursos gratuitos para promover
-                                conhecimento, cidadania e desenvolvimento
-                                pessoal.
+                                Espaço de aprendizagem para fortalecer conhecimento, empatia e participação cidadã.
                             </p>
                         </div>
                     </div>
                 </section>
 
-                {/* ODS */}
                 <section className={styles.odsSection}>
                     <div className={styles.odsCard}>
-                        <h2>
-                            🌍 Objetivo de Desenvolvimento Sustentável 16
-                        </h2>
-
+                        <span className={styles.sectionLabelLight}>ODS 16</span>
+                        <h2>Paz, justiça e instituições eficazes</h2>
                         <p>
-                            O Equitá está alinhado ao ODS 16 da Agenda 2030 da
-                            ONU, que busca promover sociedades pacíficas e
-                            inclusivas, garantir o acesso à justiça para todos
-                            e construir instituições eficazes, responsáveis e
-                            inclusivas.
+                            O Equitá está alinhado ao Objetivo de Desenvolvimento Sustentável 16 da
+                            Agenda 2030 da ONU, reforçando a ideia de que paz, justiça, acesso à
+                            informação e instituições eficazes são pilares fundamentais para uma
+                            sociedade mais segura e inclusiva.
                         </p>
                     </div>
                 </section>
 
-                {/* EQUIPE */}
                 <section className={styles.teamSection}>
-                    <h2>Equipe do Projeto</h2>
-
-                    <p className={styles.sectionDescription}>
-                        Este projeto foi desenvolvido pelos estudantes
-                        responsáveis pelo TCC, unindo tecnologia e cidadania
-                        para criar uma plataforma acessível e de impacto
-                        social.
-                    </p>
+                    <div className={styles.sectionHeader}>
+                        <span className={styles.sectionLabel}>Equipe</span>
+                        <h2>Quem está por trás dessa ideia</h2>
+                    </div>
 
                     <div className={styles.teamCard}>
                         <ul>
@@ -162,28 +228,6 @@ function Sobre() {
                             <li>Maria Eduarda Tenorio Turquete</li>
                             <li>Sophia Santos Gaspar</li>
                         </ul>
-                    </div>
-                </section>
-
-                {/* CONTATO */}
-                <section className={styles.contactSection}>
-                    <h2>Contato</h2>
-
-                    <div className={styles.contactGrid}>
-                        <div className={styles.contactCard}>
-                            <h3>📧 E-mail</h3>
-                            <p>contato@equita.com</p>
-                        </div>
-
-                        <div className={styles.contactCard}>
-                            <h3>📱 Telefone</h3>
-                            <p>(00) 00000-0000</p>
-                        </div>
-
-                        <div className={styles.contactCard}>
-                            <h3>📍 Localização</h3>
-                            <p>Barueri - SP</p>
-                        </div>
                     </div>
                 </section>
             </main>

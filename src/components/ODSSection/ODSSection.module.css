@@ -173,4 +173,33 @@
     }
 }
 
+.ods {
+    background: var(--color-background);
+}
+
+.odsBadge {
+    padding: 6px 10px;
+    border: 1px solid #e7d7cb;
+    border-radius: var(--radius-control);
+    background: var(--color-surface-soft);
+    color: var(--color-accent-strong);
+    font-size: 12px;
+}
+
+.odsText h2,
+.odsText h3 {
+    color: var(--color-text);
+}
+
+.odsText p,
+.odsText li {
+    color: var(--color-text-muted);
+}
+
+.odsCard {
+    border-radius: var(--radius-card);
+    background: var(--color-accent);
+    box-shadow: 0 12px 26px rgba(53, 35, 28, 0.14);
+}
+
  

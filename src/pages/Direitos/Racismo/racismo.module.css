@@ -1,6 +1,74 @@
 .racismoPage {
   padding: 80px 10%;
-  background: #f8fafc;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+.racismoPage .badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid #e7d7cb;
+  border-radius: var(--radius-control);
+  background: var(--color-surface-soft);
+  color: var(--color-accent-strong);
+  font-size: 12px;
+}
+
+.racismoPage h1,
+.racismoPage h2,
+.racismoPage h3,
+.racismoPage h4 {
+  color: var(--color-text);
+}
+
+.racismoPage p,
+.racismoPage li {
+  color: var(--color-text-muted);
+}
+
+.racismoPage .contentCard,
+.racismoPage .actionsSection {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.racismoPage .item,
+.racismoPage .phone,
+.racismoPage .referenceItem,
+.racismoPage .actionCard {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-control);
+  background: var(--color-surface-soft);
+}
+
+.racismoPage .phone h3,
+.racismoPage a {
+  color: var(--color-accent-strong);
+}
+
+.racismoPage .infoBox {
+  border-left-color: var(--color-accent);
+  border-radius: var(--radius-control);
+}
+
+.racismoPage .actionCard:hover {
+  background: var(--color-accent);
+  color: var(--color-surface);
+  transform: none;
+}
+
+.racismoPage :focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .racismoPage .contentCard,
+  .racismoPage .actionsSection {
+    padding: 22px 18px;
+  }
 }
 
 .racismoHero {

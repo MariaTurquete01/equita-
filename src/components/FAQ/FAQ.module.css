@@ -116,3 +116,32 @@
     padding: 7px 14px;
   }
 }
+
+.faq-badge {
+  padding: 6px 10px;
+  border: 1px solid #c6dfcc;
+  border-radius: var(--radius-control);
+  background: #edf6ef;
+  color: #356744;
+  font-size: 12px;
+}
+
+.faq-header h2,
+.faq-item h3 {
+  color: var(--color-text);
+}
+
+.faq-item p {
+  color: var(--color-text-muted);
+}
+
+.faq-item {
+  border-color: var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.faq-item:hover {
+  box-shadow: 0 9px 22px rgba(53, 35, 28, 0.09);
+}

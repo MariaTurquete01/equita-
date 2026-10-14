@@ -1,6 +1,67 @@
 .family-page{
     padding:80px 10%;
-    background:#f8fafc;
+    background:var(--color-background);
+    color:var(--color-text);
+}
+
+.family-page .badge {
+    display:inline-block;
+    padding:6px 10px;
+    border:1px solid #e7d7cb;
+    border-radius:var(--radius-control);
+    background:var(--color-surface-soft);
+    color:var(--color-accent-strong);
+    font-size:12px;
+}
+
+.family-page h1,
+.family-page h2,
+.family-page h3 {
+    color:var(--color-text);
+}
+
+.family-page p,
+.family-page li {
+    color:var(--color-text-muted);
+}
+
+.family-page .content-card,
+.family-page .actions-section {
+    border:1px solid var(--color-border);
+    border-radius:var(--radius-card);
+    background:var(--color-surface);
+    box-shadow:var(--shadow-soft);
+}
+
+.family-page .item,
+.family-page .phone,
+.family-page .action-card {
+    border:1px solid var(--color-border);
+    border-radius:var(--radius-control);
+    background:var(--color-surface-soft);
+}
+
+.family-page .phone h3,
+.family-page a {
+    color:var(--color-accent-strong);
+}
+
+.family-page .action-card:hover {
+    background:var(--color-accent);
+    color:var(--color-surface);
+    transform:none;
+}
+
+.family-page :focus-visible {
+    outline:3px solid var(--color-focus);
+    outline-offset:3px;
+}
+
+@media(max-width:600px) {
+    .family-page .content-card,
+    .family-page .actions-section {
+        padding:22px 18px;
+    }
 }
 
 .family-hero{

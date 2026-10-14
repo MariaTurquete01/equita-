@@ -8,11 +8,46 @@ import cursos from "./cursos";
 
 import styles from "./cursos.module.css";
 
+const CHAVE_INSCRICOES = "equita_cursos_inscritos";
+
+function carregarInscricoes() {
+  try {
+    const inscricoesSalvas = JSON.parse(
+      window.localStorage.getItem(CHAVE_INSCRICOES) || "[]"
+    );
+    return Array.isArray(inscricoesSalvas) ? inscricoesSalvas : [];
+  } catch {
+    return [];
+  }
+}
+
 function Cursos() {
   const [pesquisa, setPesquisa] = useState("");
-
+  const [inscricoes, setInscricoes] = useState(carregarInscricoes);
+  const [mensagem, setMensagem] = useState("");
   const [categoriaSelecionada, setCategoriaSelecionada] =
     useState("Todos");
+
+  function inscrever(curso) {
+    if (inscricoes.some((inscricao) => inscricao.cursoId === curso.id)) return;
+
+    const novasInscricoes = [
+      ...inscricoes,
+      { cursoId: curso.id, progresso: 0, inscritoEm: new Date().toISOString() },
+    ];
+
+    try {
+      window.localStorage.setItem(CHAVE_INSCRICOES, JSON.stringify(novasInscricoes));
+      setInscricoes(novasInscricoes);
+      setMensagem(`Inscrição em “${curso.titulo}” salva neste navegador.`);
+    } catch {
+      setMensagem("Não foi possível salvar a inscrição neste navegador. Tente novamente.");
+    }
+  }
+
+  function inscricaoDoCurso(cursoId) {
+    return inscricoes.find((inscricao) => inscricao.cursoId === cursoId);
+  }
 
   const categorias = [
     "Todos",
@@ -69,6 +104,10 @@ function Cursos() {
             prevenção da violência e educação para o exercício da cidadania.
           </p>
 
+          <Link to="/meus-cursos" className={styles.myCoursesLink}>
+            Meus Cursos
+          </Link>
+
           <div className={styles.searchBox}>
             <input
               type="text"
@@ -77,6 +116,7 @@ function Cursos() {
               onChange={(e) => setPesquisa(e.target.value)}
             />
           </div>
+          {mensagem && <p className={styles.enrollmentMessage} role="status">{mensagem}</p>}
         </section>
 
         {/* CATEGORIAS */}
@@ -124,11 +164,6 @@ function Cursos() {
                 className={styles.featuredCard}
                 key={curso.id}
               >
-                <img
-                  src={curso.imagem}
-                  alt={curso.titulo}
-                />
-
                 <div className={styles.featuredContent}>
                   <span>
                     {curso.categoria}
@@ -154,14 +189,21 @@ function Cursos() {
                     <small>
                       ⭐ {curso.nivel}
                     </small>
+                    {inscricaoDoCurso(curso.id) && (
+                      <small>Progresso: {inscricaoDoCurso(curso.id).progresso}%</small>
+                    )}
                   </div>
 
-                  <Link
-                    to={`/curso/${curso.id}`}
-                    className={styles.startCourse}
-                  >
-                    Começar Curso
-                  </Link>
+                  <div className={styles.courseActions}>
+                    {inscricaoDoCurso(curso.id) ? (
+                      <Link to={`/curso/${curso.id}`} className={styles.startCourse}>Continuar curso</Link>
+                    ) : (
+                      <button type="button" className={styles.startCourse} onClick={() => inscrever(curso)}>
+                        Inscrever-se
+                      </button>
+                    )}
+                    <Link to={`/curso/${curso.id}`} className={styles.detailsLink}>Ver detalhes</Link>
+                  </div>
                 </div>
               </div>
             ))}
@@ -187,11 +229,6 @@ function Cursos() {
                   className={styles.courseCard}
                   key={curso.id}
                 >
-                  <img
-                    src={curso.imagem}
-                    alt={curso.titulo}
-                  />
-
                   <div className={styles.courseContent}>
                     <span className={styles.courseCategory}>
                       {curso.categoria}
@@ -225,14 +262,22 @@ function Cursos() {
                         🎥 <strong>Aulas:</strong>{" "}
                         {curso.aulas}
                       </p>
+
+                      {inscricaoDoCurso(curso.id) && (
+                        <p><strong>Progresso:</strong> {inscricaoDoCurso(curso.id).progresso}%</p>
+                      )}
                     </div>
 
-                    <Link
-                      to={`/curso/${curso.id}`}
-                      className={styles.courseButton}
-                    >
-                      Começar Curso
-                    </Link>
+                    <div className={styles.courseActions}>
+                      {inscricaoDoCurso(curso.id) ? (
+                        <Link to={`/curso/${curso.id}`} className={styles.courseButton}>Continuar curso</Link>
+                      ) : (
+                        <button type="button" className={styles.courseButton} onClick={() => inscrever(curso)}>
+                          Inscrever-se
+                        </button>
+                      )}
+                      <Link to={`/curso/${curso.id}`} className={styles.detailsLink}>Ver detalhes</Link>
+                    </div>
                   </div>
                 </div>
               ))}

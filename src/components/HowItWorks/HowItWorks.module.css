@@ -184,3 +184,38 @@
         font-size: 1.3rem;
     }
 }
+
+.howItWorks {
+    background: #f4ece2;
+}
+
+.sectionBadge {
+    padding: 6px 10px;
+    border: 1px solid #e7d7cb;
+    border-radius: var(--radius-control);
+    background: var(--color-surface-soft);
+    color: var(--color-accent-strong);
+    font-size: 12px;
+}
+
+.sectionHeader h2,
+.step h3 {
+    color: var(--color-text);
+}
+
+.sectionHeader p,
+.step p {
+    color: var(--color-text-muted);
+}
+
+.step {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-soft);
+}
+
+.stepNumber {
+    border-radius: var(--radius-card);
+    background: var(--color-accent);
+}

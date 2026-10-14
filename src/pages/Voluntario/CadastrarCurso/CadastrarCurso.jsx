@@ -1,18 +1,39 @@
 import { useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 import Navbar from "../../../components/Navbar/Navbar";
 import Footer from "../../../components/Footer/Footer";
 
 import styles from "./CadastrarCurso.module.css";
+import { carregarCursosPropostos, salvarCursosPropostos } from "../cursosPropostos";
+
+function converterImagem(file) {
+    if (file.size > 1_500_000) {
+        return Promise.reject(new Error("A imagem deve ter no máximo 1,5 MB."));
+    }
+
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.addEventListener("load", () => resolve(reader.result), { once: true });
+        reader.addEventListener("error", () => reject(new Error("Não foi possível ler a imagem.")), { once: true });
+        reader.readAsDataURL(file);
+    });
+}
 
 function CadastrarCurso() {
+    const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+    const cursoEditando = carregarCursosPropostos().find(
+        (curso) => curso.id === searchParams.get("editar")
+    );
     const [formData, setFormData] = useState({
-        titulo: "",
-        descricao: "",
-        categoria: "",
-        duracao: "",
+        titulo: cursoEditando?.titulo || "",
+        descricao: cursoEditando?.descricao || "",
+        categoria: cursoEditando?.categoria || "",
+        duracao: cursoEditando?.duracao || "",
         imagem: null,
     });
+    const [erro, setErro] = useState("");
 
     const handleChange = (event) => {
         const { name, value, files } = event.target;
@@ -23,18 +44,42 @@ function CadastrarCurso() {
         }));
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
-        console.log("Proposta de curso:", formData);
+        try {
+            const imagem = formData.imagem
+                ? await converterImagem(formData.imagem)
+                : cursoEditando?.imagem || "";
+            const propostas = carregarCursosPropostos();
+            const proposta = {
+                id: cursoEditando?.id || `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+                titulo: formData.titulo.trim(),
+                descricao: formData.descricao.trim(),
+                categoria: formData.categoria,
+                duracao: formData.duracao.trim(),
+                imagem,
+                status: "Em análise",
+                criadaEm: cursoEditando?.criadaEm || new Date().toISOString(),
+                atualizadaEm: new Date().toISOString(),
+            };
+            const propostasAtualizadas = cursoEditando
+                ? propostas.map((curso) => curso.id === cursoEditando.id ? proposta : curso)
+                : [...propostas, proposta];
 
-        alert(
-            "Proposta enviada com sucesso! O curso ficará aguardando análise."
-        );
+            salvarCursosPropostos(propostasAtualizadas);
+            navigate("/voluntario/meus-cursos", {
+                replace: true,
+                state: { mensagem: cursoEditando ? "Proposta atualizada e enviada para nova análise." : "Proposta salva e enviada para análise." },
+            });
+        } catch (error) {
+            setErro(error.message || "Não foi possível salvar a proposta. Tente novamente.");
+        }
+
     };
 
     const handleCancel = () => {
-        window.history.back();
+        navigate("/voluntario/meus-cursos");
     };
 
     return (
@@ -48,7 +93,7 @@ function CadastrarCurso() {
                         Área do Voluntário
                     </span>
 
-                    <h1>Propor novo curso</h1>
+                    <h1>{cursoEditando ? "Editar proposta de curso" : "Propor novo curso"}</h1>
 
                     <p>
                         Compartilhe seu conhecimento e contribua para a
@@ -67,6 +112,8 @@ function CadastrarCurso() {
                                 proposta de curso.
                             </p>
                         </div>
+
+                        {erro && <p className={styles.errorMessage} role="alert">{erro}</p>}
 
                         <form onSubmit={handleSubmit}>
                             {/* TÍTULO */}
@@ -175,8 +222,7 @@ function CadastrarCurso() {
                                 />
 
                                 <small className={styles.inputHelp}>
-                                    Escolha uma imagem para representar o
-                                    curso.
+                                    Opcional. Arquivo de imagem de até 1,5 MB.
                                 </small>
                             </div>
 

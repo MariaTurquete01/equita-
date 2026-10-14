@@ -1,6 +1,67 @@
 .diversidade-page{
     padding:80px 10%;
-    background:#f8fafc;
+    background:var(--color-background);
+    color:var(--color-text);
+}
+
+.diversidade-page .badge {
+    display:inline-block;
+    padding:6px 10px;
+    border:1px solid #e7d7cb;
+    border-radius:var(--radius-control);
+    background:var(--color-surface-soft);
+    color:var(--color-accent-strong);
+    font-size:12px;
+}
+
+.diversidade-page h1,
+.diversidade-page h2,
+.diversidade-page h3 {
+    color:var(--color-text);
+}
+
+.diversidade-page p,
+.diversidade-page li {
+    color:var(--color-text-muted);
+}
+
+.diversidade-page .content-card,
+.diversidade-page .actions-section {
+    border:1px solid var(--color-border);
+    border-radius:var(--radius-card);
+    background:var(--color-surface);
+    box-shadow:var(--shadow-soft);
+}
+
+.diversidade-page .item,
+.diversidade-page .phone,
+.diversidade-page .action-card {
+    border:1px solid var(--color-border);
+    border-radius:var(--radius-control);
+    background:var(--color-surface-soft);
+}
+
+.diversidade-page .phone h3,
+.diversidade-page a {
+    color:var(--color-accent-strong);
+}
+
+.diversidade-page .action-card:hover {
+    background:var(--color-accent);
+    color:var(--color-surface);
+    transform:none;
+}
+
+.diversidade-page :focus-visible {
+    outline:3px solid var(--color-focus);
+    outline-offset:3px;
+}
+
+@media(max-width:600px) {
+    .diversidade-page .content-card,
+    .diversidade-page .actions-section {
+        padding:22px 18px;
+    }
 }
 
 .diversidade-hero{

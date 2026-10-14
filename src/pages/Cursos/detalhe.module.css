@@ -262,6 +262,16 @@
   }
 }
 
+.courseHero {
+  grid-template-columns: minmax(0, 1fr);
+  background: #fbf8f1;
+}
+
+.courseHeroContent {
+  width: min(100%, 850px);
+  margin: 0 auto;
+}
+
 @media (max-width: 480px) {
   .courseHeroContent h1 {
     font-size: 1.7rem;

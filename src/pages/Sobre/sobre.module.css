@@ -1,271 +1,303 @@
-/* ===================================
-   PÁGINA
-=================================== */
-
 .aboutPage {
-    background: #f8fafc;
+    background: linear-gradient(180deg, #f5efe9 0%, #f9fafb 100%);
     min-height: 100vh;
+    color: #1f2937;
 }
 
-/* ===================================
-   HERO
-=================================== */
-
 .aboutHero {
-    background: white;
-    padding: 80px 8%;
+    padding: 86px 8% 72px;
     text-align: center;
+    background:
+        radial-gradient(circle at top, rgba(197, 118, 90, 0.12), transparent 35%),
+        linear-gradient(180deg, #fffdfb 0%, #f6efe9 100%);
+}
+
+.heroBadge,
+.sectionLabel,
+.sectionLabelLight {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
 }
 
 .heroBadge {
-    display: inline-block;
+    background: rgba(197, 118, 90, 0.12);
+    color: #8b4b35;
+}
+
+.sectionLabel {
     background: #e0f2fe;
-    color: #0369a1;
-    padding: 8px 18px;
-    border-radius: 30px;
-    font-weight: 600;
-    margin-bottom: 20px;
+    color: #0f5a8d;
+}
+
+.sectionLabelLight {
+    background: rgba(255, 255, 255, 0.16);
+    color: #f8e6dd;
 }
 
 .aboutHero h1 {
-    color: #0F4C81;
-    font-size: 2.8rem;
-    margin-bottom: 25px;
+    max-width: 920px;
+    margin: 0 auto 20px;
+    color: #1f2d3d;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    line-height: 1.08;
 }
 
 .aboutHero p {
-    max-width: 850px;
-    margin: auto;
-    color: #64748b;
-    line-height: 1.8;
+    max-width: 830px;
+    margin: 0 auto;
+    color: #526072;
+    font-size: 1.08rem;
+    line-height: 1.9;
 }
 
-/* ===================================
-   SEÇÕES
-=================================== */
-
-.sectionDescription {
-    max-width: 750px;
-    margin: 15px auto 45px;
-    color: #64748b;
-    text-align: center;
-    line-height: 1.8;
+.storySection,
+.missionSection,
+.impactSection,
+.journeySection,
+.servicesSection,
+.odsSection,
+.teamSection {
+    padding: 28px 8% 72px;
 }
 
-/* ===================================
-   MISSÃO | VISÃO | VALORES
-=================================== */
-
-.missionSection {
-    padding: 70px 8%;
-}
-
-.missionGrid {
+.storySection {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: 1.35fr 0.85fr;
+    align-items: center;
+    gap: 36px;
 }
 
-.missionCard {
-    background: white;
-    padding: 35px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    transition: 0.3s;
+.storyText {
+    background: #fff;
+    border: 1px solid rgba(146, 107, 93, 0.12);
+    border-radius: 28px;
+    padding: 42px;
+    box-shadow: 0 22px 40px rgba(31, 41, 55, 0.08);
 }
 
-.missionCard:hover {
-    transform: translateY(-6px);
+.storyText h2,
+.sectionHeader h2 {
+    margin: 0 0 18px;
+    color: #1b2f45;
+    font-size: clamp(2rem, 3vw, 2.7rem);
+    line-height: 1.2;
 }
 
-.missionCard h2 {
-    color: #0F4C81;
-    margin-bottom: 20px;
-}
-
-.missionCard p {
-    color: #475569;
+.storyText p,
+.missionCard p,
+.missionCard li,
+.impactCard p,
+.journeyCard p,
+.serviceCard p,
+.odsCard p,
+.teamCard li {
+    color: #526072;
     line-height: 1.8;
+}
+
+.storyText p + p {
+    margin-top: 18px;
+}
+
+.storyPanel {
+    display: grid;
+    gap: 18px;
+}
+
+.storyStat {
+    background: linear-gradient(135deg, #163d5d 0%, #1f567c 100%);
+    color: #fff;
+    border-radius: 24px;
+    padding: 30px 24px;
+    box-shadow: 0 22px 40px rgba(17, 54, 84, 0.18);
+}
+
+.storyStat strong {
+    display: block;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.storyStat span {
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.sectionHeader {
+    max-width: 720px;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.missionGrid,
+.impactGrid,
+.servicesGrid,
+.journeyGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+}
+
+.missionCard,
+.impactCard,
+.journeyCard,
+.serviceCard,
+.teamCard {
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 24px;
+    padding: 30px 26px;
+    box-shadow: 0 18px 35px rgba(15, 23, 42, 0.08);
+}
+
+.missionCard h3,
+.impactCard h3,
+.journeyCard h3,
+.serviceCard h3 {
+    margin-bottom: 16px;
+    color: #1f2d3d;
+    font-size: 1.32rem;
 }
 
 .missionCard ul {
-    padding-left: 20px;
-    color: #475569;
-    line-height: 2;
+    margin: 0;
+    padding-left: 18px;
 }
 
-/* ===================================
-   SERVIÇOS
-=================================== */
+.impactIcon {
+    display: inline-flex;
+    width: 62px;
+    height: 62px;
+    margin-bottom: 16px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background: rgba(197, 118, 90, 0.12);
+    font-size: 2rem;
+}
+
+.journeyCard span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: #0f5a8d;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
 
 .servicesSection {
-    padding: 20px 8% 70px;
-}
-
-.servicesSection h2 {
-    text-align: center;
-    color: #0F4C81;
-    margin-bottom: 15px;
-}
-
-.servicesGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
+    padding-top: 0;
 }
 
 .serviceCard {
-    background: white;
-    border-radius: 20px;
-    padding: 35px;
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    transition: 0.3s;
-}
-
-.serviceCard:hover {
-    transform: translateY(-8px);
 }
 
 .serviceCard span {
     display: block;
-    font-size: 48px;
-    margin-bottom: 20px;
-}
-
-.serviceCard h3 {
-    color: #0F4C81;
-    margin-bottom: 15px;
-}
-
-.serviceCard p {
-    color: #64748b;
-    line-height: 1.7;
-}
-
-/* ===================================
-   ODS
-=================================== */
-
-.odsSection {
-    padding: 0 8% 70px;
+    font-size: 2.8rem;
+    margin-bottom: 16px;
 }
 
 .odsCard {
-    background: linear-gradient(135deg, #0F4C81, #1565a8);
-    color: white;
-    padding: 20px;
-    border-radius: 24px;
+    background: linear-gradient(135deg, #163d5d 0%, #285a85 100%);
+    color: #fff;
+    padding: 42px 34px;
+    border-radius: 28px;
     text-align: center;
+    box-shadow: 0 25px 42px rgba(18, 54, 84, 0.2);
 }
 
 .odsCard h2 {
-    margin-bottom: 20px;
+    margin: 0 0 18px;
+    color: #fff;
+    font-size: clamp(2rem, 3vw, 2.8rem);
 }
 
 .odsCard p {
-    line-height: 1.8;
-    max-width: 850px;
-    margin: auto;
+    max-width: 820px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.9;
 }
-
-/* ===================================
-   EQUIPE
-=================================== */
 
 .teamSection {
-    padding: 0 8% 70px;
-    text-align: center;
-}
-
-.teamSection h2 {
-    color: #0F4C81;
+    padding-bottom: 90px;
 }
 
 .teamCard {
-    margin-top: 35px;
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    max-width: 860px;
+    margin: 0 auto;
 }
 
 .teamCard ul {
-    max-width: 600px;
-    margin: 0 auto;
-    padding-left: 20px;
-    color: #475569;
-    line-height: 2;
-    text-align: left;
-}
-
-/* ===================================
-   CONTATO
-=================================== */
-
-.contactSection {
-    padding: 0 8% 80px;
-}
-
-.contactSection h2 {
-    color: #0F4C81;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.contactGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px 18px;
+    margin: 0;
+    padding-left: 20px;
 }
 
-.contactCard {
-    background: white;
-    border-radius: 20px;
-    padding: 30px;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    transition: 0.3s;
+@media (max-width: 900px) {
+    .storySection {
+        grid-template-columns: 1fr;
+    }
 }
 
-.contactCard:hover {
-    transform: translateY(-6px);
-}
-
-.contactCard h3 {
-    color: #0F4C81;
-    margin-bottom: 15px;
-}
-
-.contactCard p {
-    color: #64748b;
-}
-
-/* ===================================
-   RESPONSIVIDADE
-=================================== */
-
-@media (max-width: 768px) {
+@media (max-width: 640px) {
     .aboutHero {
-        padding: 60px 6%;
+        padding: 72px 22px 52px;
     }
 
+    .storySection,
     .missionSection,
+    .impactSection,
+    .journeySection,
     .servicesSection,
     .odsSection,
-    .teamSection,
-    .contactSection {
-        padding-left: 6%;
-        padding-right: 6%;
+    .teamSection {
+        padding-left: 22px;
+        padding-right: 22px;
     }
 
-    .aboutHero h1 {
-        font-size: 2.2rem;
+    .storyText {
+        padding: 28px 22px;
+    }
+
+    .missionCard,
+    .impactCard,
+    .journeyCard,
+    .serviceCard,
+    .teamCard,
+    .odsCard {
+        padding-left: 22px;
+        padding-right: 22px;
     }
 }
 
-@media (max-width: 480px) {
-    .aboutHero h1 {
-        font-size: 1.8rem;
-    }
+.missionCard:hover,
+.serviceCard:hover,
+.contactCard:hover {
+    transform: none;
+}
+
+.odsCard {
+    border-radius: var(--radius-card);
+    background: var(--color-accent);
+}
+
+.teamCard ul {
+    color: var(--color-text-muted);
 }

@@ -9,142 +9,79 @@ import styles from "./login.module.css";
 
 function Login() {
   const [mostrarSenha, setMostrarSenha] = useState(false);
+  const [mensagem, setMensagem] = useState("");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    setMensagem("A autenticação ainda não está conectada a um serviço. Nenhum dado foi salvo ou enviado.");
+  }
 
   return (
     <>
       <Navbar />
 
       <main className={styles["login-page"]}>
-
-        {/* LADO ESQUERDO */}
-
-        <section className={styles["login-banner"]}>
-
-          <span className={styles["login-badge"]}>
-            Plataforma Equitá
-          </span>
-
-          <h1>
-            Bem-vindo de volta!
-          </h1>
-
-          <p>
-            Acesse sua conta para acompanhar denúncias,
-            realizar cursos, consultar seus direitos
-            e utilizar todos os recursos da plataforma.
-          </p>
-
-          <img
-            src="/images/login-banner.svg"
-            alt="Ilustração Equitá"
-          />
-
-        </section>
-
-        {/* LADO DIREITO */}
-
         <section className={styles["login-form-section"]}>
-
           <div className={styles["login-card"]}>
-
-            <h2>
-              Entrar
-            </h2>
-
-            <p>
-              Informe seus dados para acessar sua conta.
+            <span className={styles["login-badge"]}>Plataforma Equitá</span>
+            <h1>Entrar</h1>
+            <p>Informe seus dados para acessar sua conta.</p>
+            <p className={styles.serviceNotice}>
+              A autenticação ainda não está disponível. Este formulário não envia nem armazena credenciais.
             </p>
 
-            {/* EMAIL */}
-
-            <div className={styles["input-group"]}>
-
-              <label>
-                E-mail
-              </label>
-
-              <input
-                type="email"
-                placeholder="Digite seu e-mail"
-              />
-
-            </div>
-
-            {/* SENHA */}
-
-            <div className={styles["input-group"]}>
-
-              <label>
-                Senha
-              </label>
-
-              <div className={styles["password-input"]}>
-
+            <form onSubmit={handleSubmit}>
+              <div className={styles["input-group"]}>
+                <label htmlFor="login-email">E-mail</label>
                 <input
-                  type={mostrarSenha ? "text" : "password"}
-                  placeholder="Digite sua senha"
+                  id="login-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  placeholder="Digite seu e-mail"
+                  required
                 />
-
-                <button
-                  type="button"
-                  onClick={() =>
-                    setMostrarSenha(!mostrarSenha)
-                  }
-                >
-                  {mostrarSenha ? "Ocultar" : "Mostrar"}
-                </button>
-
               </div>
 
-            </div>
-
-            {/* OPÇÕES */}
+              <div className={styles["input-group"]}>
+                <label htmlFor="login-password">Senha</label>
+                <div className={styles["password-input"]}>
+                  <input
+                    id="login-password"
+                    name="password"
+                    type={mostrarSenha ? "text" : "password"}
+                    autoComplete="current-password"
+                    placeholder="Digite sua senha"
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setMostrarSenha(!mostrarSenha)}
+                    aria-label={mostrarSenha ? "Ocultar senha" : "Mostrar senha"}
+                  >
+                    {mostrarSenha ? "Ocultar" : "Mostrar"}
+                  </button>
+                </div>
+              </div>
 
             <div className={styles["login-options"]}>
-
-              <label>
-
-                <input type="checkbox" />
-
-                Lembrar de mim
-
-              </label>
-
-              <Link to="/recuperar-senha">
-                Esqueci minha senha
-              </Link>
-
+              <span className={styles.recoveryUnavailable}>Recuperação de senha indisponível</span>
             </div>
 
-            {/* BOTÃO */}
-
-            <button className={styles["login-button"]}>
-              Entrar
-            </button>
-
-            {/* DIVISOR */}
-
+            {mensagem && <p className={styles.feedbackMessage} role="status">{mensagem}</p>}
+            <button type="submit" className={styles["login-button"]}>Entrar</button>
             <div className={styles["divider"]}>
-
-              <span>
-                ou
-              </span>
-
+              <span>ou</span>
             </div>
-
-            {/* CADASTRO */}
-
             <Link
               to="/cadastro"
               className={styles["register-button"]}
             >
               Criar conta
             </Link>
-
+            </form>
           </div>
-
         </section>
-
       </main>
 
       <Footer />

@@ -3,11 +3,42 @@ import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import styles from "./protocolo.module.css";
 
+const CHAVE_DENUNCIAS = "equita_denuncias";
+const ETAPAS = ["Recebida", "Em análise", "Encaminhada", "Finalizada"];
+
+function localizarDenuncia(numero) {
+  try {
+    const denuncias = JSON.parse(window.sessionStorage.getItem(CHAVE_DENUNCIAS) || "[]");
+    return Array.isArray(denuncias)
+      ? denuncias.find((denuncia) => denuncia.protocolo === numero) || null
+      : null;
+  } catch {
+    return null;
+  }
+}
+
 function Protocolo() {
-  const [protocolo, setProtocolo] = useState("");
+  const [searchParams] = useSearchParams();
+  const protocoloInicial = searchParams.get("numero") || "";
+  const denunciaInicial = protocoloInicial ? localizarDenuncia(protocoloInicial) : null;
+  const [protocolo, setProtocolo] = useState(protocoloInicial);
+  const [denuncia, setDenuncia] = useState(denunciaInicial);
+  const [erro, setErro] = useState(
+    protocoloInicial && !denunciaInicial
+      ? "Protocolo não encontrado nesta sessão. Confira o número informado."
+      : ""
+  );
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const encontrada = localizarDenuncia(protocolo.trim());
+    setDenuncia(encontrada);
+    setErro(encontrada ? "" : "Protocolo não encontrado nesta sessão. Confira o número informado.");
+  }
 
   return (
     <>
@@ -37,126 +68,51 @@ function Protocolo() {
 
         <section className={styles["consulta-section"]}>
 
-          <div className={styles["consulta-card"]}>
-
-            <h2>
-              Consultar Protocolo
-            </h2>
-
+          <form className={styles["consulta-card"]} onSubmit={handleSubmit}>
+            <h2>Consultar Protocolo</h2>
             <div className={styles["input-group"]}>
-
-              <label>
-                Número do protocolo
-              </label>
-
+              <label htmlFor="numero-protocolo">Número do protocolo</label>
               <input
+                id="numero-protocolo"
                 type="text"
                 value={protocolo}
-                onChange={(e) => setProtocolo(e.target.value)}
-                placeholder="Ex.: EQ-2026-000001"
+                onChange={(event) => setProtocolo(event.target.value)}
+                placeholder="Ex.: EQ-2026-ABC123"
+                required
               />
-
-            </div>
-
-            <button className={styles["consultar-button"]}>
-              Consultar
-            </button>
-
           </div>
+            {erro && <p className={styles["error-message"]} role="alert">{erro}</p>}
+            <button type="submit" className={styles["consultar-button"]}>Consultar</button>
+          </form>
 
         </section>
 
         {/* RESULTADO */}
 
-        <section className={styles["status-section"]}>
-
+        {denuncia && (
+        <section className={styles["status-section"]} aria-live="polite">
           <div className={styles["status-card"]}>
-
-            <h2>
-              Status da denúncia
-            </h2>
-
+            <h2>Status da denúncia</h2>
+            <p className={styles["current-status"]}>
+              Protocolo {denuncia.protocolo}: <strong>{denuncia.status}</strong>
+            </p>
             <div className={styles["status-timeline"]}>
-
-              <div
-                className={`${styles["status-item"]} ${styles.active}`}
-              >
-
-                <div className={styles["status-circle"]}></div>
-
-                <div>
-
-                  <h3>
-                    Recebida
-                  </h3>
-
-                  <p>
-                    A denúncia foi registrada no sistema.
-                  </p>
-
+              {ETAPAS.map((etapa, indice) => (
+                <div
+                  className={`${styles["status-item"]} ${indice <= ETAPAS.indexOf(denuncia.status) ? styles.active : ""}`}
+                  key={etapa}
+                >
+                  <div className={styles["status-circle"]} />
+                  <div>
+                    <h3>{etapa}</h3>
+                    <p>{indice === 0 ? "A denúncia foi registrada no sistema." : etapa === denuncia.status ? "Esta é a etapa atual da sua denúncia." : "Etapa ainda não iniciada."}</p>
+                  </div>
                 </div>
-
-              </div>
-
-              <div className={styles["status-item"]}>
-
-                <div className={styles["status-circle"]}></div>
-
-                <div>
-
-                  <h3>
-                    Em análise
-                  </h3>
-
-                  <p>
-                    A denúncia está sendo analisada.
-                  </p>
-
-                </div>
-
-              </div>
-
-              <div className={styles["status-item"]}>
-
-                <div className={styles["status-circle"]}></div>
-
-                <div>
-
-                  <h3>
-                    Encaminhada
-                  </h3>
-
-                  <p>
-                    Foi encaminhada ao órgão competente.
-                  </p>
-
-                </div>
-
-              </div>
-
-              <div className={styles["status-item"]}>
-
-                <div className={styles["status-circle"]}></div>
-
-                <div>
-
-                  <h3>
-                    Finalizada
-                  </h3>
-
-                  <p>
-                    O atendimento foi concluído.
-                  </p>
-
-                </div>
-
-              </div>
-
+              ))}
             </div>
-
           </div>
-
         </section>
+        )}
 
       </main>
 

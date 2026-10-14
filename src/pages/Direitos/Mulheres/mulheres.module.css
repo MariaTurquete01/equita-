@@ -1,6 +1,67 @@
 .women-page{
     padding:80px 10%;
-    background:#f8fafc;
+    background:var(--color-background);
+    color:var(--color-text);
+}
+
+.women-page .badge {
+    display:inline-block;
+    padding:6px 10px;
+    border:1px solid #e7d7cb;
+    border-radius:var(--radius-control);
+    background:var(--color-surface-soft);
+    color:var(--color-accent-strong);
+    font-size:12px;
+}
+
+.women-page h1,
+.women-page h2,
+.women-page h3 {
+    color:var(--color-text);
+}
+
+.women-page p,
+.women-page li {
+    color:var(--color-text-muted);
+}
+
+.women-page .content-card,
+.women-page .actions-section {
+    border:1px solid var(--color-border);
+    border-radius:var(--radius-card);
+    background:var(--color-surface);
+    box-shadow:var(--shadow-soft);
+}
+
+.women-page .item,
+.women-page .phone,
+.women-page .action-card {
+    border:1px solid var(--color-border);
+    border-radius:var(--radius-control);
+    background:var(--color-surface-soft);
+}
+
+.women-page .phone h3,
+.women-page a {
+    color:var(--color-accent-strong);
+}
+
+.women-page .action-card:hover {
+    background:var(--color-accent);
+    color:var(--color-surface);
+    transform:none;
+}
+
+.women-page :focus-visible {
+    outline:3px solid var(--color-focus);
+    outline-offset:3px;
+}
+
+@media(max-width:600px) {
+    .women-page .content-card,
+    .women-page .actions-section {
+        padding:22px 18px;
+    }
 }
 
 .women-hero{

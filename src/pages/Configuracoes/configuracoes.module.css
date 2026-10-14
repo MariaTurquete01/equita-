@@ -251,4 +251,78 @@
     }
  
 }
+
+.configuracoesPage {
+    background: var(--color-background);
+}
+
+.configuracoesHero {
+    padding: 52px 22px 28px;
+    background: var(--color-background);
+}
+
+.heroBadge {
+    padding: 6px 10px;
+    border: 1px solid #e7d7cb;
+    border-radius: var(--radius-control);
+    background: var(--color-surface-soft);
+    color: var(--color-accent-strong);
+    font-size: 12px;
+}
+
+.configuracoesHero h1,
+.configSection h2 {
+    color: var(--color-text);
+}
+
+.configuracoesHero p,
+.configSection > p,
+.configItem span,
+.toggleItem span {
+    color: var(--color-text-muted);
+}
+
+.configuracoesContent {
+    padding: 24px 22px 58px;
+}
+
+.configuracoesCard {
+    max-width: 760px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-soft);
+}
+
+.configSection {
+    border-color: var(--color-border);
+}
+
+.configItem,
+.toggleItem {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-background);
+}
+
+.configItem strong,
+.toggleItem strong {
+    color: var(--color-text);
+}
+
+.toggleItem input {
+    accent-color: var(--color-accent);
+}
+
+.saveButton {
+    min-height: 44px;
+    padding: 0 16px;
+    border-radius: var(--radius-control);
+    background: var(--color-accent);
+}
+
+.saveButton:hover {
+    background: var(--color-accent-strong);
+    transform: none;
+}
  

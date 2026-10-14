@@ -1,6 +1,73 @@
 .AssedioPage {
     padding: 80px 10%;
-    background: #f8fafc;
+    background: var(--color-background);
+    color: var(--color-text);
+}
+
+.AssedioPage .Badge,
+.AssedioPage .badge {
+    display: inline-block;
+    padding: 6px 10px;
+    border: 1px solid #e7d7cb;
+    border-radius: var(--radius-control);
+    background: var(--color-surface-soft);
+    color: var(--color-accent-strong);
+    font-size: 12px;
+}
+
+.AssedioPage h1,
+.AssedioPage h2,
+.AssedioPage h3 {
+    color: var(--color-text);
+}
+
+.AssedioPage p,
+.AssedioPage li {
+    color: var(--color-text-muted);
+}
+
+.AssedioPage .ContentCard,
+.AssedioPage .ActionsSection {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-soft);
+}
+
+.AssedioPage .Item,
+.AssedioPage .Phone,
+.AssedioPage .ActionCard {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-surface-soft);
+}
+
+.AssedioPage .Phone h3,
+.AssedioPage a {
+    color: var(--color-accent-strong);
+}
+
+.AssedioPage .ActionCard:hover {
+    background: var(--color-accent);
+    color: var(--color-surface);
+    transform: none;
+}
+
+.AssedioPage .InfoBox {
+    border-left-color: var(--color-accent);
+    border-radius: var(--radius-control);
+}
+
+.AssedioPage :focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .AssedioPage .ContentCard,
+    .AssedioPage .ActionsSection {
+        padding: 22px 18px;
+    }
 }
 
 .AssedioHero {
