@@ -20,6 +20,26 @@ function converterImagem(file) {
     });
 }
 
+function criarAulaVazia() {
+    return {
+        id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+        titulo: "",
+        descricao: "",
+        link: "",
+    };
+}
+
+function linkHttpSeguro(link) {
+    if (!link.trim()) return true;
+
+    try {
+        const protocolo = new URL(link).protocol;
+        return protocolo === "http:" || protocolo === "https:";
+    } catch {
+        return false;
+    }
+}
+
 function CadastrarCurso() {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
@@ -33,6 +53,11 @@ function CadastrarCurso() {
         duracao: cursoEditando?.duracao || "",
         imagem: null,
     });
+    const [aulas, setAulas] = useState(() => (
+        Array.isArray(cursoEditando?.aulas)
+            ? cursoEditando.aulas.map((aula) => ({ ...criarAulaVazia(), ...aula }))
+            : []
+    ));
     const [erro, setErro] = useState("");
 
     const handleChange = (event) => {
@@ -44,8 +69,38 @@ function CadastrarCurso() {
         }));
     };
 
+    const handleAulaChange = (id, event) => {
+        const { name, value } = event.target;
+        setAulas((aulasAtuais) => aulasAtuais.map((aula) => (
+            aula.id === id ? { ...aula, [name]: value } : aula
+        )));
+    };
+
+    const adicionarAula = () => {
+        setAulas((aulasAtuais) => [...aulasAtuais, criarAulaVazia()]);
+    };
+
+    const removerAula = (id) => {
+        setAulas((aulasAtuais) => aulasAtuais.filter((aula) => aula.id !== id));
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if (aulas.length === 0) {
+            setErro("Adicione pelo menos uma aula à proposta.");
+            return;
+        }
+
+        if (aulas.some((aula) => !aula.titulo.trim() || !aula.descricao.trim())) {
+            setErro("Preencha o título e a descrição de todas as aulas.");
+            return;
+        }
+
+        if (aulas.some((aula) => !linkHttpSeguro(aula.link.trim()))) {
+            setErro("Os links das aulas devem usar HTTP ou HTTPS.");
+            return;
+        }
 
         try {
             const imagem = formData.imagem
@@ -58,6 +113,12 @@ function CadastrarCurso() {
                 descricao: formData.descricao.trim(),
                 categoria: formData.categoria,
                 duracao: formData.duracao.trim(),
+                aulas: aulas.map((aula) => ({
+                    ...aula,
+                    titulo: aula.titulo.trim(),
+                    descricao: aula.descricao.trim(),
+                    link: aula.link.trim(),
+                })),
                 imagem,
                 status: "Em análise",
                 criadaEm: cursoEditando?.criadaEm || new Date().toISOString(),
@@ -206,6 +267,67 @@ function CadastrarCurso() {
                                     />
                                 </div>
                             </div>
+
+                            <section className={styles.lessonEditor} aria-labelledby="aulas-heading">
+                                <div className={styles.lessonEditorHeader}>
+                                    <div>
+                                        <h3 id="aulas-heading">Aulas da proposta</h3>
+                                        <p>Adicione o título e a descrição de cada aula. O link é opcional.</p>
+                                    </div>
+                                    <button type="button" className={styles.addLessonButton} onClick={adicionarAula}>
+                                        Adicionar aula
+                                    </button>
+                                </div>
+
+                                {aulas.length === 0 ? (
+                                    <p className={styles.lessonEmpty}>Nenhuma aula adicionada.</p>
+                                ) : (
+                                    <div className={styles.lessonList}>
+                                        {aulas.map((aula, indice) => (
+                                            <fieldset className={styles.lessonFormCard} key={aula.id}>
+                                                <legend>Aula {indice + 1}</legend>
+                                                <div className={styles.formGroup}>
+                                                    <label htmlFor={`aula-titulo-${aula.id}`}>Título</label>
+                                                    <input
+                                                        id={`aula-titulo-${aula.id}`}
+                                                        name="titulo"
+                                                        value={aula.titulo}
+                                                        onChange={(event) => handleAulaChange(aula.id, event)}
+                                                        maxLength="200"
+                                                        required
+                                                    />
+                                                </div>
+                                                <div className={styles.formGroup}>
+                                                    <label htmlFor={`aula-descricao-${aula.id}`}>Descrição</label>
+                                                    <textarea
+                                                        id={`aula-descricao-${aula.id}`}
+                                                        name="descricao"
+                                                        value={aula.descricao}
+                                                        onChange={(event) => handleAulaChange(aula.id, event)}
+                                                        maxLength="2000"
+                                                        rows="3"
+                                                        required
+                                                    />
+                                                </div>
+                                                <div className={styles.lessonFormActions}>
+                                                    <label htmlFor={`aula-link-${aula.id}`}>Link externo (opcional)</label>
+                                                    <input
+                                                        id={`aula-link-${aula.id}`}
+                                                        name="link"
+                                                        type="url"
+                                                        value={aula.link}
+                                                        onChange={(event) => handleAulaChange(aula.id, event)}
+                                                        placeholder="https://"
+                                                    />
+                                                    <button type="button" className={styles.removeLessonButton} onClick={() => removerAula(aula.id)}>
+                                                        Remover aula
+                                                    </button>
+                                                </div>
+                                            </fieldset>
+                                        ))}
+                                    </div>
+                                )}
+                            </section>
 
                             {/* IMAGEM */}
                             <div className={styles.formGroup}>

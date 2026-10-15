@@ -348,6 +348,53 @@
     font-size: 19px;
 }
 
+.locationControl {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    margin: 0 0 14px;
+}
+
+.locationButton {
+    min-height: 38px;
+    padding: 0 13px;
+    border: 1px solid #537a67;
+    border-radius: 5px;
+    background: #537a67;
+    color: #fffdf9;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.locationButton:hover:not(:disabled) {
+    background: #3f6452;
+}
+
+.locationButton:disabled {
+    cursor: progress;
+    opacity: 0.75;
+}
+
+.locationPrivacy,
+.locationMessage,
+.locationError {
+    flex-basis: 100%;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.locationPrivacy,
+.locationMessage {
+    color: #65564e;
+}
+
+.locationError {
+    color: #8b2f24;
+}
+
 .filters {
     gap: 8px;
 }
@@ -421,6 +468,11 @@
     color: #65564e;
     font-size: 14px;
     line-height: 1.5;
+}
+
+.resourceCard .distance {
+    color: #537a67;
+    font-weight: 600;
 }
 
 .resourceCard a {
@@ -526,5 +578,47 @@
 
     .searchGrid button {
         width: 100%;
+    }
+}
+
+.mapHeading {
+    margin: 0 0 12px;
+    color: #33231e;
+    font-size: 19px;
+}
+
+.mapCanvas {
+    width: 100%;
+    height: 430px;
+    border: 1px solid #e4d8ce;
+    border-radius: 8px;
+    background: #f5efe7;
+}
+
+.mapNotice {
+    margin: 10px 0 0;
+    color: #65564e;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.mapMarkerWrapper {
+    border: 0;
+    background: transparent;
+}
+
+.mapMarker {
+    display: block;
+    width: 16px;
+    height: 16px;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    background: #ad5941;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
+}
+
+@media (max-width: 760px) {
+    .mapCanvas {
+        height: 340px;
     }
 }

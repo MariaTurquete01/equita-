@@ -122,7 +122,8 @@
 }
 
 .primaryLink,
-.secondaryLink {
+.secondaryLink,
+.removeButton {
   display: inline-flex;
   min-height: 42px;
   align-items: center;
@@ -153,6 +154,19 @@
   background: #f7eee8;
 }
 
+.removeButton {
+  border-color: #d8cbc0;
+  background: transparent;
+  color: #65564e;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.removeButton:hover {
+  border-color: #ad5941;
+  color: #914632;
+}
+
 .emptyState {
   display: flex;
   min-height: 300px;
@@ -180,6 +194,22 @@
   font-size: 12px;
   line-height: 1.5;
   text-align: center;
+}
+
+.feedbackMessage,
+.errorMessage {
+  margin: 0 0 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.feedbackMessage {
+  color: #356744;
+}
+
+.errorMessage {
+  color: #8b3f35;
 }
 
 .page :focus-visible {

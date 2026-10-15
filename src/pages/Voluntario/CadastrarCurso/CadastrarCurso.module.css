@@ -428,3 +428,116 @@
         padding: 22px 18px;
     }
 }
+
+.lessonEditor {
+    margin: 28px 0;
+    padding: 18px;
+    border: 1px solid #eee4da;
+    border-radius: 8px;
+    background: #fcf8f3;
+}
+
+.lessonEditorHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.lessonEditorHeader h3 {
+    margin: 0 0 5px;
+    color: #33231e;
+    font-size: 17px;
+}
+
+.lessonEditorHeader p,
+.lessonEmpty {
+    margin: 0;
+    color: #65564e;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.addLessonButton,
+.removeLessonButton {
+    min-height: 38px;
+    padding: 0 12px;
+    border: 1px solid #ad5941;
+    border-radius: 5px;
+    background: #ad5941;
+    color: #fffaf5;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.lessonList {
+    display: grid;
+    gap: 12px;
+}
+
+.lessonFormCard {
+    min-width: 0;
+    margin: 0;
+    padding: 16px;
+    border: 1px solid #e4d8ce;
+    border-radius: 6px;
+    background: #fffdf9;
+}
+
+.lessonFormCard legend {
+    padding: 0 6px;
+    color: #914632;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.lessonFormCard .formGroup {
+    margin-bottom: 12px;
+}
+
+.lessonFormActions {
+    display: grid;
+    gap: 8px;
+}
+
+.lessonFormActions label {
+    color: #493b35;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.lessonFormActions input {
+    min-height: 40px;
+    padding: 9px 11px;
+    border: 1px solid #d8cbc0;
+    border-radius: 5px;
+    background: #fff;
+    color: #33231e;
+    font: inherit;
+}
+
+.removeLessonButton {
+    justify-self: start;
+    margin-top: 4px;
+    border-color: #d8cbc0;
+    background: transparent;
+    color: #65564e;
+}
+
+.removeLessonButton:hover {
+    border-color: #ad5941;
+    color: #914632;
+}
+
+@media (max-width: 600px) {
+    .lessonEditor {
+        padding: 14px;
+    }
+
+    .lessonEditorHeader {
+        flex-direction: column;
+    }
+}

@@ -65,7 +65,7 @@ function Login() {
               </div>
 
             <div className={styles["login-options"]}>
-              <span className={styles.recoveryUnavailable}>Recuperação de senha indisponível</span>
+              <Link to="/recuperar-senha">Esqueci minha senha</Link>
             </div>
 
             {mensagem && <p className={styles.feedbackMessage} role="status">{mensagem}</p>}

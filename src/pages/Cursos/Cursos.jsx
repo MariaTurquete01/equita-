@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
-import cursos from "./cursos";
+import { carregarCatalogoCursos } from "./catalogoCursos";
 
 import styles from "./cursos.module.css";
 
@@ -21,7 +21,12 @@ function carregarInscricoes() {
   }
 }
 
+function contarAulas(curso) {
+  return Array.isArray(curso.aulas) ? curso.aulas.length : Number(curso.aulas) || 0;
+}
+
 function Cursos() {
+  const [cursos] = useState(carregarCatalogoCursos);
   const [pesquisa, setPesquisa] = useState("");
   const [inscricoes, setInscricoes] = useState(carregarInscricoes);
   const [mensagem, setMensagem] = useState("");
@@ -57,6 +62,10 @@ function Cursos() {
     "Inclusão",
     "Diversidade",
     "Saúde",
+    "Cidadania",
+    "Educação",
+    "Formação profissional",
+    "Outros",
   ];
 
   const cursosFiltrados = cursos.filter((curso) => {
@@ -258,10 +267,14 @@ function Cursos() {
                         {curso.nivel}
                       </p>
 
-                      <p>
-                        🎥 <strong>Aulas:</strong>{" "}
-                        {curso.aulas}
-                      </p>
+                      {contarAulas(curso) > 0 ? (
+                        <p>
+                          🎥 <strong>Aulas:</strong>{" "}
+                          {contarAulas(curso)}
+                        </p>
+                      ) : (
+                        <p><strong>Conteúdo:</strong> A ser disponibilizado</p>
+                      )}
 
                       {inscricaoDoCurso(curso.id) && (
                         <p><strong>Progresso:</strong> {inscricaoDoCurso(curso.id).progresso}%</p>

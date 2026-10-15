@@ -9,6 +9,7 @@ import styles from "./protocolo.module.css";
 
 const CHAVE_DENUNCIAS = "equita_denuncias";
 const ETAPAS = ["Recebida", "Em análise", "Encaminhada", "Finalizada"];
+const FORMATO_PROTOCOLO = /^EQ-\d{4}-[A-Z0-9]{6}$/;
 
 function localizarDenuncia(numero) {
   try {
@@ -35,7 +36,16 @@ function Protocolo() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const encontrada = localizarDenuncia(protocolo.trim());
+    const numero = protocolo.trim().toUpperCase();
+
+    if (!FORMATO_PROTOCOLO.test(numero)) {
+      setDenuncia(null);
+      setErro("Formato inválido. Use EQ-AAAA-XXXXXX.");
+      return;
+    }
+
+    const encontrada = localizarDenuncia(numero);
+    setProtocolo(numero);
     setDenuncia(encontrada);
     setErro(encontrada ? "" : "Protocolo não encontrado nesta sessão. Confira o número informado.");
   }
@@ -76,12 +86,21 @@ function Protocolo() {
                 id="numero-protocolo"
                 type="text"
                 value={protocolo}
-                onChange={(event) => setProtocolo(event.target.value)}
+                onChange={(event) => {
+                  setProtocolo(event.target.value);
+                  setDenuncia(null);
+                  setErro("");
+                }}
                 placeholder="Ex.: EQ-2026-ABC123"
+                maxLength="15"
+                autoCapitalize="characters"
+                autoComplete="off"
+                aria-invalid={Boolean(erro)}
+                aria-describedby={erro ? "protocolo-erro" : undefined}
                 required
               />
           </div>
-            {erro && <p className={styles["error-message"]} role="alert">{erro}</p>}
+            {erro && <p id="protocolo-erro" className={styles["error-message"]} role="alert">{erro}</p>}
             <button type="submit" className={styles["consultar-button"]}>Consultar</button>
           </form>
 
@@ -92,6 +111,11 @@ function Protocolo() {
         {denuncia && (
         <section className={styles["status-section"]} aria-live="polite">
           <div className={styles["status-card"]}>
+            {(() => {
+              const indiceAtual = Math.max(ETAPAS.indexOf(denuncia.status), 0);
+
+              return (
+                <>
             <h2>Status da denúncia</h2>
             <p className={styles["current-status"]}>
               Protocolo {denuncia.protocolo}: <strong>{denuncia.status}</strong>
@@ -99,17 +123,20 @@ function Protocolo() {
             <div className={styles["status-timeline"]}>
               {ETAPAS.map((etapa, indice) => (
                 <div
-                  className={`${styles["status-item"]} ${indice <= ETAPAS.indexOf(denuncia.status) ? styles.active : ""}`}
+                  className={`${styles["status-item"]} ${indice < indiceAtual ? styles.completed : indice === indiceAtual ? styles.active : ""}`}
                   key={etapa}
                 >
                   <div className={styles["status-circle"]} />
                   <div>
                     <h3>{etapa}</h3>
-                    <p>{indice === 0 ? "A denúncia foi registrada no sistema." : etapa === denuncia.status ? "Esta é a etapa atual da sua denúncia." : "Etapa ainda não iniciada."}</p>
+                    <p>{indice < indiceAtual ? "Etapa concluída." : indice === indiceAtual ? "Esta é a etapa atual da sua denúncia." : "Etapa ainda não iniciada."}</p>
                   </div>
                 </div>
               ))}
             </div>
+                </>
+              );
+            })()}
           </div>
         </section>
         )}

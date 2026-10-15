@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
-import cursosDisponiveis from "./cursos";
+import { carregarCatalogoCursos } from "./catalogoCursos";
 import styles from "./meusCursos.module.css";
 
 const CHAVE_INSCRICOES = "equita_cursos_inscritos";
@@ -15,14 +16,40 @@ function carregarInscricoes() {
   }
 }
 
+function contarAulas(curso) {
+  return Array.isArray(curso.aulas) ? curso.aulas.length : Number(curso.aulas) || 0;
+}
+
 function MeusCursos() {
-  const inscricoes = carregarInscricoes();
+  const cursosDisponiveis = carregarCatalogoCursos();
+  const [inscricoes, setInscricoes] = useState(carregarInscricoes);
+  const [mensagem, setMensagem] = useState("");
+  const [erro, setErro] = useState("");
   const cursosInscritos = inscricoes
     .map((inscricao) => ({
       curso: cursosDisponiveis.find((curso) => curso.id === inscricao.cursoId),
       progresso: Number(inscricao.progresso) || 0,
     }))
     .filter(({ curso }) => curso);
+
+  function cancelarInscricao(curso) {
+    const confirmado = window.confirm(
+      `Cancelar a inscrição em “${curso.titulo}”? O progresso salvo neste navegador também será removido.`
+    );
+    if (!confirmado) return;
+
+    const inscricoesAtualizadas = inscricoes.filter((inscricao) => inscricao.cursoId !== curso.id);
+
+    try {
+      window.localStorage.setItem(CHAVE_INSCRICOES, JSON.stringify(inscricoesAtualizadas));
+      setInscricoes(inscricoesAtualizadas);
+      setMensagem(`Inscrição em “${curso.titulo}” cancelada neste navegador.`);
+      setErro("");
+    } catch {
+      setErro("Não foi possível cancelar a inscrição neste navegador.");
+      setMensagem("");
+    }
+  }
 
   return (
     <>
@@ -35,6 +62,8 @@ function MeusCursos() {
         </header>
 
         <section className={styles.content} aria-live="polite">
+          {mensagem && <p className={styles.feedbackMessage} role="status">{mensagem}</p>}
+          {erro && <p className={styles.errorMessage} role="alert">{erro}</p>}
           {cursosInscritos.length === 0 ? (
             <div className={styles.emptyState}>
               <h2>Você ainda não está inscrito em cursos</h2>
@@ -64,7 +93,7 @@ function MeusCursos() {
                   </div>
                   <div className={styles.courseMeta}>
                     <span>{curso.cargaHoraria}</span>
-                    <span>{curso.aulas} aulas</span>
+                    <span>{contarAulas(curso) ? `${contarAulas(curso)} aulas` : "Conteúdo em breve"}</span>
                   </div>
                   <div className={styles.actions}>
                     <Link className={styles.primaryLink} to={`/curso/${curso.id}`}>
@@ -75,6 +104,9 @@ function MeusCursos() {
                         Certificado
                       </Link>
                     )}
+                    <button className={styles.removeButton} type="button" onClick={() => cancelarInscricao(curso)}>
+                      Cancelar inscrição
+                    </button>
                   </div>
                 </article>
               ))}

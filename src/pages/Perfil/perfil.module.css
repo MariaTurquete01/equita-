@@ -236,5 +236,72 @@
 .infoItem strong {
     color: var(--color-text);
 }
+
+.profileNotice {
+    width: fit-content;
+    max-width: 680px;
+    margin: 18px auto 0;
+    padding: 10px 13px;
+    border-left: 3px solid var(--color-accent);
+    background: var(--color-surface-soft);
+    color: var(--color-text-muted);
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.infoItem label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--color-text-muted);
+    font-size: 14px;
+}
+
+.profileInput {
+    width: 100%;
+    min-height: 42px;
+    padding: 9px 11px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-control);
+    background: var(--color-background);
+    color: var(--color-text);
+    font: inherit;
+}
+
+.profileActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.profileButton,
+.cancelButton {
+    min-height: 42px;
+    padding: 0 15px;
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-control);
+    background: var(--color-accent);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cancelButton {
+    border-color: var(--color-border);
+    background: transparent;
+    color: var(--color-text);
+}
+
+.feedbackMessage {
+    color: #356744;
+    font-size: 14px;
+}
+
+.errorMessage {
+    color: #8b3f35;
+    font-size: 14px;
+}
  
  

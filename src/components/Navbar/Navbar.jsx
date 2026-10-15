@@ -2,14 +2,21 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./navbar.module.css";
 
+const CHAVE_DENUNCIAS = "equita_denuncias";
+
 function Navbar() {
   const [menuAberto, setMenuAberto] = useState(false);
   const navigate = useNavigate();
 
   function encerrarSessao() {
-    window.sessionStorage.clear();
+    const confirmado = window.confirm(
+      "Este protótipo não possui autenticação. Sair apagará as denúncias temporárias desta sessão. Deseja continuar?"
+    );
+    if (!confirmado) return;
+
+    window.sessionStorage.removeItem(CHAVE_DENUNCIAS);
     setMenuAberto(false);
-    navigate("/login", { replace: true });
+    navigate("/", { replace: true });
   }
 
   return (
@@ -82,7 +89,7 @@ function Navbar() {
                 role="menuitem"
                 type="button"
               >
-                Encerrar sessão
+                Sair da demonstração
               </button>
             </div>
           )}

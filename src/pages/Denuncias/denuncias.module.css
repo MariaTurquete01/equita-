@@ -303,6 +303,16 @@
     margin-bottom: 20px;
 }
 
+.attachmentList {
+    display: grid;
+    gap: 6px;
+    margin: 9px 0 0;
+    padding-left: 20px;
+    color: #65564e;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
 .inputGroup label,
 .identificationFieldset legend {
     color: #493b35;

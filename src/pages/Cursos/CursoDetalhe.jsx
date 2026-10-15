@@ -1,9 +1,10 @@
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/Footer/Footer";
 
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
-import cursos from "./cursos";
+import { carregarCatalogoCursos } from "./catalogoCursos";
 
 import styles from "./detalhe.module.css";
 
@@ -20,27 +21,129 @@ function obterInscricao(cursoId) {
   }
 }
 
+function obterLinkHttpSeguro(link) {
+  if (typeof link !== "string" || !link.trim()) return null;
+
+  try {
+    const url = new URL(link);
+    return url.protocol === "http:" || url.protocol === "https:" ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
+function salvarProgressoCurso(cursoId, aulasConcluidas, totalAulas) {
+  const inscricoes = JSON.parse(window.localStorage.getItem(CHAVE_INSCRICOES) || "[]");
+  const inscricaoAtual = inscricoes.find((item) => item.cursoId === cursoId);
+
+  if (!inscricaoAtual) return null;
+
+  const inscricaoAtualizada = {
+    ...inscricaoAtual,
+    aulasConcluidas,
+    progresso: totalAulas ? Math.round((aulasConcluidas.length / totalAulas) * 100) : 0,
+  };
+  const inscricoesAtualizadas = inscricoes.map((item) => (
+    item.cursoId === cursoId ? inscricaoAtualizada : item
+  ));
+
+  window.localStorage.setItem(CHAVE_INSCRICOES, JSON.stringify(inscricoesAtualizadas));
+  return inscricaoAtualizada;
+}
+
 function CursoDetalhe() {
   const { id } = useParams();
 
-  const curso = cursos.find(
-    (curso) => curso.id === Number(id)
+  const curso = carregarCatalogoCursos().find(
+    (item) => String(item.id) === id
   );
-  const inscricao = obterInscricao(Number(id));
+  const [inscricaoSalva, setInscricaoSalva] = useState(() => ({
+    cursoId: curso?.id,
+    inscricao: obterInscricao(curso?.id),
+  }));
+  const [erroInscricao, setErroInscricao] = useState("");
+  const [falhaProgresso, setFalhaProgresso] = useState({ cursoId: null, mensagem: "" });
+  const inscricao = inscricaoSalva.cursoId === curso?.id
+    ? inscricaoSalva.inscricao
+    : obterInscricao(curso?.id);
+  const erroProgresso = falhaProgresso.cursoId === curso?.id
+    ? falhaProgresso.mensagem
+    : "";
+  const aulas = !curso
+    ? []
+    : curso.propostaAprovada
+      ? (Array.isArray(curso.aulas) ? curso.aulas : [])
+      : Array.from({ length: curso.aulas || 0 }, (_, indice) => ({
+        id: indice + 1,
+        titulo: `Aula ${indice + 1}`,
+        descricao: "Conteúdo demonstrativo.",
+      }));
+  const aulasConcluidas = Array.isArray(inscricao?.aulasConcluidas)
+    ? inscricao.aulasConcluidas
+    : [];
+  const progresso = aulas.length
+    ? Math.round((aulasConcluidas.length / aulas.length) * 100)
+    : 0;
+  const aulasVisiveis = inscricao ? aulas : aulas.slice(0, 1);
+
+  function inscreverNoCurso() {
+    try {
+      const inscricoesSalvas = JSON.parse(window.localStorage.getItem(CHAVE_INSCRICOES) || "[]");
+      const inscricoes = Array.isArray(inscricoesSalvas) ? inscricoesSalvas : [];
+      const inscricaoExistente = inscricoes.find((item) => item.cursoId === curso.id);
+
+      if (inscricaoExistente) {
+        setInscricaoSalva({ cursoId: curso.id, inscricao: inscricaoExistente });
+        return;
+      }
+
+      const novaInscricao = {
+        cursoId: curso.id,
+        progresso: 0,
+        aulasConcluidas: [],
+        inscritoEm: new Date().toISOString(),
+      };
+
+      window.localStorage.setItem(
+        CHAVE_INSCRICOES,
+        JSON.stringify([...inscricoes, novaInscricao])
+      );
+      setInscricaoSalva({ cursoId: curso.id, inscricao: novaInscricao });
+      setErroInscricao("");
+    } catch {
+      setErroInscricao("Não foi possível salvar a inscrição neste navegador.");
+    }
+  }
+
+  function alternarConclusaoAula(idAula) {
+    if (!inscricao) return;
+
+    const aulasAtualizadas = aulasConcluidas.includes(idAula)
+      ? aulasConcluidas.filter((aula) => aula !== idAula)
+      : [...aulasConcluidas, idAula];
+
+    try {
+      const inscricaoAtualizada = salvarProgressoCurso(curso.id, aulasAtualizadas, aulas.length);
+      if (!inscricaoAtualizada) {
+        setFalhaProgresso({ cursoId: curso.id, mensagem: "Inscrição não encontrada neste navegador." });
+        return;
+      }
+
+      setInscricaoSalva({ cursoId: curso.id, inscricao: inscricaoAtualizada });
+      setFalhaProgresso({ cursoId: curso.id, mensagem: "" });
+    } catch {
+      setFalhaProgresso({ cursoId: curso.id, mensagem: "Não foi possível salvar seu progresso neste navegador." });
+    }
+  }
 
   if (!curso) {
     return (
       <>
         <Navbar />
-
         <main className={styles.courseNotFound}>
           <h1>Curso não encontrado.</h1>
-
-          <Link to="/cursos">
-            Voltar para Cursos
-          </Link>
+          <Link to="/cursos">Voltar para Cursos</Link>
         </main>
-
         <Footer />
       </>
     );
@@ -49,36 +152,16 @@ function CursoDetalhe() {
   return (
     <>
       <Navbar />
-
       <main className={styles.coursePage}>
-
-        {/* HERO */}
         <section className={styles.courseHero}>
           <div className={styles.courseHeroContent}>
-            <span className={styles.courseCategory}>
-              {curso.categoria}
-            </span>
-
-            <h1>
-              {curso.titulo}
-            </h1>
-
-            <p>
-              {curso.descricao}
-            </p>
-
+            <span className={styles.courseCategory}>{curso.categoria}</span>
+            <h1>{curso.titulo}</h1>
+            <p>{curso.descricao}</p>
             <div className={styles.courseMeta}>
-              <span>
-                👨‍🏫 {curso.professor}
-              </span>
-
-              <span>
-                ⏱ {curso.cargaHoraria}
-              </span>
-
-              <span>
-                ⭐ {curso.nivel}
-              </span>
+              <span>Professor: {curso.professor}</span>
+              <span>Duração: {curso.cargaHoraria}</span>
+              <span>Nível: {curso.nivel}</span>
             </div>
           </div>
         </section>
@@ -97,19 +180,24 @@ function CursoDetalhe() {
                 aria-label="Progresso do curso"
                 aria-valuemin="0"
                 aria-valuemax="100"
-                aria-valuenow={inscricao.progresso}
+                aria-valuenow={progresso}
               >
                 <div
                   className={styles.progressFill}
-                  style={{ width: `${inscricao.progresso}%` }}
+                  style={{ width: `${progresso}%` }}
                 />
               </div>
-              <p>{inscricao.progresso}% concluído</p>
+              <p>{progresso}% concluído</p>
             </>
           ) : (
-            <p>
-              Você ainda não está inscrito neste curso. <Link to="/cursos">Voltar aos cursos para se inscrever.</Link>
-            </p>
+            <div className={styles.enrollmentPrompt}>
+              <p>Você está vendo uma prévia. Inscreva-se para acessar todas as aulas e acompanhar seu progresso.</p>
+              {erroInscricao && <p role="alert">{erroInscricao}</p>}
+              <button className={styles.enrollButton} type="button" onClick={inscreverNoCurso}>
+                Inscrever-se
+              </button>
+              <small>A inscrição é demonstrativa e fica salva somente neste navegador.</small>
+            </div>
           )}
         </section>
 
@@ -120,45 +208,48 @@ function CursoDetalhe() {
           </h2>
 
           <div className={styles.moduleCard}>
-            <h3>
-              📘 Módulo 1 — Introdução
-            </h3>
+            {curso.propostaAprovada && aulas.length === 0 ? (
+              <p>Este curso ainda não possui aulas cadastradas.</p>
+            ) : (
+              <>
+                {!inscricao ? (
+                  <p className={styles.lessonNotice}>Prévia do curso. Inscreva-se para acessar o conteúdo completo.</p>
+                ) : !curso.propostaAprovada ? (
+                  <p className={styles.lessonNotice}>Conteúdo demonstrativo. Marque as aulas concluídas para atualizar seu progresso.</p>
+                ) : null}
+                {aulasVisiveis.map((aula, indice) => {
+                  const idAula = aula.id ?? indice + 1;
+                  const concluida = aulasConcluidas.includes(idAula);
+                  const linkMaterial = obterLinkHttpSeguro(aula.link);
 
-            <div className={styles.lessonCard}>
-              ▶ Aula 1
-            </div>
-
-            <div className={styles.lessonCard}>
-              ▶ Aula 2
-            </div>
-          </div>
-
-          <div className={styles.moduleCard}>
-            <h3>
-              📖 Módulo 2 — Desenvolvimento
-            </h3>
-
-            <div className={styles.lessonCard}>
-              ▶ Aula 3
-            </div>
-
-            <div className={styles.lessonCard}>
-              ▶ Aula 4
-            </div>
-          </div>
-
-          <div className={styles.moduleCard}>
-            <h3>
-              🎓 Módulo 3 — Conclusão
-            </h3>
-
-            <div className={styles.lessonCard}>
-              📝 Questionário Final
-            </div>
-
-            <div className={styles.lessonCard}>
-              🏆 Certificado
-            </div>
+                  return (
+                    <article className={`${styles.lessonCard} ${concluida ? styles.lessonCompleted : ""}`} key={idAula}>
+                      <div className={styles.lessonContent}>
+                        <strong>{aula.titulo || `Aula ${indice + 1}`}</strong>
+                        {aula.descricao && <p>{aula.descricao}</p>}
+                        {inscricao && linkMaterial && (
+                          <a href={linkMaterial} target="_blank" rel="noopener noreferrer">
+                            Acessar material da aula
+                          </a>
+                        )}
+                      </div>
+                      {inscricao ? (
+                        <button
+                          type="button"
+                          aria-pressed={concluida}
+                          onClick={() => alternarConclusaoAula(idAula)}
+                        >
+                          {concluida ? "Desmarcar conclusão" : "Marcar como concluída"}
+                        </button>
+                      ) : (
+                        <span>Prévia</span>
+                      )}
+                    </article>
+                  );
+                })}
+              </>
+            )}
+            {erroProgresso && <p role="alert">{erroProgresso}</p>}
           </div>
         </section>
 
@@ -168,17 +259,17 @@ function CursoDetalhe() {
             Apostilas e Materiais
           </h2>
 
-          <div className={styles.materialCard}>
-            📄 Apostila Principal (PDF)
-          </div>
-
-          <div className={styles.materialCard}>
-            📑 Material Complementar
-          </div>
-
-          <div className={styles.materialCard}>
-            📚 Leituras Recomendadas
-          </div>
+          {!inscricao ? (
+            <p>Inscreva-se para liberar os materiais do curso.</p>
+          ) : curso.propostaAprovada ? (
+            <p>Os materiais deste curso ainda não foram cadastrados.</p>
+          ) : (
+            <>
+              <div className={styles.materialCard}>📄 Apostila Principal (PDF)</div>
+              <div className={styles.materialCard}>📑 Material Complementar</div>
+              <div className={styles.materialCard}>📚 Leituras Recomendadas</div>
+            </>
+          )}
         </section>
 
         {/* QUESTIONÁRIOS */}
@@ -187,14 +278,14 @@ function CursoDetalhe() {
             Questionários
           </h2>
 
-          <p>
-            Ao concluir as aulas, responda ao questionário
-            para testar seus conhecimentos.
-          </p>
-
-          <button className={styles.quizButton}>
-            Responder Questionário
-          </button>
+          {curso.propostaAprovada ? (
+            <p>O questionário ainda não está disponível para este curso.</p>
+          ) : (
+            <>
+              <p>Ao concluir as aulas, responda ao questionário para testar seus conhecimentos.</p>
+              <button className={styles.quizButton}>Responder Questionário</button>
+            </>
+          )}
         </section>
 
         {/* CERTIFICADO */}
@@ -203,15 +294,27 @@ function CursoDetalhe() {
             Certificado
           </h2>
 
-          <p>
-            Após concluir todas as aulas e atingir o
-            desempenho mínimo no questionário, você poderá
-            emitir seu certificado de conclusão.
-          </p>
-
-          <button className={styles.certificateButton}>
-            Emitir Certificado
-          </button>
+          {!curso.certificado ? (
+            <p>O certificado ainda não está disponível para este curso.</p>
+          ) : !inscricao ? (
+            <p>Inscreva-se no curso para liberar o certificado.</p>
+          ) : progresso < 100 ? (
+            <p>Conclua todas as aulas para liberar o certificado demonstrativo.</p>
+          ) : (
+            <>
+              <div className={styles.certificateDocument}>
+                <span>Equitá</span>
+                <h3>Certificado de conclusão</h3>
+                <p>Declaramos que o participante concluiu o curso:</p>
+                <strong>{curso.titulo}</strong>
+                <p>Emitido em {new Date().toLocaleDateString("pt-BR")}</p>
+                <small>Documento demonstrativo gerado no navegador, sem validação institucional.</small>
+              </div>
+              <button className={`${styles.certificateButton} ${styles.printButton}`} type="button" onClick={() => window.print()}>
+                Imprimir ou salvar como PDF
+              </button>
+            </>
+          )}
         </section>
 
         {/* AÇÕES */}

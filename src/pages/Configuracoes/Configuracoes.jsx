@@ -5,14 +5,34 @@ import Footer from "../../components/Footer/Footer";
  
 import styles from "./configuracoes.module.css";
  
+const CHAVE_NOTIFICACOES = "equita_notificacoes_ativas";
+
+function carregarPreferenciaNotificacoes() {
+    try {
+        const preferenciaSalva = window.localStorage.getItem(CHAVE_NOTIFICACOES);
+        return preferenciaSalva === null ? true : preferenciaSalva === "true";
+    } catch {
+        return true;
+    }
+}
+
 function Configuracoes() {
  
-    const [notificacoes, setNotificacoes] = useState(true);
+    const [notificacoes, setNotificacoes] = useState(carregarPreferenciaNotificacoes);
+    const [mensagem, setMensagem] = useState("");
+    const [erro, setErro] = useState("");
  
     const handleSalvar = (event) => {
         event.preventDefault();
  
-        alert("Configurações salvas com sucesso!");
+        try {
+            window.localStorage.setItem(CHAVE_NOTIFICACOES, String(notificacoes));
+            setMensagem("Preferência salva neste navegador.");
+            setErro("");
+        } catch {
+            setMensagem("");
+            setErro("Não foi possível salvar a preferência neste navegador.");
+        }
     };
  
     return (
@@ -108,9 +128,11 @@ function Configuracoes() {
                                 <input
                                     type="checkbox"
                                     checked={notificacoes}
-                                    onChange={(event) =>
-                                        setNotificacoes(event.target.checked)
-                                    }
+                                    onChange={(event) => {
+                                        setNotificacoes(event.target.checked);
+                                        setMensagem("");
+                                        setErro("");
+                                    }}
                                 />
  
                             </label>
@@ -120,6 +142,9 @@ function Configuracoes() {
                         {/* AÇÕES */}
  
                         <div className={styles.formActions}>
+
+                            {mensagem && <p className={styles.feedbackMessage} role="status">{mensagem}</p>}
+                            {erro && <p className={styles.errorMessage} role="alert">{erro}</p>}
  
                             <button
                                 type="submit"

@@ -1,12 +1,13 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
  
 import Home from "../pages/Home/Home";
 import Direitos from "../pages/Direitos/Direitos";
 import Cursos from "../pages/Cursos/Cursos";
-import Recursos from "../pages/Recursos/Recursos";
 import Sobre from "../pages/Sobre/Sobre";
 import Login from "../pages/Login/Login";
 import Cadastro from "../pages/Cadastro/Cadastro";
+import RecuperarSenha from "../pages/Login/RecuperarSenha";
 import Mulheres from "../pages/Direitos/Mulheres/Mulheres";
 import Criancas from "../pages/Direitos/Criancas/Criancas";
 import Idosos from "../pages/Direitos/Idosos/Idosos";
@@ -19,7 +20,8 @@ import SaudeMental from "../pages/Direitos/SaudeMental/SaudeMental";
 import Trabalhistas from "../pages/Direitos/Trabalhistas/Trabalhistas";
 import Familia from "../pages/Direitos/Familia/Familia";
 import Beneficios from "../pages/Direitos/Beneficios/Beneficios";
-import CursoDetalhe from "../pages/Cursos/CursoDetalhe";
+const CursoDetalhe = lazy(() => import("../pages/Cursos/CursoDetalhe"));
+const Recursos = lazy(() => import("../pages/Recursos/Recursos"));
 import CursosDoAluno from "../pages/Cursos/MeusCursos";
 import Denuncias from "../pages/Denuncias/Denuncias";
 import Protocolo from "../pages/Protocolo/Protoclo";
@@ -40,13 +42,22 @@ function AppRoutes() {
  
         <Route path="/cursos" element={<Cursos />} />
  
-        <Route path="/recursos" element={<Recursos />} />
+        <Route
+          path="/recursos"
+          element={(
+            <Suspense fallback={<p role="status">Carregando mapa de recursos...</p>}>
+              <Recursos />
+            </Suspense>
+          )}
+        />
  
         <Route path="/sobre" element={<Sobre />} />
  
         <Route path="/login" element={<Login />} />
  
         <Route path="/cadastro" element={<Cadastro />} />
+
+        <Route path="/recuperar-senha" element={<RecuperarSenha />} />
         
         <Route path="/direitos/mulheres" element={<Mulheres/>} />
 
@@ -74,7 +85,14 @@ function AppRoutes() {
 
         <Route path="/cursos" element={<Cursos />} />
 
-        <Route path="/curso/:id" element={<CursoDetalhe/>} />
+        <Route
+          path="/curso/:id"
+          element={(
+            <Suspense fallback={<p role="status">Carregando curso...</p>}>
+              <CursoDetalhe />
+            </Suspense>
+          )}
+        />
 
         <Route path="/meus-cursos" element={<CursosDoAluno/>} />
 

@@ -11,13 +11,17 @@ const CHAVE_DENUNCIAS = "equita_denuncias";
 function Denuncias() {
   const [identificacao, setIdentificacao] = useState("");
   const [protocolo, setProtocolo] = useState("");
+  const [arquivos, setArquivos] = useState([]);
   const [erro, setErro] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const dados = new FormData(event.currentTarget);
-    const arquivo = dados.get("arquivo");
+    const anexos = dados.getAll("arquivo")
+      .filter((arquivo) => arquivo instanceof File && arquivo.size > 0)
+      .map((arquivo) => arquivo.name);
+    const denunciaAnonima = identificacao === "anonima";
 
     try {
       const denunciasSalvas = JSON.parse(
@@ -33,10 +37,10 @@ function Denuncias() {
         descricao: dados.get("descricao"),
         data: dados.get("data"),
         local: dados.get("local"),
-        identificacao,
-        nome: dados.get("nome") || "",
-        contato: dados.get("contato") || "",
-        anexo: arquivo instanceof File && arquivo.size > 0 ? arquivo.name : "",
+        identificacao: denunciaAnonima ? "anonima" : "identificada",
+        nome: denunciaAnonima ? "" : dados.get("nome") || "",
+        contato: denunciaAnonima ? "" : dados.get("contato") || "",
+        anexos,
         status: "Recebida",
         criadaEm: new Date().toISOString(),
       };
@@ -49,6 +53,7 @@ function Denuncias() {
       setErro("");
       event.currentTarget.reset();
       setIdentificacao("");
+      setArquivos([]);
     } catch {
       setErro("Não foi possível registrar a denúncia nesta sessão. Tente novamente.");
     }
@@ -207,14 +212,22 @@ function Denuncias() {
             <div className={styles.inputGroup}>
 
               <label htmlFor="arquivo">
-                Anexar fotos ou documentos
+                Anexar arquivos (opcional)
               </label>
 
               <input
                 id="arquivo"
                 name="arquivo"
                 type="file"
+                multiple
+                onChange={(event) => setArquivos(Array.from(event.target.files || []))}
               />
+
+              {arquivos.length > 0 && (
+                <ul className={styles.attachmentList} aria-label="Arquivos selecionados" aria-live="polite">
+                  {arquivos.map((arquivo) => <li key={`${arquivo.name}-${arquivo.lastModified}`}>{arquivo.name}</li>)}
+                </ul>
+              )}
 
             </div>
 

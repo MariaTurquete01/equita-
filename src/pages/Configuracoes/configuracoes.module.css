@@ -325,4 +325,19 @@
     background: var(--color-accent-strong);
     transform: none;
 }
+
+.feedbackMessage,
+.errorMessage {
+    margin: 0 auto 0 0;
+    align-self: center;
+    font-size: 13px;
+}
+
+.feedbackMessage {
+    color: #356744;
+}
+
+.errorMessage {
+    color: #8b3f35;
+}
  

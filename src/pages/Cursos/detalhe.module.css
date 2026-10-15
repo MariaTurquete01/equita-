@@ -82,6 +82,45 @@
   margin-bottom: 25px;
 }
 
+.certificateDocument {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  max-width: 760px;
+  margin-bottom: 20px;
+  padding: 34px;
+  border: 3px double #ad5941;
+  background: #fffdf9;
+  color: #33231e;
+  text-align: center;
+}
+
+.certificateDocument span {
+  color: #914632;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.certificateDocument h3 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.certificateDocument p,
+.certificateDocument strong {
+  margin: 0;
+  color: #493b35;
+}
+
+.certificateDocument strong {
+  font-size: 20px;
+}
+
+.certificateDocument small {
+  color: #76685f;
+  line-height: 1.5;
+}
+
 /* ===========================
    PROGRESSO
 =========================== */
@@ -133,6 +172,91 @@
   background: #eff6ff;
   border-color: #0f4c81;
   transform: translateX(5px);
+}
+
+.lessonCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.lessonCard button {
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid #0f4c81;
+  border-radius: 5px;
+  background: #fff;
+  color: #0f4c81;
+  font: inherit;
+  cursor: pointer;
+}
+
+.lessonCard button:hover {
+  background: #eff6ff;
+}
+
+.lessonCompleted {
+  border-color: #4d8061;
+  background: #edf6ef;
+}
+
+.lessonCompleted button {
+  border-color: #4d8061;
+  color: #356744;
+}
+
+.lessonContent {
+  display: grid;
+  min-width: 0;
+  gap: 7px;
+}
+
+.lessonContent p {
+  margin: 0;
+  color: #65564e;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.lessonContent a {
+  width: fit-content;
+  color: #914632;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.lessonNotice {
+  color: #65564e;
+  line-height: 1.55;
+}
+
+.enrollmentPrompt {
+  display: grid;
+  justify-items: start;
+  gap: 12px;
+  color: #65564e;
+}
+
+.enrollmentPrompt p,
+.enrollmentPrompt small {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.enrollButton {
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid #914632;
+  border-radius: 5px;
+  background: #ad5941;
+  color: #fffaf5;
+  font: inherit;
+  font-weight: 600;
+}
+
+.enrollButton:hover {
+  background: #914632;
 }
 
 /* ===========================
@@ -272,7 +396,59 @@
   margin: 0 auto;
 }
 
+@page {
+  size: A4 landscape;
+  margin: 12mm;
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+
+  #certificado,
+  #certificado * {
+    visibility: visible !important;
+  }
+
+  #certificado {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 18mm;
+    background: #fff;
+  }
+
+  #certificado > h2,
+  #certificado > p,
+  #certificado .printButton {
+    display: none !important;
+  }
+
+  .certificateDocument {
+    width: 100%;
+    max-width: none;
+    min-height: 150mm;
+    align-content: center;
+    box-sizing: border-box;
+    border-width: 4px;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+
 @media (max-width: 480px) {
+  .lessonCard {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   .courseHeroContent h1 {
     font-size: 1.7rem;
   }
