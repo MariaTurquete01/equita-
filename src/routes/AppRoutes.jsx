@@ -1,0 +1,118 @@
+import { lazy, Suspense } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+ 
+import Home from "../pages/Home/Home";
+import Direitos from "../pages/Direitos/Direitos";
+import Cursos from "../pages/Cursos/Cursos";
+import Sobre from "../pages/Sobre/Sobre";
+import Login from "../pages/Login/Login";
+import Cadastro from "../pages/Cadastro/Cadastro";
+import RecuperarSenha from "../pages/Login/RecuperarSenha";
+import Mulheres from "../pages/Direitos/Mulheres/Mulheres";
+import Criancas from "../pages/Direitos/Criancas/Criancas";
+import Idosos from "../pages/Direitos/Idosos/Idosos";
+import PCD from "../pages/Direitos/PCD/PCD";
+import Racismo from "../pages/Direitos/Racismo/Racismo";
+import Bullying from "../pages/Direitos/Bullying/Bullying";
+import Assedio from "../pages/Direitos/Assedio/Assedio";
+import Diversidade from "../pages/Direitos/Diversidade/Diversidade";
+import SaudeMental from "../pages/Direitos/SaudeMental/SaudeMental";
+import Trabalhistas from "../pages/Direitos/Trabalhistas/Trabalhistas";
+import Familia from "../pages/Direitos/Familia/Familia";
+import Beneficios from "../pages/Direitos/Beneficios/Beneficios";
+const CursoDetalhe = lazy(() => import("../pages/Cursos/CursoDetalhe"));
+const Recursos = lazy(() => import("../pages/Recursos/Recursos"));
+import CursosDoAluno from "../pages/Cursos/MeusCursos";
+import Denuncias from "../pages/Denuncias/Denuncias";
+import Protocolo from "../pages/Protocolo/Protoclo";
+import MeusCursos from "../pages/Voluntario/MeusCursos/MeusCursos";
+import CadastrarCurso from "../pages/Voluntario/CadastrarCurso/CadastrarCurso";
+import Perfil from "../pages/Perfil/Perfil";
+import Configuracoes from "../pages/Configuracoes/Configuracoes";
+import Dashboard from "../pages/Dashboard/Dashoboard";
+
+function AppRoutes() {
+  return (
+    <BrowserRouter>
+      <Routes>
+    
+        <Route path="/" element={<Home />} />
+ 
+        <Route path="/direitos" element={<Direitos />} />
+ 
+        <Route path="/cursos" element={<Cursos />} />
+ 
+        <Route
+          path="/recursos"
+          element={(
+            <Suspense fallback={<p role="status">Carregando mapa de recursos...</p>}>
+              <Recursos />
+            </Suspense>
+          )}
+        />
+ 
+        <Route path="/sobre" element={<Sobre />} />
+ 
+        <Route path="/login" element={<Login />} />
+ 
+        <Route path="/cadastro" element={<Cadastro />} />
+
+        <Route path="/recuperar-senha" element={<RecuperarSenha />} />
+        
+        <Route path="/direitos/mulheres" element={<Mulheres/>} />
+
+        <Route path="/direitos/criancas" element={<Criancas/>} />
+
+        <Route path="/direitos/idosos" element={<Idosos/>} />
+
+        <Route path="/direitos/pcd" element={<PCD/>} />
+        
+        <Route path="/direitos/racismo" element={<Racismo/>} />
+
+        <Route path="/direitos/bullying" element={<Bullying/>} />
+
+        <Route path="/direitos/assedio" element={<Assedio/>} /> 
+        
+        <Route path="/direitos/diversidade" element={<Diversidade/>} />
+
+        <Route path="/direitos/saude-mental" element={<SaudeMental/>} />
+
+        <Route path="/direitos/trabalhistas" element={<Trabalhistas/>} />
+
+        <Route path="/direitos/familia" element={<Familia/>} />
+
+        <Route path="/direitos/beneficios" element={<Beneficios/>} />
+
+        <Route path="/cursos" element={<Cursos />} />
+
+        <Route
+          path="/curso/:id"
+          element={(
+            <Suspense fallback={<p role="status">Carregando curso...</p>}>
+              <CursoDetalhe />
+            </Suspense>
+          )}
+        />
+
+        <Route path="/meus-cursos" element={<CursosDoAluno/>} />
+
+        <Route path="/denuncias" element={<Denuncias/>} />
+
+        <Route path="/protocolo" element={<Protocolo/>} />
+
+        <Route path="/voluntario/meus-cursos" element={<MeusCursos/>}/>
+
+        <Route path="/voluntario/cadastrar-curso" element={<CadastrarCurso/>}/>
+
+        <Route path="/perfil" element={<Perfil />} />
+
+        <Route path="/configuracoes" element={<Configuracoes/>} />
+
+        <Route path="/admin" element={<Dashboard />} />
+
+      </Routes>
+    </BrowserRouter>
+  );
+}
+ 
+export default AppRoutes;

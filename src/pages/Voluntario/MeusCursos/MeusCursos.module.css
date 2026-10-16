@@ -1,0 +1,511 @@
+/* ===================================
+   PÁGINA
+=================================== */
+
+.meusCursosPage {
+    min-height: 100vh;
+    background: #f8fafc;
+}
+
+/* ===================================
+   HERO
+=================================== */
+
+.meusCursosHero {
+    background: white;
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.heroBadge {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-weight: 600;
+}
+
+.meusCursosHero h1 {
+    color: #0f4c81;
+    font-size: 2.7rem;
+    margin: 20px 0 15px;
+}
+
+.meusCursosHero p {
+    max-width: 700px;
+    margin: auto;
+    color: #64748b;
+    line-height: 1.8;
+}
+
+/* ===================================
+   CONTEÚDO
+=================================== */
+
+.meusCursosContent {
+    padding: 50px 8% 80px;
+}
+
+.meusCursosHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.meusCursosHeader h2 {
+    color: #0f4c81;
+    margin: 0 0 8px;
+}
+
+.meusCursosHeader p {
+    margin: 0;
+    color: #64748b;
+}
+
+/* ===================================
+   BOTÃO
+=================================== */
+
+.novoCursoButton {
+    border: none;
+    background: #0f4c81;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.novoCursoButton:hover {
+    background: #1565a8;
+    transform: translateY(-2px);
+}
+
+.novoCursoButton:focus-visible {
+    outline: 3px solid rgba(15, 76, 129, 0.25);
+    outline-offset: 2px;
+}
+
+/* ===================================
+   FILTROS
+=================================== */
+
+.cursoFiltros {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.cursoFiltros button {
+    border: 1px solid #dbe3ea;
+    background: white;
+    color: #64748b;
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cursoFiltros button:hover {
+    border-color: #0f4c81;
+    color: #0f4c81;
+}
+
+.cursoFiltros button:focus-visible {
+    outline: 3px solid rgba(15, 76, 129, 0.15);
+    outline-offset: 2px;
+}
+
+.cursoFiltros .filtroAtivo {
+    background: #0f4c81;
+    color: white;
+    border-color: #0f4c81;
+}
+
+/* ===================================
+   LISTA DE CURSOS
+=================================== */
+
+.cursosLista {
+    background: white;
+    border-radius: 20px;
+    min-height: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+/* ===================================
+   ESTADO VAZIO
+=================================== */
+
+.cursoVazio {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.cursoVazioIcon {
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.cursoVazio h3 {
+    color: #0f4c81;
+    margin: 0 0 12px;
+}
+
+.cursoVazio p {
+    max-width: 550px;
+    color: #64748b;
+    line-height: 1.7;
+    margin: 0 0 25px;
+}
+
+/* ===================================
+   RESPONSIVIDADE
+=================================== */
+
+@media (max-width: 768px) {
+    .meusCursosHero {
+        padding: 55px 6%;
+    }
+
+    .meusCursosHero h1 {
+        font-size: 2.2rem;
+    }
+
+    .meusCursosContent {
+        padding: 40px 6% 60px;
+    }
+
+    .meusCursosHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .novoCursoButton {
+        width: 100%;
+    }
+
+    .cursoVazio {
+        padding: 35px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .meusCursosHero h1 {
+        font-size: 1.9rem;
+    }
+
+    .meusCursosContent {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .cursoFiltros {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cursoFiltros button {
+        width: 100%;
+    }
+
+    .cursoVazioIcon {
+        font-size: 48px;
+    }
+
+    .cursoVazio h3 {
+        font-size: 1.1rem;
+    }
+}
+
+.meusCursosPage {
+    background: #fbf8f1;
+    color: #33231e;
+}
+
+.meusCursosHero {
+    padding: 58px 22px 34px;
+    background: #fbf8f1;
+}
+
+.heroBadge {
+    padding: 6px 10px;
+    border: 1px solid #e7d7cb;
+    border-radius: 4px;
+    background: #f7eee8;
+    color: #8f4b37;
+    font-size: 12px;
+}
+
+.meusCursosHero h1,
+.meusCursosHeader h2,
+.cursoVazio h3 {
+    color: #33231e;
+}
+
+.meusCursosHero h1 {
+    margin: 14px 0 10px;
+    font-size: 34px;
+}
+
+.meusCursosHero p,
+.meusCursosHeader p,
+.cursoVazio p {
+    color: #65564e;
+}
+
+.meusCursosContent {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 38px 22px 60px;
+}
+
+.meusCursosHeader {
+    margin-bottom: 26px;
+}
+
+.novoCursoButton {
+    min-height: 44px;
+    padding: 0 16px;
+    border: 1px solid #ad5941;
+    border-radius: 5px;
+    background: #ad5941;
+}
+
+.novoCursoButton:hover {
+    background: #914632;
+    transform: none;
+}
+
+.cursoFiltros {
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.cursoFiltros button {
+    padding: 9px 13px;
+    border-color: #e4d8ce;
+    border-radius: 5px;
+    background: #fffdf9;
+    color: #65564e;
+}
+
+.cursoFiltros button:hover {
+    border-color: #ad5941;
+    color: #914632;
+}
+
+.cursoFiltros .filtroAtivo {
+    border-color: #ad5941;
+    background: #ad5941;
+    color: #fffaf5;
+}
+
+.cursosLista {
+    min-height: 0;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.cursoVazio {
+    min-height: 300px;
+    border: 1px solid #eee4da;
+    border-radius: 8px;
+    background: #fffdf9;
+}
+
+.cursoVazio h3 {
+    margin-top: 0;
+}
+
+.propostasGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr));
+    gap: 16px;
+}
+
+.propostaCard {
+    overflow: hidden;
+    border: 1px solid #eee4da;
+    border-radius: 8px;
+    background: #fffdf9;
+}
+
+.cursoImagem {
+    display: block;
+    width: 100%;
+    max-height: 180px;
+    object-fit: cover;
+}
+
+.propostaInfo {
+    padding: 20px;
+}
+
+.statusBadge {
+    display: inline-block;
+    padding: 5px 9px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.statusPending {
+    border-color: #ead8cc;
+    background: #f7eee8;
+    color: #914632;
+}
+
+.statusApproved {
+    border-color: #c6dfcc;
+    background: #edf6ef;
+    color: #356744;
+}
+
+.statusRejected {
+    border-color: #e7ceca;
+    background: #f9efed;
+    color: #8b3f35;
+}
+
+.propostaInfo h3 {
+    margin: 12px 0 8px;
+    color: #33231e;
+    font-size: 18px;
+}
+
+.propostaInfo > p {
+    margin: 0 0 16px;
+    color: #65564e;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.propostaInfo dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 0 0 18px;
+}
+
+.propostaInfo dl div {
+    min-width: 0;
+}
+
+.propostaInfo dt {
+    margin-bottom: 4px;
+    color: #76685f;
+    font-size: 12px;
+}
+
+.propostaInfo dd {
+    margin: 0;
+    color: #493b35;
+    font-size: 13px;
+}
+
+.propostaActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.propostaActions button {
+    min-height: 38px;
+    padding: 0 13px;
+    border: 1px solid #ad5941;
+    border-radius: 5px;
+    background: #ad5941;
+    color: #fffaf5;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.propostaActions button:hover {
+    background: #914632;
+}
+
+.propostaActions .deleteButton {
+    border-color: #d8cbc0;
+    background: transparent;
+    color: #65564e;
+}
+
+.propostaActions .deleteButton:hover {
+    border-color: #a64e38;
+    background: #f7eee8;
+    color: #914632;
+}
+
+.feedbackMessage,
+.errorMessage {
+    margin: 0 0 18px;
+    padding: 12px 14px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.feedbackMessage {
+    border: 1px solid #c6dfcc;
+    background: #edf6ef;
+    color: #356744;
+}
+
+.errorMessage {
+    border: 1px solid #e7ceca;
+    background: #f9efed;
+    color: #8b3f35;
+}
+
+.meusCursosPage :focus-visible {
+    outline: 3px solid #c77a5f;
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .meusCursosHero {
+        padding: 44px 18px 28px;
+    }
+
+    .meusCursosHero h1 {
+        font-size: 30px;
+    }
+
+    .meusCursosContent {
+        padding: 28px 18px 44px;
+    }
+
+    .meusCursosHeader {
+        align-items: stretch;
+    }
+
+    .cursoFiltros {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .cursoFiltros button {
+        width: 100%;
+    }
+}
+
+ 
